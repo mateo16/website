@@ -1,0 +1,37 @@
+<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .orbit {
+      stroke: black;
+      stroke-width: 20px;
+    }
+
+    .planet {
+      fill: black;
+    }
+
+    .triangle {
+      stroke-width: 60px;
+      stroke: black;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .orbit {
+        stroke: white;
+      }
+
+      .planet {
+        fill: white;
+      }
+
+      .triangle {
+        stroke: white;
+      }
+    }
+  </style>
+
+  <circle class="orbit" cx="400" cy="400" r="290" />
+  <circle class="planet" cx="690" cy="405" r="20" />
+  <circle class="planet" cx="110" cy="405" r="20" />
+  <path class="triangle" d="M188 574H609" stroke-linecap="round" />
+  <path class="triangle" d="M139 661L400 110L661 661" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

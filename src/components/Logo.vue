@@ -1,0 +1,83 @@
+<style scoped>
+.logo {
+  position: relative;
+  display: grid;
+  place-content: center center;
+}
+
+#planets {
+  animation-name: rotate;
+  animation-duration: 6s;
+  animation-delay: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes rotate {
+  0%   { transform: rotate(0); }
+  15%  { transform: rotate(360deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+<template>
+  <div class="logo" :style="`${props.width ? `width: ${props.width}` : ''}`">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+      <circle
+        stroke="currentColor"
+        fill="none"
+        cx="400"
+        cy="400"
+        r="290"
+        stroke-width="10"
+      />
+      <g id="planets">
+        <circle
+          fill="currentColor"
+          cx="690"
+          cy="405"
+          r="20"
+        />
+        <circle
+          fill="currentColor"
+          cx="110"
+          cy="405"
+          r="20"
+        />
+      </g>
+      <g id="A">
+        <path
+          stroke="currentColor"
+          fill="none"
+          d="M139 661L400 110L661 661"
+          stroke-width="60"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          stroke="currentColor"
+          fill="none"
+          d="M188 574H609"
+          stroke-width="60"
+          stroke-linecap="round"
+        />
+      </g>
+    </svg>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const props = defineProps({
+  width: {
+    type: String,
+    default: '',
+    required: false
+  }
+})
+
+// const _logoStyle = computed(() => `${props.width ? `width: ${props.width}` : ''}`)
+
+</script>
