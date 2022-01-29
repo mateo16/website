@@ -24,7 +24,6 @@
     <Logo width="2rem" />
     <span>{{copy.title}}</span>
     <span class="separator" />
-    <router-link class="nav-button" to="/faq">faq</router-link>
     <router-link class="nav-button" to="/">home</router-link>
   </header>
 </template>

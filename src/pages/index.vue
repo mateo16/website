@@ -1,12 +1,27 @@
 <template>
-  <h1>Home</h1>
-  <p>
-    Ubicado en pleno corazón de Villa Urquiza, el mítico estudio El Pie cierra sus puertas para siempre. Fue fundado por Alejandro Lerner en 1992 y guarda recuerdos de grabaciones de artistas como Charly García, Joaquín Sabina, Gustavo Cerati, León Gieco, Fito Páez, Diego Torres, Vox Dei, Rata Blanca y tantos más. “Lo pude bancar casi 30 años pero en los últimos se hizo muy difícil. El coletazo de la pandemia con el estudio cerrado sin generar ganancias pero con gastos, me hicieron llegar a esa conclusión”, le confiesa Lerner a LA NACION.
-  </p>
+  <h1>{{copy.title}}</h1>
+
+  <div v-for="item in routes" :key="item.path" class="mb-4">
+    <router-link
+      class="text-lg"
+      :to="{
+        path: `${item.path}`,
+      }"
+    >
+      {{item.path}}
+      <!-- <span class="blog-title">{{ item.meta.frontmatter.title }}</span> -->
+    </router-link>
+    <!-- <div class="text-gray-400 mt-2 text-sm">
+      {{ item.meta.frontmatter.date }}
+    </div> -->
+  </div>
 </template>
 
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
+import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import copy from '@/assets/copy/en/toc.yml'
 
 useHead({
   title: 'Table of Contents',
@@ -17,4 +32,14 @@ useHead({
     },
   ],
 })
+
+const router = useRouter()
+const routes = router.getRoutes()
+// console.debug(routes)
+// debugger
+// routes.forEach((r) => { console.debug(r.path) })
+// routes.forEach((r, i) => { console.debug(r, i) })
+
+// const posts = computed(() => routes.filter(i => i))
+
 </script>
