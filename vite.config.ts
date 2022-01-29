@@ -48,12 +48,12 @@ export default defineConfig({
       }
     }),
     Markdown({
-      // wrapperComponent: 'PostWrapper',
+      wrapperComponent: 'PostWrapper',
       headEnabled: true,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)
         md.use(MarkdownItAnchor, {
-          level: 1,
+          level: 2,
           permalink: MarkdownItAnchor.permalink.headerLink(),
         })
       },
