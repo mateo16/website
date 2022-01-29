@@ -2,6 +2,7 @@
 .caption {
   display: block;
   font-size: .75rem;
+  text-transform: capitalize;
 }
 
 .post {
@@ -45,10 +46,11 @@ useHead({
 
 const formatDate = (date: string) => (new Date(date)).toDateString()
 const getCaption = (frontmatter: Object) => {
-  let s = `${copy.postedOn} ${formatDate(frontmatter.date)}`
+  let s = ''
   if (frontmatter.author) {
-    s += ` ${copy.postedBy} ${frontmatter.author}`
+    s += ` ${copy.postedBy} ${frontmatter.author}, `
   }
+  s += `${formatDate(frontmatter.date)}`
   return s
 }
 

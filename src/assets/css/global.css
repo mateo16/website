@@ -1,16 +1,9 @@
 /* STYLES GLOBAL CONFIGURATION */
 :root {
   --primary-font: Quicksand, sans-serif;
-  --primary-color: #0cf;
-  --link-color: #08f;
-  --border-color: #999;
-  --nav-background-color: #888;
+  --code-font: Source Code Pro, monospace;
+  --accent-color: #e0f;
   --dialog-background-color: #eee;
-
-  --text-color: #222;
-  --background-color: #eee;
-  --muted-text-color: #444;
-  --error-color: #f52;
 
   --content-margin: 1rem;
   --dialog-width: 26rem;
@@ -18,22 +11,26 @@
   --max-content-width: 45rem;
 
   /* BREAKPOINT ROOT SIZES */
-  --root-size-mobile: 16px;
-  --root-size-desktop: 18px;
-  --root-size-desktop-large: 20px;
+  --root-size-mobile: 14px;
+  --root-size-desktop: 16px;
+  --root-size-desktop-large: 18px;
 }
 
 @media (--light) {
-  html {
-    color: black;
-    background-color: #eee;
+  :root {
+    --text-color: #444;
+    --text-color-highlight: #000;
+    --background-color: #eee;
+    --background-color-callout: #ddd;
   }
 }
 
 @media (--dark) {
-  html {
-    color: #eee;
-    background-color: #222;
+  :root {
+    --text-color: #bbb;
+    --text-color-highlight: #fff;
+    --background-color: #222;
+    --background-color-callout: #333;
   }
 }
 
@@ -66,6 +63,17 @@
        url('@/assets/fonts/Quicksand-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2 supports variations'),
+       url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2-variations'),
+       url('@/assets/fonts/SourceCodePro-Regular.woff2') format('woff2'),
+       url('@/assets/fonts/SourceCodePro-Regular.ttf') format('truetype');
+}
+
 /* DOCUMENT STYLES */
 *,
 *::before,
@@ -76,10 +84,10 @@
 }
 
 html {
+  color: var(--text-color);
+  background-color: var(--background-color);
   font-family: var(--primary-font);
   box-sizing: border-box;
-  user-select: none;
-  -webkit-user-select: none;
 
   /* animate dark/light transition */
   transition: color .3s linear, background-color .3s linear;
@@ -110,24 +118,27 @@ p {
 }
 
 h1 {
-  font-weight: 400;
-  font-size: 1.3rem;
-  letter-spacing: 0.1rem;
+  color: var(--text-color-highlight);
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.12rem;
   text-transform: uppercase;
-  line-height: 2rem;
+  line-height: 1.6rem;
   margin-bottom: 1rem;
 }
 
 h2 {
-  font-size: 1.2rem;
+  color: var(--text-color-highlight);
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.12rem;
-  line-height: 2rem;
+  line-height: 1.6rem;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 h3 {
+  color: var(--text-color-highlight);
   font-size: .9rem;
   font-weight: 400;
   letter-spacing: 0.16rem;
@@ -135,6 +146,7 @@ h3 {
 }
 
 h4 {
+  color: var(--text-color-highlight);
   font-size: .8rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
@@ -144,12 +156,11 @@ h4 {
 
 /* BEGIN link styling */
 a, a:visited {
-  color: var(--link-color);
+  color: var(--text-color-highlight);
   cursor: pointer;
 
   font-size: 1em;
-  font-weight: 400;
-  letter-spacing: 0.06rem;
+  font-weight: 600;
   position: relative;
 }
 
@@ -161,7 +172,7 @@ a:after {
   height: 2px;
   left: 50%;
   position: absolute;
-  background-color: var(--link-color);
+  background-color: var(--accent-color);
   transition: width 0.2s ease 0s, left 0.2s ease 0s;
   width: 0;
 }
@@ -178,6 +189,10 @@ a:after {
 }
 /* END link styling */
 
+img, picture {
+  width: 100%;
+}
+
 ul {
   list-style: none;
   margin-bottom: 1rem;
@@ -191,4 +206,24 @@ ul > li::before {
   content: "•";
   display: inline-block;
   width: 1.2em;
+}
+
+/* Code styling */
+pre {
+  background-color: var(--background-color-callout);
+
+  font-weight: 600;
+  padding: .8rem;
+  white-space: pre-wrap;
+  letter-spacing: .04rem;
+  line-height: 1.2rem;
+  font-size: .7rem;
+  margin-bottom: 1rem;
+  transition: color .3s linear, background-color .3s linear;
+  border-radius: .2rem;
+  border-left: 1px solid var(--accent-color);
+}
+
+pre > code {
+  font-family: var(--code-font);
 }

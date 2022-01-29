@@ -7,6 +7,7 @@ import Pages from 'vite-plugin-pages'
 import Markdown from 'vite-plugin-md'
 import MarkdownItAnchor from 'markdown-it-anchor'
 import MarkdownItAttrs from 'markdown-it-attrs'
+import MarkdownItExternalLinks from 'markdown-it-external-links'
 import path from 'path'
 import yaml from '@rollup/plugin-yaml'
 import grayMatter from 'gray-matter'
@@ -52,6 +53,11 @@ export default defineConfig({
       headEnabled: true,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)
+        md.use(MarkdownItExternalLinks, {
+          internalDomains: ['localhost', 'apsistechnologies.com'],
+          internalTarget: '_self',
+          externalTarget: '_blank'
+        })
         md.use(MarkdownItAnchor, {
           level: 2,
           permalink: MarkdownItAnchor.permalink.headerLink(),

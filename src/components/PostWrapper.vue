@@ -1,11 +1,22 @@
 <template>
-  <h1>
-    {{ frontmatter.title }}
-  </h1>
+  <!-- <img v-if="frontmatter.banner" :src="frontmatter.banner" /> -->
+
+  <h1>{{ frontmatter.title }}</h1>
   <slot />
 </template>
 
 <script setup lang="ts">
-const { frontmatter } = defineProps<{ frontmatter: any }>()
+import { useHead } from '@vueuse/head'
 
+useHead({
+  title: `| Apsis`,
+  meta: [
+    {
+      name: 'Name',
+      content: `Description`,
+    },
+  ],
+})
+
+const { frontmatter } = defineProps<{ frontmatter: any }>()
 </script>
