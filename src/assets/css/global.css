@@ -14,6 +14,7 @@
 
   --content-margin: 1rem;
   --dialog-width: 26rem;
+  --nav-height: 3rem;
   --max-content-width: 45rem;
 
   /* BREAKPOINT ROOT SIZES */
@@ -89,6 +90,9 @@ main {
   max-width: var(--max-content-width);
   padding: 0 var(--content-margin);
   margin: auto;
+  padding-top: 2rem;
+
+  /* border: 1px solid yellow; */
 }
 
 body {
@@ -101,6 +105,10 @@ body {
   line-height: 2rem;
 }
 
+p {
+  padding-bottom: 2rem;
+}
+
 h1 {
   font-weight: 400;
   font-size: 2rem;
@@ -111,8 +119,8 @@ h1 {
 }
 
 h2 {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 400;
   letter-spacing: 0.12rem;
   line-height: 2rem;
   text-transform: uppercase;
@@ -120,7 +128,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1rem;
+  font-size: .9rem;
   font-weight: 400;
   letter-spacing: 0.16rem;
   line-height: 2rem;
@@ -147,10 +155,10 @@ a, a:visited {
 
 a:after {
   background: none repeat scroll 0 0 transparent;
-  bottom: 0;
+  bottom: -.3rem;
   content: "";
   display: block;
-  height: .1rem;
+  height: 2px;
   left: 50%;
   position: absolute;
   background-color: var(--link-color);

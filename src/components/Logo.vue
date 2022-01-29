@@ -23,27 +23,27 @@
 
 <template>
   <div class="logo" :style="`${props.width ? `width: ${props.width}` : ''}`">
-    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 800 800" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <circle
         stroke="currentColor"
         fill="none"
         cx="400"
         cy="400"
         r="290"
-        stroke-width="10"
+        stroke-width="20"
       />
       <g id="planets">
         <circle
           fill="currentColor"
           cx="690"
           cy="405"
-          r="20"
+          r="40"
         />
         <circle
           fill="currentColor"
           cx="110"
           cy="405"
-          r="20"
+          r="40"
         />
       </g>
       <g id="A">

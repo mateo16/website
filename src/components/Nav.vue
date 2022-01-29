@@ -5,6 +5,8 @@
   padding: .5rem var(--content-margin);
   gap: .5rem;
   align-items: center;
+  min-height: var(--nav-height);
+  width: 100vw;
 
   /* border: 1px solid cyan; */
 }
@@ -24,7 +26,7 @@
     <Logo width="2rem" />
     <span>{{copy.title}}</span>
     <span class="separator" />
-    <router-link class="nav-button" to="/">home</router-link>
+    <router-link class="nav-button" to="/">{{copy.index}}</router-link>
   </header>
 </template>
 

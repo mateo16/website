@@ -1,19 +1,29 @@
+<style scoped>
+.caption {
+  display: block;
+  font-size: .75rem;
+}
+
+.post {
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 1.2rem;
+}
+</style>
+
 <template>
   <h1>{{copy.title}}</h1>
+  <p>{{copy.legend}}</p>
 
-  <div v-for="item in routes" :key="item.path" class="mb-4">
-    <router-link
-      class="text-lg"
-      :to="{
-        path: `${item.path}`,
-      }"
-    >
-      {{item.path}}
-      <!-- <span class="blog-title">{{ item.meta.frontmatter.title }}</span> -->
-    </router-link>
-    <!-- <div class="text-gray-400 mt-2 text-sm">
-      {{ item.meta.frontmatter.date }}
-    </div> -->
+  <div
+    class="post"
+    v-for="post in posts"
+    :key="post.path"
+  >
+    <router-link class="post-title" :to="post.path">{{ post.meta.frontmatter.title }}</router-link>
+    <span class="caption">{{ getCaption(post.meta.frontmatter) }}</span>
   </div>
 </template>
 
@@ -21,25 +31,34 @@
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
-import copy from '@/assets/copy/en/toc.yml'
+import copy from '@/assets/copy/en/index.yml'
 
 useHead({
-  title: 'Table of Contents',
+  title: `${copy.title} | Apsis`,
   meta: [
     {
-      name: `description`,
-      content: `Website description`,
+      name: copy.legend,
+      content: `Description`,
     },
   ],
 })
 
+const formatDate = (date: string) => (new Date(date)).toDateString()
+const getCaption = (frontmatter: Object) => {
+  let s = `${copy.postedOn} ${formatDate(frontmatter.date)}`
+  if (frontmatter.author) {
+    s += ` ${copy.postedBy} ${frontmatter.author}`
+  }
+  return s
+}
+
 const router = useRouter()
-const routes = router.getRoutes()
-// console.debug(routes)
-// debugger
-// routes.forEach((r) => { console.debug(r.path) })
-// routes.forEach((r, i) => { console.debug(r, i) })
 
-// const posts = computed(() => routes.filter(i => i))
-
+// filter routes to display only posts, sorted by ascending post date
+const posts = router.getRoutes()
+  .filter((r) => r.name !== undefined && r.path.startsWith('/posts'))
+  .sort(
+    (a, b) =>
+      +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date),
+  )
 </script>
