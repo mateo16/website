@@ -3,7 +3,6 @@
   --primary-font: Quicksand, sans-serif;
   --code-font: Source Code Pro, monospace;
   --accent-color: #e0f;
-  --dialog-background-color: #eee;
 
   --content-margin: 1rem;
   --dialog-width: 26rem;
@@ -120,7 +119,7 @@ p {
 h1 {
   color: var(--text-color-highlight);
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   letter-spacing: 0.12rem;
   text-transform: uppercase;
   line-height: 1.6rem;
@@ -159,7 +158,7 @@ a, a:visited {
   color: var(--text-color-highlight);
   cursor: pointer;
 
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 600;
   position: relative;
 }

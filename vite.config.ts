@@ -15,6 +15,9 @@ import { readFileSync } from 'fs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // Environment variables prefix
+  envPrefix: 'APSIS_',
+
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '/src'),
@@ -49,7 +52,7 @@ export default defineConfig({
       }
     }),
     Markdown({
-      wrapperComponent: 'PostWrapper',
+      wrapperComponent: 'Post',
       headEnabled: true,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)

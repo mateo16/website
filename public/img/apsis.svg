@@ -30,8 +30,8 @@
   </style>
 
   <circle class="orbit" cx="400" cy="400" r="290" />
-  <circle class="planet" cx="690" cy="405" r="20" />
-  <circle class="planet" cx="110" cy="405" r="20" />
+  <circle class="planet" cx="690" cy="405" r="30" />
+  <circle class="planet" cx="110" cy="405" r="30" />
   <path class="triangle" d="M188 574H609" stroke-linecap="round" />
   <path class="triangle" d="M139 661L400 110L661 661" stroke-linecap="round" stroke-linejoin="round" />
 </svg>

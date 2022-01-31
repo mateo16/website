@@ -1,8 +1,9 @@
 ---
-title: Deploying lighting-fast Python microservices like it ain't no thang
+title: Deploying lighting-fast Python microservices
+description: Using FastAPI and Docker to seamlessly deploy ultra-fast, lightweight microservices.
 author: Martin Z
 date: 2022-01-29 21:43:56
-# banner: /src/pages/posts/narwhal/narwhal.png
+banner: /src/pages/posts/narwhal/narwhal.png
 ---
 
 ![Ironman](./narwhal.png)

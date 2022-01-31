@@ -16,6 +16,7 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "types": [
+      "node",
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-vue-layouts/client"
