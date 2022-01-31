@@ -37,13 +37,13 @@
           fill="currentColor"
           cx="690"
           cy="405"
-          r="40"
+          r="30"
         />
         <circle
           fill="currentColor"
           cx="110"
           cy="405"
-          r="40"
+          r="30"
         />
       </g>
       <g id="A">

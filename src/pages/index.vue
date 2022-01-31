@@ -12,6 +12,16 @@
 .post-title {
   font-size: 1.2rem;
 }
+
+.separator {
+  display: block;
+  width: 100%;
+  margin: .5rem auto;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
+}
 </style>
 
 <template>
@@ -23,6 +33,8 @@
     v-for="post in posts"
     :key="post.path"
   >
+    <hr class="separator" />
+
     <router-link class="post-title" :to="post.path">{{ post.meta.frontmatter.title }}</router-link>
     <span class="caption">{{ getCaption(post.meta.frontmatter) }}</span>
   </div>

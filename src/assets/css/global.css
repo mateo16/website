@@ -21,6 +21,7 @@
     --text-color-highlight: #000;
     --background-color: #eee;
     --background-color-callout: #ddd;
+    --border-color: #aaa;
   }
 }
 
@@ -30,6 +31,7 @@
     --text-color-highlight: #fff;
     --background-color: #222;
     --background-color-callout: #333;
+    --border-color: #555;
   }
 }
 
