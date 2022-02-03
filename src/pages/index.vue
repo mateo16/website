@@ -43,17 +43,10 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
-import { computed } from 'vue'
 import copy from '@/assets/copy/en/index.yml'
 
 useHead({
-  title: `${copy.title} | Apsis`,
-  meta: [
-    {
-      name: copy.legend,
-      content: `Description`,
-    },
-  ],
+  title: `${copy.title}`
 })
 
 const formatDate = (date: string) => (new Date(date)).toDateString()

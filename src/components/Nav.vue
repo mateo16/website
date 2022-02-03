@@ -32,7 +32,7 @@
     <span class="separator" />
 
     <router-link class="nav-button" to="/">{{copy.blog}}</router-link>
-    <router-link class="nav-button" to="/">{{copy.contact}}</router-link>
+    <!-- <router-link class="nav-button" to="">{{copy.contact}}</router-link> -->
   </header>
 </template>
 

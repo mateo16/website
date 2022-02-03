@@ -12,5 +12,12 @@ export const createApp = ViteSSG(
     // install modules
     const modules = Object.values(import.meta.globEager('./modules/*.ts'))
     modules.map(i => i.install?.({ app, router, routes, isClient, initialState}))
+
+    // add fallback 404 redirect
+    router.addRoute({
+      path: '/:pathMatch(.*)',
+      name: 'not-found',
+      redirect: '/404'
+    })
   }
 )
