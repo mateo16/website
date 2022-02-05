@@ -1,18 +1,40 @@
+<style>
+.banner {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  border: 1px solid yellow;
+}
+
+.post-subtitle {
+  font-size: 1.3rem;
+  /* line-height: 4rem; */
+  padding-bottom: 3rem;
+}
+</style>
+
 <template>
-  <!-- <img v-if="frontmatter.banner" :src="frontmatter.banner" /> -->
-  <h1>{{ frontmatter.title }}</h1>
+  <h1 >{{ frontmatter.title }}</h1>
+  <h2>{{ subtitle }}</h2>
+  <Separator />
   <slot />
+  <!-- <img class="banner" v-if="frontmatter.banner" :src="`@./${frontmatter.banner}`" /> -->
 </template>
 
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+import { formatPostSubtitle } from '@/lib/utils'
 import copy from '@/assets/copy/en/post.yml'
 
 const { frontmatter } = defineProps<{ frontmatter: any }>()
 
 const title = `${frontmatter.title} | ${copy.title}`
 const url = `${import.meta.env.APSIS_WEBSITE_URL}${useRoute().fullPath}`
+
+const subtitle = computed(() => formatPostSubtitle(frontmatter) )
 
 useHead({
   title,

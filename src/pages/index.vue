@@ -12,31 +12,21 @@
 .post-title {
   font-size: 1.2rem;
 }
-
-.separator {
-  display: block;
-  width: 100%;
-  margin: .5rem auto;
-  border-top: 1px solid var(--border-color);
-  border-bottom: 0;
-  border-left: 0;
-  border-right: 0;
-}
 </style>
 
 <template>
   <h1>{{copy.title}}</h1>
-  <p>{{copy.legend}}</p>
+  <h2>{{copy.legend}}</h2>
 
   <div
     class="post"
     v-for="post in posts"
     :key="post.path"
   >
-    <hr class="separator" />
+    <Separator />
 
     <router-link class="post-title" :to="post.path">{{ post.meta.frontmatter.title }}</router-link>
-    <span class="caption">{{ getCaption(post.meta.frontmatter) }}</span>
+    <span class="caption">{{ formatPostSubtitle(post.meta.frontmatter) }}</span>
   </div>
 </template>
 
@@ -44,20 +34,12 @@
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
 import copy from '@/assets/copy/en/index.yml'
+import { formatPostSubtitle } from '@/lib/utils'
+import Separator from '@/components/Separator.vue';
 
 useHead({
   title: `${copy.title}`
 })
-
-const formatDate = (date: string) => (new Date(date)).toDateString()
-const getCaption = (frontmatter: Object) => {
-  let s = ''
-  if (frontmatter.author) {
-    s += ` ${copy.postedBy} ${frontmatter.author}, `
-  }
-  s += `${formatDate(frontmatter.date)}`
-  return s
-}
 
 const router = useRouter()
 

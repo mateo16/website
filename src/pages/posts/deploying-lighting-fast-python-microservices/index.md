@@ -1,7 +1,7 @@
 ---
 title: Deploying lighting-fast Python microservices
 description: Using FastAPI and Docker to seamlessly deploy ultra-fast, lightweight microservices.
-author: Martin Z
+author: Martin Zenzerovich
 date: 2022-01-29 21:43:56
 banner: /src/pages/posts/narwhal/narwhal.png
 ---
@@ -13,8 +13,6 @@ What happens when a unicorn and a whale have a baby? We're not sure but we think
 By combining [uvicorn](https://www.uvicorn.org/) with fdsfs...
 
 ## Making things right, one line at a time...
-
-![Ironman](./windoge.png)
 
 - Go to [Google](https://google.com/).
 - Go [home](/).

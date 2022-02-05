@@ -17,13 +17,13 @@
 
 .nav-button {
   text-transform: uppercase;
-  margin: 0 1rem;
+  margin: 0 .5rem;
 }
 </style>
 
 <template>
   <header class="nav">
-    <router-link class="nav-button" to="/">
+    <router-link to="/">
       <Logo width="2rem" />
     </router-link>
 
@@ -32,7 +32,7 @@
     <span class="separator" />
 
     <router-link class="nav-button" to="/">{{copy.blog}}</router-link>
-    <!-- <router-link class="nav-button" to="">{{copy.contact}}</router-link> -->
+    <router-link class="nav-button" to="">{{copy.contact}}</router-link>
   </header>
 </template>
 
