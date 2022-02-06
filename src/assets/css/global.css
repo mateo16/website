@@ -46,9 +46,9 @@
   --max-content-width: 45rem;
 
   /* BREAKPOINT ROOT SIZES */
-  --root-size-mobile: 14px;
-  --root-size-desktop: 16px;
-  --root-size-desktop-large: 18px;
+  --root-size-mobile: 16px;
+  --root-size-desktop: 18px;
+  --root-size-desktop-large: 20px;
 }
 
 ::selection {
@@ -128,8 +128,8 @@ body {
   margin: 0;
 
   font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.06rem;
+  font-weight: 450;
+  letter-spacing: 0.04rem;
   line-height: 2rem;
 }
 
@@ -152,7 +152,7 @@ h2 {
   color: var(--text-color-highlight);
   font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.14rem;
+  letter-spacing: 0.1rem;
   line-height: 1.6rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -234,12 +234,12 @@ ul > li::before {
 pre {
   background-color: var(--background-color-callout);
 
-  font-weight: 600;
+  font-weight: 500;
   padding: .8rem;
   white-space: pre-wrap;
   letter-spacing: .04rem;
   line-height: 1.2rem;
-  font-size: .7rem;
+  font-size: .75rem;
   margin-bottom: 1rem;
   transition: color .3s linear, background-color .3s linear;
   border-radius: .2rem;
