@@ -1,14 +1,16 @@
 <style scoped>
 .nav {
   display: flex;
+  position: absolute;
+  top: 0;
   flex-direction: row;
   padding: .5rem var(--content-margin);
   gap: .5rem;
   align-items: center;
   min-height: var(--nav-height);
-  width: 100vw;
+  width: 100%;
 
-  /* border: 1px solid cyan; */
+  border-bottom: 1px solid var(--border-color);
 }
 
 .separator {

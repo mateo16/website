@@ -1,7 +1,43 @@
+/* FONT FACES */
+@font-face {
+  font-family: 'Quicksand';
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url('@/assets/fonts/Quicksand-Variable.woff2') format('woff2 supports variations'),
+       url('@/assets/fonts/Quicksand-Variable.woff2') format('woff2-variations'),
+       url('@/assets/fonts/Quicksand-Regular.woff2') format('woff2'),
+       url('@/assets/fonts/Quicksand-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('@/assets/fonts/Oswald-Variable.woff2') format('woff2 supports variations'),
+       url('@/assets/fonts/Oswald-Variable.woff2') format('woff2-variations'),
+       url('@/assets/fonts/Oswald-Regular.woff2') format('woff2'),
+       url('@/assets/fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2 supports variations'),
+       url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2-variations'),
+       url('@/assets/fonts/SourceCodePro-Regular.woff2') format('woff2'),
+       url('@/assets/fonts/SourceCodePro-Regular.ttf') format('truetype');
+}
+
 /* STYLES GLOBAL CONFIGURATION */
 :root {
   --primary-font: Quicksand, sans-serif;
+  --secondary-font: Oswald, sans-serif;
   --code-font: Source Code Pro, monospace;
+
   --accent-color: #e0f;
 
   --content-margin: 1rem;
@@ -53,28 +89,6 @@
   }
 }
 
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 300 700;
-  font-display: swap;
-  src: url('@/assets/fonts/Quicksand-Variable.woff2') format('woff2 supports variations'),
-       url('@/assets/fonts/Quicksand-Variable.woff2') format('woff2-variations'),
-       url('@/assets/fonts/Quicksand-Regular.woff2') format('woff2'),
-       url('@/assets/fonts/Quicksand-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Source Code Pro';
-  font-style: normal;
-  font-weight: 200 900;
-  font-display: swap;
-  src: url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2 supports variations'),
-       url('@/assets/fonts/SourceCodePro-Variable.woff2') format('woff2-variations'),
-       url('@/assets/fonts/SourceCodePro-Regular.woff2') format('woff2'),
-       url('@/assets/fonts/SourceCodePro-Regular.ttf') format('truetype');
-}
-
 /* DOCUMENT STYLES */
 *,
 *::before,
@@ -99,7 +113,7 @@ main {
   max-width: var(--max-content-width);
   padding: 0 var(--content-margin);
   margin: auto;
-  padding-top: 1rem;
+  padding-top: 4rem;
 
   /* border: 1px solid yellow; */
 }
@@ -120,6 +134,7 @@ p {
 
 h1 {
   color: var(--text-color-highlight);
+  font-family: var(--secondary-font);
   font-weight: 600;
   font-size: 3rem;
   line-height: 4rem;
@@ -130,9 +145,10 @@ h1 {
 
 h2 {
   color: var(--text-color-highlight);
+  font-family: var(--secondary-font);
   font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.12rem;
+  font-weight: 400;
+  letter-spacing: 0.14rem;
   line-height: 1.6rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
