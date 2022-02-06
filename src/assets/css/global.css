@@ -51,6 +51,11 @@
   --root-size-desktop-large: 18px;
 }
 
+::selection {
+  color: var(--text-color-highlight);
+  background: var(--border-color);
+}
+
 @media (--light) {
   :root {
     --text-color: #444;
@@ -145,7 +150,6 @@ h1 {
 
 h2 {
   color: var(--text-color-highlight);
-  font-family: var(--secondary-font);
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.14rem;
@@ -164,9 +168,10 @@ h3 {
 
 h4 {
   color: var(--text-color-highlight);
-  font-size: .8rem;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.08rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }

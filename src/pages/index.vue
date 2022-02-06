@@ -16,7 +16,7 @@
 
 <template>
   <h1>{{copy.title}}</h1>
-  <h2>{{copy.legend}}</h2>
+  <h4>{{copy.legend}}</h4>
 
   <div
     class="post"

@@ -1,25 +1,15 @@
 <style>
-.banner {
-  position: absolute;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  border: 1px solid yellow;
-}
-
 .post-subtitle {
   font-size: 1.3rem;
-  /* line-height: 4rem; */
   padding-bottom: 3rem;
 }
 </style>
 
 <template>
-  <h1 >{{ frontmatter.title }}</h1>
-  <h2>{{ subtitle }}</h2>
-  <Separator />
+  <h1 v-if="frontmatter.title">{{ frontmatter.title }}</h1>
+  <h4 v-if="subtitle">{{ subtitle }}</h4>
+  <Separator v-if="frontmatter.title" />
   <slot />
-  <!-- <img class="banner" v-if="frontmatter.banner" :src="`@./${frontmatter.banner}`" /> -->
 </template>
 
 <script setup lang="ts">

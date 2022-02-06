@@ -5,6 +5,8 @@ export const formatPostSubtitle = (frontmatter: any) => {
   if (frontmatter.author) {
     s += `${frontmatter.author}, `
   }
-  s += `${formatDate(frontmatter.date)}`
+  if (frontmatter.date) {
+    s += `${formatDate(frontmatter.date)}`
+  }
   return s
 }

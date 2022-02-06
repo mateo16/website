@@ -1,5 +1,5 @@
 ---
-title: Deploying lighting-fast Python microservices
+title: Deploying lightning-fast Python microservices
 description: Using FastAPI and Docker to seamlessly deploy ultra-fast, lightweight microservices.
 author: Martin Zenzerovich
 date: 2022-01-29 21:43:56
