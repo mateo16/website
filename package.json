@@ -10,7 +10,7 @@
     "build": "vite-ssg build",
     "clean": "git clean -fdx",
     "health": "yarn audit --groups dependencies",
-    "serve": "http-server -p 3000 dist",
+    "serve": "http-server --cors -p 3000 dist",
     "build:deprecated": "vue-tsc --noEmit && vite build"
   },
 

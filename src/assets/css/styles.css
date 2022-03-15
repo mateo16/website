@@ -1,5 +1,241 @@
-.non-breaking-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+/* STYLES GLOBAL CONFIGURATION */
+:root {
+  --accent-color: #0cf;
+
+  --content-margin: 1rem;
+  --dialog-width: 26rem;
+  --nav-height: 3rem;
+  --max-content-width: 40rem;
+  --decoration-line-thickness: .08rem;
+
+  /* BREAKPOINT ROOT SIZES */
+  --root-size-mobile: 16px;
+  --root-size-desktop: 18px;
+  --root-size-desktop-large: 20px;
+}
+
+::selection {
+  color: var(--text-color-highlight);
+  background: var(--border-color);
+}
+
+@media (--light) {
+  :root {
+    --text-color: #444;
+    --text-color-highlight: #000;
+    --background-color: #eee;
+    --background-color-callout: #ddd;
+    --border-color: #aaa;
+  }
+}
+
+@media (--dark) {
+  :root {
+    --text-color: #ccc;
+    --text-color-highlight: #fff;
+    --background-color: #222;
+    --background-color-callout: #333;
+    --border-color: #555;
+  }
+}
+
+@media (--res-mobile) {
+  html {
+    font-size: var(--root-size-mobile);
+  }
+}
+
+@media (--res-desktop) {
+  html {
+    font-size: var(--root-size-desktop);
+  }
+}
+
+@media (--res-desktop-large) {
+  html {
+    font-size: var(--root-size-desktop-large);
+  }
+}
+
+/* DOCUMENT STYLES */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: var(--primary-font);
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+
+  /* animate dark/light transition */
+  transition: color .3s linear, background-color .3s linear;
+}
+
+main {
+  position: relative;
+  max-width: var(--max-content-width);
+  padding: 0 var(--content-margin);
+  margin: auto;
+  padding-top: 4rem;
+
+  /* border: 1px solid yellow; */
+}
+
+body {
+  padding: 0;
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 350;
+  letter-spacing: 0.02rem;
+}
+
+p {
+  padding-bottom: 1rem;
+  line-height: 1.6rem;
+}
+
+h1 {
+  color: var(--text-color-highlight);
+  font-family: var(--secondary-font);
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 4rem;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: var(--text-color-highlight);
+  font-family: var(--primary-font);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06rem;
+  line-height: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: var(--text-color-highlight);
+  font-family: var(--primary-font);
+  font-size: .9rem;
+  font-weight: 500;
+  letter-spacing: 0.06rem;
+  line-height: 2rem;
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+
+h4 {
+  color: var(--text-color-highlight);
+  font-family: var(--secondary-font);
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: 0.06rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+/* override link styling for headers that are also links */
+h1 > a, h2 > a, h3 > a, h4 > a {
+  font-weight: inherit;
+}
+
+/* BEGIN link styling */
+a, a:visited {
+  color: var(--text-color-highlight);
+  cursor: pointer;
+
+  font-size: 1rem;
+  font-weight: 500;
+  position: relative;
+
+  text-underline-offset: 0.08rem;
+  text-decoration-thickness: 0.08rem;
+  text-decoration-color: var(--border-color);
+}
+
+a:after {
+  bottom: 0.2rem;
+  content: "";
+  display: block;
+  height: var(--decoration-line-thickness);
+  left: 50%;
+  position: absolute;
+  background-color: var(--accent-color);
+  transition: width 150ms ease-out, left 150ms ease-out;
+  width: 0;
+}
+
+@media (--hover) {
+  a, a:visited {
+    text-decoration: none;
+  }
+
+  a:hover:after {
+    width: 100%;
+    left: 0;
+  }
+}
+/* END link styling */
+
+img, picture {
+  width: 100%;
+}
+
+figcaption {
+  font-size: .8rem;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.4rem;
+  line-height: 1.6rem;
+}
+
+ul > li::before {
+  content: "•";
+  display: inline-block;
+  width: 1.2em;
+  color: var(--border-color);
+}
+
+/* Code styling */
+pre {
+  background-color: var(--background-color-callout);
+  font-weight: 500;
+  padding: .8rem;
+  line-height: 1rem;
+  margin-bottom: 1rem;
+  transition: color .3s linear, background-color .3s linear;
+  overflow-x: auto;
+  border-radius: .2rem;
+  border-left: var(--decoration-line-thickness) solid var(--accent-color);
+}
+
+code {
+  font-family: var(--code-font);
+  font-size: .9rem;
+  font-weight: 400;
+  background-color: var(--background-color-callout);
+}
+
+pre > code {
+  font-size: .7rem;
 }

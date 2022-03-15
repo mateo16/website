@@ -1,0 +1,21 @@
+nav:
+  title: Apsis
+  blog: blog
+  contact: contact
+
+home:
+  title: Apsis Tech
+
+  # Under construction section
+  underConstruction:
+    text: We're currently revamping our site.<br/>In the meantime feel free to <a href="/blog">drop us a note</a> or just browse through our blog.
+
+blog:
+  title: Apsis Tech Blog
+  subtitle: Fun lessons learned in the land of technology
+  blog: blog
+
+error:
+  notFound:
+    title: Page not found
+    caption: Hmm... We couldn't find what you're looking for 🤔
