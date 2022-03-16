@@ -8,7 +8,8 @@ home:
 
   # Under construction section
   underConstruction:
-    text: We're currently revamping our site.<br/>In the meantime feel free to <a href="/blog">drop us a note</a> or just browse through our blog.
+    title: We're revamping our site!
+    text: Feel free to <a href="/contact">drop us a note</a> if you want to get in touch. <br/>You can also read through our <a href="/blog">tech blog</a> to see what we've been up to. 🛠
 
 blog:
   title: Apsis Tech Blog

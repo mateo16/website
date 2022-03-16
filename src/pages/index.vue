@@ -2,7 +2,7 @@
 </style>
 
 <template>
-  <p v-html="copy.home.underConstruction.text"></p>
+  <UnderConstruction />
 </template>
 
 <script setup lang="ts">

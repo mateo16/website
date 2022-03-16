@@ -68,8 +68,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const props = defineProps({
   width: {
     type: String,
@@ -77,7 +75,4 @@ const props = defineProps({
     required: false
   }
 })
-
-// const _logoStyle = computed(() => `${props.width ? `width: ${props.width}` : ''}`)
-
 </script>
