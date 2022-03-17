@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  white-space: break-spaces;
 }
 
 .under-construction {

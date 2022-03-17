@@ -60,7 +60,7 @@
     <span class="separator" />
 
     <router-link class="nav-button" to="/blog">{{copy.nav.blog}}</router-link>
-    <router-link class="nav-button" to="">{{copy.nav.contact}}</router-link>
+    <router-link class="nav-button" to="/contact">{{copy.nav.contact}}</router-link>
   </header>
   <div :class="`divider ${hidden ? 'divider-hidden' : ''}`" />
 </template>

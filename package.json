@@ -4,21 +4,19 @@
   "description": "Apsis Technologies blog",
   "author": "Martin Zenzerovich",
   "license": "UNLICENSED",
-
   "scripts": {
     "dev": "vite",
     "build": "vite-ssg build",
     "clean": "git clean -fdx",
     "health": "yarn audit --groups dependencies",
     "serve": "http-server --cors -p 3000 dist",
-    "build:deprecated": "vue-tsc --noEmit && vite build"
+    "check": "tsc --noEmit"
   },
-
   "dependencies": {
+    "firebase": "^9.6.8",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0"
   },
-
   "devDependencies": {
     "@rollup/plugin-yaml": "^3.1.0",
     "@types/node": "^17.0.13",
