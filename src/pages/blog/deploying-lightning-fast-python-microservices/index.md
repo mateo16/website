@@ -1,5 +1,5 @@
 ---
-title: Deploying fast & secure Python microservices
+title: Deploying lightning-fast Python microservices
 description: Using FastAPI and Docker to seamlessly deploy ultra-fast, lightweight microservices.
 author: Martin
 date: 2022-01-29 21:43:56
@@ -14,9 +14,9 @@ We devote a lot of time and effort to architecting our tools for delivering worl
 
 ## TL,DR
 
-If you just want to get the code, we created an open source project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) that you can clone which implements all of the stuff described below, while also adding utility commands, extra configuration, and a few other goodies you can use to build on it.
+If you want get your hands on the code, we created an open source project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) that implements all of the features described below. It also adds utility commands, extra configuration, and a few other goodies you can use to build on top of.
 
-![Logo](./narwhal.svg)<figcaption>⚡️ FastAPI + 🦄 uvicorn + 🐳 Docker = [Narwhal](https://github.com/ApsisTechnologies/narwhal)</figcaption>
+![Logo](./narwhal.svg)<figcaption>🐳 Docker + 🦄 uvicorn + ⚡️ FastAPI = Narwhal</figcaption>
 
 ### Quick Setup
 
@@ -38,7 +38,7 @@ That's it! You should be up and running. 🚀
 
 Before we delve into details, let's discuss the main goals when architecting our services. Obviously, every organization is different but these are the ones that are important to us:
 
-- **Speed**: We want every bit of performance we can squeeze out of our code. Snappy services makes for happy users.
+- **Speed**: We want every bit of performance we can squeeze out of our code. Snappy services make for happy users.
 - **Safety**: Safe code is a must. User data needs to be secure at all times, no BS.
 - **Continuous deployment**: We want to deliver software as fast as possible without compromising on [developer experience](https://future.a16z.com/the-case-for-developer-experience/).
 
@@ -164,7 +164,7 @@ Also, since we don't want to keep intermediate build artifacts in our final app 
 
 Most Linux containers in the wild are run as `root` which is a big no-no. You don't want anyone running with root permissions on your infrastructure. That's why we create a new, non-root user called `app` to run our application and switch to it by default.
 
-Finally, we add an "entrypoint" helper script that we pass the app's arguments to run our FastAPI server for us when the container starts:
+Finally, we add an `entrypoint.sh` helper script that we pass the app's arguments to run our FastAPI server for us when the container starts:
 
 ```bash
 #!/bin/sh

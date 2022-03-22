@@ -3,6 +3,7 @@
     <router-view />
   </main>
   <Nav />
+  <Notification />
 </template>
 
 <script lang="ts">

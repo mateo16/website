@@ -15,7 +15,7 @@
   text-transform: uppercase;
   font-size: 0.9rem;
   letter-spacing: .06rem;
-  color: var(--text-color-highlight);
+  color: var(--highlighted-text-color);
 }
 
 .nav-hidden {

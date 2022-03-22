@@ -1,12 +1,11 @@
 import { ViteSSGContext } from 'vite-ssg'
 import { initializeApp } from 'firebase/app'
-import { initializeAnalytics, GtagConfigParams } from 'firebase/analytics'
-
+import { initializeAnalytics } from 'firebase/analytics'
 import { isAnalyticsEnabled } from '@/lib/config'
 import { trackNavigation } from '@/lib/analytics'
 
-export function install(ctx: ViteSSGContext) {
-  if (!ctx.isClient) {
+export const install = ({ router, isClient }: ViteSSGContext) => {
+  if (!isClient) {
     return
   }
 
@@ -30,9 +29,11 @@ export function install(ctx: ViteSSGContext) {
       }
     })
 
-    ctx.router.afterEach(() => {
+    router.afterEach(() => {
       // track navigation via Vue router's navguard
       trackNavigation()
     })
+  } else {
+    console.debug('Analytics are disabled')
   }
 }

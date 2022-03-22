@@ -13,7 +13,9 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
+    "axios": "^0.26.1",
     "firebase": "^9.6.8",
+    "pinia": "^2.0.12",
     "vue": "^3.2.0",
     "vue-router": "^4.0.0"
   },

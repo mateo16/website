@@ -17,3 +17,25 @@
   to = "https://apsistechnologies.com"
   status = 301
   force = true
+
+[context.production.environment]
+  APSIS_FIREBASE_API_KEY = "AIzaSyC4rMyOPYXcnylDb4y2mQNjH00X6a83pf8"
+  APSIS_FIREBASE_AUTH_DOMAIN = "apsis-tech.firebaseapp.com"
+  APSIS_FIREBASE_PROJECT_ID = "apsis-tech"
+  APSIS_FIREBASE_APP_ID = "1:838665260320:web:8d640b13f6947fa3c35b45"
+  APSIS_FIREBASE_MEASUREMENT_ID = "G-J5NRR4XV03"
+  APSIS_ANALYTICS_ENABLED = "true"
+  APSIS_HOME_ROUTE = "/"
+  APSIS_APP_URL = "https://apsistechnologies.com"
+  APSIS_API_BASE_URL = "https://75ac870d94.execute-api.us-east-1.amazonaws.com"
+
+[context.branch-deploy.environment]
+  APSIS_FIREBASE_API_KEY = "AIzaSyBGof6saap535XQY7sTHg4pOLf3_Yl7v4o"
+  APSIS_FIREBASE_AUTH_DOMAIN = "apsis-dev.firebaseapp.com"
+  APSIS_FIREBASE_PROJECT_ID = "apsis-dev"
+  APSIS_FIREBASE_APP_ID = "1:473882002970:web:9ad69090a767a8d24f73a3"
+  APSIS_FIREBASE_MEASUREMENT_ID = "G-KTRSWZYLCH"
+  APSIS_ANALYTICS_ENABLED = "true"
+  APSIS_HOME_ROUTE = "/"
+  APSIS_APP_URL = "https://dev.apsistechnologies.com"
+  APSIS_API_BASE_URL = "https://9scn83sbph.execute-api.us-east-1.amazonaws.com"
