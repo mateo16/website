@@ -10,8 +10,8 @@
   --decoration-line-thickness: .08rem;
 
   /* BREAKPOINT ROOT SIZES */
-  --root-size-mobile: 16px;
-  --root-size-desktop: 18px;
+  --root-size-mobile: 18px;
+  --root-size-desktop: 19px;
   --root-size-desktop-large: 20px;
 }
 

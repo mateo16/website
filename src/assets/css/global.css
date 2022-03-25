@@ -4,6 +4,12 @@
   white-space: nowrap;
 }
 
+.non-selectable {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -12,10 +18,4 @@
 .flex-col {
   display: flex;
   flex-direction: column;
-}
-
-.non-selectable {
-  user-select: none;
-  -webkit-user-select: none;
-  cursor: default;
 }

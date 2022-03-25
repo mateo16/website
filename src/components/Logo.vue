@@ -1,8 +1,6 @@
 <style scoped>
 .logo {
   position: relative;
-  display: grid;
-  place-content: center center;
 }
 
 #planets {
@@ -22,7 +20,7 @@
 </style>
 
 <template>
-  <div class="logo" :style="`${props.width ? `width: ${props.width}` : ''}`">
+  <div class="logo flex-row" :style="`${props.width ? `width: ${props.width}` : ''}`">
     <svg viewBox="0 0 800 800" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
       <circle
         stroke="currentColor"
