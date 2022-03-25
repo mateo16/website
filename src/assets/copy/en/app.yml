@@ -19,10 +19,9 @@ blog:
 contact:
   title: Contact us
   text: Fill the form below to get in touch with our team, we'll get back to you shortly.
-  namePlaceholder: Name*
-  emailPlaceholder: Email*
-  messageText: Give us any additional info in the box below.
-  messagePlaceholder: Message*
+  namePlaceholder: Name
+  emailPlaceholder: Email
+  messagePlaceholder: Message
 
   confirmation: Message sent! We'll get in touch with you soon.
 
@@ -31,9 +30,9 @@ contact:
   sent: Message sent
 
   error:
-    invalidName: Please type your name*
-    invalidEmail: Invalid email*
-    invalidMessage: Please tell us about your inquiry*
+    invalidName: Please type your name
+    invalidEmail: Invalid email
+    invalidMessage: Please tell us about your inquiry
     failure: Apologies, something went wrong. Please retry.
 
 error:

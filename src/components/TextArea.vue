@@ -10,6 +10,7 @@
 @media (--hover) {
   .field:hover {
     background: #0001;
+    cursor: text;
   }
 }
 
@@ -36,19 +37,19 @@
   opacity: 1;
 }
 
-.field:focus-within .label,
-.input:not(:placeholder-shown) + .label {
+.field:focus-within .label, .text-area:not(:empty) + .label {
   transform: scale(0.8) translateX(.2em) translateY(-2em);
   opacity: 1;
 }
 
-.input {
+.text-area {
+  display: block;
   outline: none;
   border: none;
   overflow: hidden;
   width: 100%;
+  margin-left: .5em;
   background: none;
-  padding-left: .5em;
   font-size: inherit;
   font-family: inherit;
   font-weight: inherit;
@@ -67,20 +68,10 @@
   color: var(--error-color);
 }
 
-.password-visibility-toggle {
-  position: absolute;
-  cursor: help;
-  font-size: 0.8rem;
-  right: 0.25rem;
-  bottom: 0.5rem;
-}
-
 .label {
   display: block;
   color: var(--muted-text-color);
   position: absolute;
-  /* font-size: 1.2rem;
-  font-weight: 500; */
   pointer-events: none;
   text-transform: uppercase;
   padding-left: .5em;
@@ -92,17 +83,14 @@
 </style>
 
 <template>
-  <div class="field">
-    <input
-      ref="input"
-      :type="type === 'password' && showPassword ? 'text' : type"
-      :name="name"
-      :disabled="!enabled"
-      :class="`input${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
+  <div class="field" @click="onClick">
+    <span
+      ref="textArea"
+      :contenteditable="enabled"
+      :class="`text-area${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
       :maxlength="maxLength"
-      placeholder=" "
       @input="onValueChanged"
-      @keypress.enter="emit('enter')"
+      @keypress="onKeyPressed"
     />
 
     <label
@@ -113,15 +101,6 @@
     >
       {{ invalidMessage ? invalidMessage : name }}
     </label>
-
-    <span
-      v-if="type === 'password'"
-      class="password-visibility-toggle"
-      @mouseenter="() => showPassword = true"
-      @mouseleave="() => showPassword = false"
-    >
-      {{ showPassword ? '🙈' : '👀' }}
-    </span>
   </div>
 </template>
 
@@ -129,42 +108,57 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-  type: {
-    type: String,
-    required: false,
-    default: 'text'
-  },
   name: {
     type: String,
     required: false,
     default: ''
-  },
-  validator: {
-    type: Function,
-    required: false,
-    default: () => ''
   },
   maxLength: {
     type: Number,
     required: false,
     default: 40
   },
+  validator: {
+    type: Function,
+    required: false,
+    default: () => ''
+  },
   enabled: {
+    type: Boolean,
+    required: false,
+    default: true
+  },
+  multiline: {
     type: Boolean,
     required: false,
     default: true
   }
 })
 
-const emit = defineEmits([
-  'text-changed',
-  'enter'
-])
+const emit = defineEmits(['text-changed', 'enter'])
 
-const showPassword = ref(false)
+const textArea = ref<HTMLSpanElement>()
 const invalidMessage = ref('')
-const input = ref()
-const text = ref()
+const text = ref('')
+
+const onClick = (event: Event) => {
+  if (textArea.value) {
+    textArea.value.focus()
+  }
+}
+
+const onKeyPressed = (event: KeyboardEvent) => {
+  if (text.value.length >= props.maxLength ||
+      (event.key === 'Enter' && !props.multiline)) {
+    event.preventDefault()
+  }
+}
+
+const onValueChanged = (event: Event) => {
+  if (event.target) {
+    updateText((event.target as HTMLSpanElement).innerText)
+  }
+}
 
 const updateText = (value: string) => {
   if (text.value !== value) {
@@ -176,15 +170,9 @@ const updateText = (value: string) => {
   }
 }
 
-const onValueChanged = (event: Event) => {
-  if (event.target) {
-    updateText((event.target as HTMLInputElement).value)
-  }
-}
-
 const clear = () => {
-  if (text.value && input.value) {
-    input.value.value = '';
+  if (text.value && textArea.value) {
+    textArea.value.innerText = '';
     updateText('')
   }
 }

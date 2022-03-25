@@ -10,9 +10,9 @@ export const sendContactRequest = async (
   senderEmail: string,
   message: string
 ) => {
-  return await axios.post(contactApiUrl, {
-    name: name,
+  await axios.post(contactApiUrl, {
     from: senderEmail,
+    name,
     message
   })
 }

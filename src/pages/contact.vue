@@ -19,11 +19,10 @@
     :enabled="formFieldEnabled"
   />
 
-  <Input
+  <TextArea
     ref="messageField"
-    type="text"
     :name="copy.contact.messagePlaceholder"
-    :max-length="200"
+    :max-length="MAX_MESSAGE_LENGTH"
     :validator="validateMessage"
     :enabled="formFieldEnabled"
   />
@@ -45,6 +44,8 @@ import { isValidEmailAddress }  from '@/lib/utils'
 import copy from '@/assets/copy/en/app.yml'
 
 useHead({ title: `${copy.contact.title} | ${copy.home.title}` })
+
+const MAX_MESSAGE_LENGTH = 250
 
 const eventBus = useEventBus()
 
@@ -85,8 +86,14 @@ const validateName = (name: string) => {
 }
 
 const validateMessage = (message: string) => {
-  isMessageValid.value = message.length > 0
-  return isMessageValid.value ? '' : copy.contact.error.invalidMessage
+  let msg = ''
+  if (message.length === 0 || message === '\n') {
+    msg = copy.contact.error.invalidMessage
+  } else if (message.length > MAX_MESSAGE_LENGTH) {
+    msg = `-${message.length - MAX_MESSAGE_LENGTH}`
+  }
+  isMessageValid.value = (msg === '')
+  return msg
 }
 
 const onSendContactRequest = async () => {
@@ -95,9 +102,9 @@ const onSendContactRequest = async () => {
 
     // send contact request
     await sendContactRequest(
-      nameField.value.value,
-      emailField.value.value,
-      messageField.value.value
+      nameField.value.text,
+      emailField.value.text,
+      messageField.value.text
     )
 
     // log analytics event
