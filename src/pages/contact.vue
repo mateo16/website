@@ -4,27 +4,28 @@
 <template>
   <h1>{{copy.contact.title}}</h1>
   <p>{{copy.contact.text}}</p>
-  <Input
+
+  <TextInput
     ref="nameField"
     :name="copy.contact.namePlaceholder"
     :validator="validateName"
     :enabled="formFieldEnabled"
   />
 
-  <Input
+  <TextInput
     ref="emailField"
-    type="email"
     :name="copy.contact.emailPlaceholder"
     :validator="validateEmail"
     :enabled="formFieldEnabled"
   />
 
-  <TextArea
+  <TextInput
     ref="messageField"
     :name="copy.contact.messagePlaceholder"
     :max-length="MAX_MESSAGE_LENGTH"
     :validator="validateMessage"
     :enabled="formFieldEnabled"
+    multiline
   />
 
   <Button

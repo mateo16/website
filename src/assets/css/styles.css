@@ -1,13 +1,13 @@
 /* STYLES GLOBAL CONFIGURATION */
 :root {
   --accent-color: #0cf;
-  --error-color: #f50;
+  --error-color: #f90;
 
   --content-margin: 1rem;
   --dialog-width: 26rem;
   --nav-height: 3rem;
   --max-content-width: 40rem;
-  --decoration-line-thickness: .08rem;
+  --decoration-line-thickness: .1rem;
 
   /* BREAKPOINT ROOT SIZES */
   --root-size-mobile: 18px;
@@ -22,7 +22,7 @@
 
 @media (--light) {
   :root {
-    --text-color: #444;
+    --text-color: #222;
     --highlighted-text-color: #000;
     --muted-text-color: #666;
     --background-color: #eee;
@@ -33,7 +33,7 @@
 
 @media (--dark) {
   :root {
-    --text-color: #ccc;
+    --text-color: #ddd;
     --highlighted-text-color: #fff;
     --muted-text-color: #aaa;
     --background-color: #222;
@@ -81,23 +81,28 @@ html {
   transition: color .3s linear, background-color .3s linear;
 }
 
+body {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 350;
+  letter-spacing: 0.02rem;
+}
+
+#app {
+  position: relative;
+  min-height: 100vh;
+}
+
 main {
   position: relative;
   max-width: var(--max-content-width);
   padding: 0 var(--content-margin);
   margin: auto;
   padding-top: 4rem;
+  padding-bottom: 5rem;
 
-  /* border: 1px solid yellow; */
-}
-
-body {
-  padding: 0;
-  margin: 0;
-
-  font-size: 1rem;
-  font-weight: 350;
-  letter-spacing: 0.02rem;
+  /* border: 1px solid cyan; */
 }
 
 p {
@@ -227,7 +232,8 @@ pre {
   margin-bottom: 1rem;
   transition: color .3s linear, background-color .3s linear;
   overflow-x: auto;
-  border-radius: .2rem;
+  border-radius: 0 .2rem .2rem 0;
+  border: none;
   border-left: var(--decoration-line-thickness) solid var(--accent-color);
 }
 

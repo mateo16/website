@@ -52,7 +52,7 @@ export default defineConfig({
       }
     }),
     Markdown({
-      wrapperComponent: 'Post',
+      wrapperComponent: 'BlogPost',
       headEnabled: true,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)

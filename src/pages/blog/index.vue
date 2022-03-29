@@ -6,7 +6,7 @@
 .post-title {
   font-family: var(--primary-font);
   display: inline-block;
-  font-size: 1.1rem;
+  font-size: 1rem;
   letter-spacing: 0.04rem;
   text-transform: uppercase;
   margin-bottom: .3rem;

@@ -23,7 +23,7 @@
   transform: scaleX(0);
   transform-origin: 0%;
   opacity: 0;
-  transition: all 300ms ease;
+  transition: transform 300ms ease-out, opacity  300ms ease-out;
   top: 2px;
 }
 
@@ -37,12 +37,12 @@
   opacity: 1;
 }
 
-.field:focus-within .label, .text-area:not(:empty) + .label {
+.field:focus-within .label, .text-input:not(:empty) + .label {
   transform: scale(0.8) translateX(.2em) translateY(-2em);
   opacity: 1;
 }
 
-.text-area {
+.text-input {
   display: block;
   outline: none;
   border: none;
@@ -54,14 +54,15 @@
   font-family: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
-
-  transition: border 500ms;
+  user-select: text;
   color: var(--text-color);
+  caret-color: var(--accent-color);
+  transition: border 500ms, color 200ms;
 }
 
 .disabled {
-  color: var(--border-color);
-  -webkit-text-fill-color: var(--border-color);
+  color: var(--muted-text-color);
+  -webkit-text-fill-color: var(--muted-text-color);
 }
 
 .invalid {
@@ -78,18 +79,18 @@
   top: 0;
   left: 0;
   transform-origin: top left;
-  transition: transform 300ms;
+  transition: transform 300ms, color 200ms;
 }
 </style>
 
 <template>
   <div class="field" @click="onClick">
     <span
-      ref="textArea"
+      ref="textInput"
       :contenteditable="enabled"
-      :class="`text-area${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
+      :class="`text-input ${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
       :maxlength="maxLength"
-      @input="onValueChanged"
+      @input="onEdit"
       @keypress="onKeyPressed"
     />
 
@@ -101,7 +102,7 @@
     >
       {{ invalidMessage ? invalidMessage : name }}
     </label>
-  </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -131,19 +132,19 @@ const props = defineProps({
   multiline: {
     type: Boolean,
     required: false,
-    default: true
+    default: false
   }
 })
 
-const emit = defineEmits(['text-changed', 'enter'])
+const emit = defineEmits(['text-changed'])
 
-const textArea = ref<HTMLSpanElement>()
+const textInput = ref<HTMLSpanElement>()
 const invalidMessage = ref('')
 const text = ref('')
 
 const onClick = (event: Event) => {
-  if (textArea.value) {
-    textArea.value.focus()
+  if (textInput.value) {
+    textInput.value.focus()
   }
 }
 
@@ -154,7 +155,7 @@ const onKeyPressed = (event: KeyboardEvent) => {
   }
 }
 
-const onValueChanged = (event: Event) => {
+const onEdit = (event: Event) => {
   if (event.target) {
     updateText((event.target as HTMLSpanElement).innerText)
   }
@@ -171,8 +172,8 @@ const updateText = (value: string) => {
 }
 
 const clear = () => {
-  if (text.value && textArea.value) {
-    textArea.value.innerText = '';
+  if (text.value && textInput.value) {
+    textInput.value.innerText = '';
     updateText('')
   }
 }

@@ -4,6 +4,12 @@
   white-space: nowrap;
 }
 
+.selectable {
+  user-select: auto;
+  -webkit-user-select: auto;
+  cursor: auto;
+}
+
 .non-selectable {
   user-select: none;
   -webkit-user-select: none;
@@ -18,4 +24,8 @@
 .flex-col {
   display: flex;
   flex-direction: column;
+}
+
+.hidden {
+  visibility: hidden;
 }

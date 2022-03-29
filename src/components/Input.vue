@@ -59,8 +59,8 @@
 }
 
 .disabled {
-  color: var(--border-color);
-  -webkit-text-fill-color: var(--border-color);
+  color: var(--muted-text-color);
+  -webkit-text-fill-color: var(--muted-text-color);
 }
 
 .invalid {

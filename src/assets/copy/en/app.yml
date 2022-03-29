@@ -1,7 +1,10 @@
 nav:
-  title: Apsis
+  wordmark: apsis
   blog: blog
   contact: contact
+
+footer:
+  copyright: All rights reserved
 
 home:
   title: Apsis

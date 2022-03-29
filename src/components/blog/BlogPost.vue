@@ -1,11 +1,13 @@
 <template>
-  <h1 v-if="frontmatter.title">{{ frontmatter.title }}</h1>
-  <PostInfoHeader
-    :author="frontmatter.author"
-    :date="frontmatter.date"
-  />
-  <Separator v-if="frontmatter.title" />
-  <slot />
+  <div class="selectable">
+    <h1 v-if="frontmatter.title">{{ frontmatter.title }}</h1>
+    <PostInfoHeader
+      :author="frontmatter.author"
+      :date="frontmatter.date"
+    />
+    <Separator v-if="frontmatter.title" />
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">

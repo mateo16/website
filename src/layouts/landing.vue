@@ -3,12 +3,11 @@
     <router-view />
   </main>
   <Footer />
-  <Nav />
-  <Notification />
+  <Nav no-background />
 </template>
 
 <script lang="ts">
 export default {
-  name: 'DefaultLayout'
+  name: 'LandingLayout'
 }
 </script>

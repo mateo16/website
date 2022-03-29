@@ -1,37 +1,26 @@
-<svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg
+  width="800"
+  height="800"
+  viewBox="0 0 800 800"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
   <style>
-    .orbit {
-      stroke: black;
-      stroke-width: 20px;
-    }
-
-    .planet {
-      fill: black;
-    }
-
-    .triangle {
-      stroke-width: 60px;
-      stroke: black;
+    .a-frame {
+      stroke: #222;
+      stroke-width: 150px;
     }
 
     @media (prefers-color-scheme: dark) {
-      .orbit {
-        stroke: white;
-      }
-
-      .planet {
-        fill: white;
-      }
-
-      .triangle {
-        stroke: white;
+      .a-frame {
+        stroke: #ddd;
       }
     }
   </style>
-
-  <circle class="orbit" cx="400" cy="400" r="290" />
-  <circle class="planet" cx="690" cy="405" r="30" />
-  <circle class="planet" cx="110" cy="405" r="30" />
-  <path class="triangle" d="M188 574H609" stroke-linecap="round" />
-  <path class="triangle" d="M139 661L400 110L661 661" stroke-linecap="round" stroke-linejoin="round" />
+  <path
+    class="a-frame"
+    stroke-width="150"
+    stroke-linejoin="bevel"
+    d="M404 118C341 320 243.5 489 118 613C294.5 574.5 488.944 572.667 690 613C557 471.5 466 321.5 404 118Z"
+  />
 </svg>
