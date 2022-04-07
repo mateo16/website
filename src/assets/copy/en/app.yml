@@ -1,13 +1,14 @@
+company: Apsis
+
 nav:
-  wordmark: apsis
   blog: blog
   contact: contact
 
 footer:
   copyright: All rights reserved
 
-home:
-  title: Apsis
+landing:
+  description: We power entertainment
 
   # Under construction section
   underConstruction:

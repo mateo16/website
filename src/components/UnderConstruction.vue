@@ -20,8 +20,8 @@
 <template>
   <div class="container">
     <Logo width="6rem" />
-    <h4 style="margin: 2rem 0">{{copy.home.underConstruction.title}}</h4>
-    <span class="under-construction" v-html="copy.home.underConstruction.text"></span>
+    <h4 style="margin: 2rem 0">{{copy.landing.underConstruction.title}}</h4>
+    <span class="under-construction" v-html="copy.landing.underConstruction.text"></span>
   </div>
 </template>
 

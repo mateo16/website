@@ -109,7 +109,6 @@ export default {
 </script>
 
 <script setup lang="ts">
-import ToolButton from '@/components/ToolButton.vue'
 import CloseIcon from '@/assets/icons/close.svg'
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { clamp } from '@/lib/utils'

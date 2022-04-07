@@ -20,28 +20,6 @@
   background: var(--border-color);
 }
 
-@media (--light) {
-  :root {
-    --text-color: #222;
-    --highlighted-text-color: #000;
-    --muted-text-color: #666;
-    --background-color: #eee;
-    --background-color-callout: #ddd;
-    --border-color: #aaa;
-  }
-}
-
-@media (--dark) {
-  :root {
-    --text-color: #ddd;
-    --highlighted-text-color: #fff;
-    --muted-text-color: #aaa;
-    --background-color: #222;
-    --background-color-callout: #333;
-    --border-color: #555;
-  }
-}
-
 @media (--res-mobile) {
   html {
     font-size: var(--root-size-mobile);
@@ -78,7 +56,7 @@ html {
   scroll-behavior: smooth;
 
   /* animate dark/light transition */
-  transition: color .3s linear, background-color .3s linear;
+  /* transition: color .1s linear, background-color .1s linear; */
 }
 
 body {

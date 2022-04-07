@@ -4,11 +4,7 @@ import { initializeAnalytics } from 'firebase/analytics'
 import { isAnalyticsEnabled } from '@/lib/config'
 import { trackNavigation } from '@/lib/analytics'
 
-export const install = ({ router, isClient }: ViteSSGContext) => {
-  if (!isClient) {
-    return
-  }
-
+export const install = ({ router }: ViteSSGContext) => {
   // initialize Firebase
   const app = initializeApp({
     apiKey: import.meta.env.APSIS_FIREBASE_API_KEY as string,

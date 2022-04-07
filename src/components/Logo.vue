@@ -18,7 +18,7 @@
 
 @keyframes rotate {
   0%   { transform: rotate(0); }
-  15%  { transform: rotate(360deg); }
+  10%  { transform: rotate(360deg); }
   100% { transform: rotate(360deg); }
 }
 </style>
@@ -36,7 +36,7 @@
     >
       <path
         class="a-frame"
-        stroke="currentColor"
+        :stroke="props.color"
         stroke-linejoin="bevel"
         d="M404 118C341 320 243.5 489 118 613C294.5 574.5 488.944 572.667 690 613C557 471.5 466 321.5 404 118Z"
       />
@@ -49,6 +49,11 @@ const props = defineProps({
   width: {
     type: String,
     default: '',
+    required: false
+  },
+  color: {
+    type: String,
+    default: 'currentColor',
     required: false
   },
   animate: {

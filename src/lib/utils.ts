@@ -1,7 +1,7 @@
 export const formatDate = (date: string) => (new Date(date)).toDateString()
 
 export const navigate = (url: URL, external: boolean = false) => {
-  window.open(url.toString())
+  window.open(url.toString(), external ? '_blank' : undefined)
 }
 
 export function wait(milliseconds: number) {
@@ -32,4 +32,14 @@ export function setCssVariable(name: string, value: string) {
 export function isValidEmailAddress(email: string) {
   const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   return regex.test(email)
+}
+
+export function rotateArray(arr: (any)[], reverse: boolean = false): void {
+  if (arr.length > 0) {
+    if (reverse) {
+      arr.unshift(arr.pop())
+    } else {
+      arr.push(arr.shift())
+    }
+  }
 }

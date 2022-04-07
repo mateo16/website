@@ -51,7 +51,6 @@
 </template>
 
 <script setup lang="ts">
-import Dialog from '@/components/Dialog.vue';
 import { useEventBus, Events } from '@/lib/event'
 import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
 

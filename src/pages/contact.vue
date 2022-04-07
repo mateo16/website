@@ -44,7 +44,7 @@ import { trackContactRequest }  from '@/lib/analytics'
 import { isValidEmailAddress }  from '@/lib/utils'
 import copy from '@/assets/copy/en/app.yml'
 
-useHead({ title: `${copy.contact.title} | ${copy.home.title}` })
+useHead({ title: `${copy.contact.title} | ${copy.company}` })
 
 const MAX_MESSAGE_LENGTH = 250
 

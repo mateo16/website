@@ -1,0 +1,15 @@
+light:
+  --text-color: '#222'
+  --highlighted-text-color: '#000'
+  --muted-text-color: '#666'
+  --background-color: '#eee'
+  --background-color-callout: '#ddd'
+  --border-color: '#aaa'
+
+dark:
+  --text-color: '#ddd'
+  --highlighted-text-color: '#fff'
+  --muted-text-color: '#aaa'
+  --background-color: '#222'
+  --background-color-callout: '#333'
+  --border-color: '#555'

@@ -26,7 +26,7 @@ export default defineConfig({
 
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
+    formatting: 'minify'
   },
 
   plugins: [

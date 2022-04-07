@@ -1,4 +1,4 @@
-import { setUserId, getAnalytics, logEvent } from "firebase/analytics"
+import { getAnalytics, logEvent } from "firebase/analytics"
 import { isAnalyticsEnabled } from '@/lib/config'
 
 const track = (eventName: string, params?: object) => {

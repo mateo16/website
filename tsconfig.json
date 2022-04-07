@@ -15,6 +15,9 @@
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "esModuleInterop": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
     "types": [
       "node",
       "vite/client",
@@ -26,5 +29,8 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

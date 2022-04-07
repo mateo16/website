@@ -1,0 +1,23 @@
+# Hero section
+marquee:
+  - text: metaverses
+    color: '#f07'
+  - text: web 3.0
+    color: '#ff0'
+  - text: media streaming
+    color: '#0f8'
+
+# Tech stack section
+stack:
+  title: Our tech stack
+  content:
+    - text: We embrace the open web, leveraging the latest and greatest web standards to deliver world-class products.
+      image: /img/web.png
+    - text: Gaming is in our DNA. We create immersive experiences, having deep expertise in next-gen game engines and computer graphics.
+      image: /img/gaming.png
+    - text: Our cloud-native approach allows us to deliver rock-solid APIs that can scale globally to reach millions of users.
+      image: /img/cloud.png
+    - text: We build on top of cutting-edge blockchain technologies to pave the way to a fully decentralized future.
+      image: /img/blockchain.png
+    - text: We actively contribute to the open source community by sharing many of our internal projects to empower fellow developer teams.
+      image: /img/open-source.png

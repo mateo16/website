@@ -1,11 +1,7 @@
 import { ViteSSGContext } from 'vite-ssg'
 import { createPinia } from 'pinia'
 
-export function install({ app, isClient, initialState }: ViteSSGContext) {
-  if (!isClient) {
-    return
-  }
-
+export function install({ app, initialState }: ViteSSGContext) {
   const pinia = createPinia()
   app.use(pinia)
 

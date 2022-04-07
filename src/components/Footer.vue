@@ -32,7 +32,7 @@
 
 <template>
   <footer class="footer footer-text non-selectable">
-    <span>{{ copy.nav.wordmark }} {{ thisYear }} – {{ copy.footer.copyright }}</span>
+    <span>{{ copy.company }} {{ thisYear }} – {{ copy.footer.copyright }}</span>
   </footer>
 </template>
 

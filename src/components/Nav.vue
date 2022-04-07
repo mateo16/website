@@ -2,7 +2,7 @@
 .nav {
   position: fixed;
   top: 0;
-  padding: .5rem var(--content-margin);
+  padding: 0 var(--content-margin);
   gap: .5rem;
   align-items: center;
   min-height: var(--nav-height);
@@ -28,9 +28,9 @@
   margin: auto;
 }
 
-.nav-button {
+.nav-link {
   font-size: .8rem;
-  font-weight: 300;
+  font-weight: 350;
   letter-spacing: .04rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -57,21 +57,26 @@
 </style>
 
 <template>
-  <header :class="`nav flex-row non-selectable ${hidden ? 'nav-hidden' : ''}`">
-    <div v-if="!noBackground" :class="`nav-backdrop ${hidden ? 'nav-backdrop-hidden' : ''}`" />
+  <nav :class="`nav flex-row non-selectable ${hidden ? 'nav-hidden' : ''}`">
+    <div v-if="props.showBackground" :class="`nav-backdrop ${hidden ? 'nav-backdrop-hidden' : ''}`" />
 
+    <!--  LOGO -->
+    <!-- adjust logo a bit... -->
     <div style="transform: translateY(.1rem)">
-      <Logo animate width="1.4rem" />
+      <Logo color="var(--highlighted-text-color)" width="1.4rem" animate />
     </div>
+
+    <!--  WORDMARK -->
     <router-link to="/">
-      <span class="wordmark" style="text-decoration: none">{{copy.nav.wordmark}}</span>
+      <span class="wordmark" style="text-decoration: none">{{copy.company}}</span>
     </router-link>
 
     <span class="separator" />
 
-    <router-link class="nav-button" to="/blog">{{copy.nav.blog}}</router-link>
-    <router-link class="nav-button" to="/contact">{{copy.nav.contact}}</router-link>
-  </header>
+    <!--  NAV LINKS -->
+    <router-link class="nav-link" to="/blog">{{copy.nav.blog}}</router-link>
+    <router-link class="nav-link" to="/contact">{{copy.nav.contact}}</router-link>
+  </nav>
 </template>
 
 <script setup lang="ts">
@@ -82,20 +87,43 @@ const threshold = 30;
 const hidden = ref(false)
 
 const props = defineProps({
-  noBackground: {
+  showBackground: {
     type: Boolean,
     default: false,
+    required: false
+  },
+  scrollTarget: {
+    type: String,
+    default: null,
     required: false
   }
 })
 
-const onScroll = () => { hidden.value = window.scrollY > threshold }
+const onScroll = () => {
+  const scrollPos = targetElement ? targetElement.scrollTop : window.scrollY
+  hidden.value = scrollPos > threshold
+}
+
+let targetElement: HTMLElement | null
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll)
+  if (props.scrollTarget) {
+    targetElement = document.getElementById(props.scrollTarget)
+    if (!targetElement) {
+      console.error(`Element with id "${props.scrollTarget}" not found`)
+      throw new Error(`Element with id "${props.scrollTarget}" not found`)
+    }
+    targetElement.addEventListener('scroll', onScroll)
+  } else {
+    window.addEventListener('scroll', onScroll)
+  }
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
+  if (targetElement) {
+    targetElement.removeEventListener('scroll', onScroll)
+  } else {
+    window.removeEventListener('scroll', onScroll)
+  }
 })
 </script>
