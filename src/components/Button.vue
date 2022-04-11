@@ -2,7 +2,7 @@
 .button {
   background-color: var(--border-color);
   position: relative;
-  min-height: 3rem;
+  height: 3rem;
   border-radius: 0.3rem;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   padding: 0 1rem;
   margin: 0;
   overflow: hidden;
-  transition: all 150ms linear;
+  transition: all 150ms ease-out;
 
   box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
 }
@@ -19,8 +19,8 @@
 @media (--hover) {
   .button:hover {
     cursor: pointer;
-    opacity: 0.85;
     box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1.03);
   }
 }
 
@@ -81,94 +81,86 @@
   </div>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed } from 'vue'
 import { clamp } from '@/lib/utils'
 
-export default defineComponent({
-  name: 'Button',
-  props: {
-    icon: {
-      type: String,
-      default: null,
-      required: false
-    },
-    text: {
-      type: String,
-      default: null,
-      required: false
-    },
-    color: {
-      type: String,
-      default: 'var(--accent-color)',
-      required: false
-    },
-    textColor: {
-      type: String,
-      default: '#000',
-      required: false
-    },
-    enabled: {
-      type: Boolean,
-      default: true,
-      required: false
-    },
-    progress: {
-      type: Number,
-      default: 1.0,
-      required: false
-    },
-    loading: {
-      type: Boolean,
-      default: false,
-      required: false
-    }
+const props = defineProps({
+  icon: {
+    type: String,
+    default: null,
+    required: false
   },
-
-  setup(props, context) {
-    const style_ = computed(() =>
-      `${props.enabled ? '' : 'pointer-events: none;'}` +
-      `color: ${props.enabled ? props.textColor : 'var(--muted-text-color)'}`
-    )
-
-    const backgroundStyle_ = computed(() =>
-      `transform: scaleX(${clamp(props.progress, 0, 1)});` +
-      `background-color: ${props.enabled ? props.color : 'var(--border-color)'};`
-    )
-
-    const svg_ = computed(async () => {
-      if (props.icon) {
-      //   return await import(`@/assets/icons/${props.icon}.svg`)
-      // } else {
-        return null
-      }
-    })
-
-    const doRipple = (event: Event) => {
-      const parent = event.currentTarget as HTMLElement;
-      if (parent) {
-        const ripple = document.createElement('div');
-        ripple.style.width = ripple.style.height = '100%';
-        ripple.style.top = ripple.style.left = '0';
-        ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
-        ripple.classList.add('ripple');
-        parent.appendChild(ripple);
-      }
-    }
-
-    const onClick = (event: Event) => {
-      if (props.enabled) {
-        doRipple(event);
-      }
-    }
-
-    return {
-      style_,
-      backgroundStyle_,
-      svg_,
-      doRipple,
-      onClick
-    }
+  text: {
+    type: String,
+    default: null,
+    required: false
+  },
+  color: {
+    type: String,
+    default: 'var(--accent-color)',
+    required: false
+  },
+  textColor: {
+    type: String,
+    default: '#000',
+    required: false
+  },
+  enabled: {
+    type: Boolean,
+    default: true,
+    required: false
+  },
+  progress: {
+    type: Number,
+    default: 1.0,
+    required: false
+  },
+  loading: {
+    type: Boolean,
+    default: false,
+    required: false
   }
-});
+})
+
+const style_ = computed(() =>
+  `${props.enabled ? '' : 'pointer-events: none;'}` +
+  `color: ${props.enabled ? props.textColor : 'var(--muted-text-color)'}`
+)
+
+const backgroundStyle_ = computed(() =>
+  `transform: scaleX(${clamp(props.progress, 0, 1)});` +
+  `background-color: ${props.enabled ? props.color : 'var(--border-color)'};`
+)
+
+const svg_ = computed(async () => {
+  if (props.icon) {
+  //   return await import(`@/assets/icons/${props.icon}.svg`)
+  // } else {
+    return null
+  }
+})
+
+const doRipple = (event: Event) => {
+  const parent = event.currentTarget as HTMLElement;
+  if (parent) {
+    const ripple = document.createElement('div');
+    ripple.style.width = ripple.style.height = '100%';
+    ripple.style.top = ripple.style.left = '0';
+    ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+    ripple.classList.add('ripple');
+    parent.appendChild(ripple);
+  }
+}
+
+const onClick = (event: Event) => {
+  if (props.enabled) {
+    doRipple(event);
+  }
+}
+
+defineExpose({
+  doRipple,
+  onClick
+})
 </script>

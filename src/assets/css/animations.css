@@ -18,7 +18,31 @@
   }
 }
 
-.anim-left {
+.fade-in {
+  animation: fade-in;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-out {
+  animation: fade-out;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.slide-in-left {
   animation: slide-in-left;
   animation-duration: .5s;
   animation-timing-function: ease-out;
@@ -37,7 +61,7 @@
   }
 }
 
-.anim-right {
+.slide-in-right {
   animation: slide-in-right;
   animation-duration: .5s;
   animation-timing-function: ease-out;

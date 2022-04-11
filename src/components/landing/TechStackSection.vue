@@ -1,41 +1,30 @@
 <style scoped>
-.container {
+.section {
+  color: #000;
   background-color: #ddd;
-  color: #222;
-  overflow: hidden;
-  position: relative;
-  justify-content: flex-start;
+
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 .title {
-  font-size: 2rem;
-  text-transform: uppercase;
-  line-height: 3rem;
-  text-align: center;
   width: 100%;
-  margin-top: 3rem;
+  display: block;
+  font-size: 2rem;
   font-weight: 800;
-  letter-spacing: .06rem;
-  z-index: 1;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .14rem;
+  line-height: 3rem;
 }
 
-@keyframes cycle {
-  0% {
-    transform: rotateZ(45deg);
-    opacity: 0;
-  }
-  8% {
-    transform: rotateZ(0);
-    opacity: 1;
-  }
-  95% {
-    transform: rotateZ(0);
-    opacity: 1;
-  }
-  100% {
-    transform: rotateZ(-45deg);
-    opacity: 0;
-  }
+.text {
+  display: block;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  max-width: 25rem;
+  margin-bottom: 2rem;
 }
 
 .fade {
@@ -47,116 +36,121 @@
 }
 
 @keyframes fade {
+  0% { opacity: 0; }
+  5% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fall {
   0% {
-    opacity: 0;
+    top: -15%;
   }
-  5% {
-    opacity: 1;
-  }
-  92% {
+  50% {
     opacity: 1;
   }
   100% {
     opacity: 0;
+    top: 100%;
   }
 }
 
-.bipane {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  flex-grow: 1;
-  gap: 2rem;
-  justify-content: space-evenly;
-  align-content: center;
-  align-items: center;
-  z-index: 1;
-}
+.deco-hexa {
+  /* fill: #000; */
+  position: absolute;
 
-@media (--res-mobile) {
-  .bipane {
-    margin: 1rem;
-    /* flex-direction: column; */
-    justify-content: space-around;
-  }
-}
-
-.copy {
-  flex-grow: 1;
-  margin: 0 var(--content-margin);
-  text-align: center;
-  font-size: 1.1rem;
-  font-weight: 400;
-  max-width: 20rem;
+  animation: fall;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 .deco-hexa-1 {
-  fill: #000;
-  position: absolute;
+  fill: #0002;
   left: 10%;
-  top: 40%;
   height: 7rem;
-  transform: translateY(-5rem);
   opacity: .04;
+
+  animation-duration: 90s;
+  animation-delay: -10s;
 }
 
 .deco-hexa-2 {
-  fill: #000;
-  position: absolute;
-  left: 20%;
-  top: 60%;
+  fill: #0001;
+  left: 18%;
   height: 5rem;
-  transform: translateY(-5rem);
   opacity: .03;
+
+  animation-duration: 60s;
+  animation-delay: 0s;
 }
 
 .deco-hexa-3 {
-  fill: #000;
-  position: absolute;
-  left: 40%;
-  top: 50%;
-  height: 3rem;
-  transform: translateY(-5rem);
+  fill: #0002;
+  left: 30%;
+  height: 10rem;
   opacity: .03;
+
+  animation-duration: 45s;
+  animation-delay: -5s;
 }
 
 .deco-hexa-4 {
-  fill: #000;
-  position: absolute;
-  left: 23%;
-  top: 50%;
+  fill: #0002;
+  left: 45%;
+  height: 4rem;
+  opacity: .06;
+
+  animation-duration: 140s;
+  animation-delay: -2s;
+}
+
+.deco-hexa-5 {
+  fill: #0002;
+  left: 75%;
   height: 3rem;
-  transform: translateY(-5rem);
-  opacity: .03;
+  opacity: .06;
+
+  animation-duration: 50s;
+  animation-delay: -20s;
 }
 </style>
 
 <template>
-  <div class="full-page">
-    <div class="container flex-col">
-      <svg class="deco-hexa-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-      </svg>
-      <svg class="deco-hexa-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-      </svg>
-      <svg class="deco-hexa-3" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-      </svg>
-      <svg class="deco-hexa-4" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-        <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-      </svg>
+  <div class="full-page section">
+    <DualPaneLayout>
+      <template #title>
+        <span class="title">{{ landing.stack.title }}</span>
+      </template>
 
-      <span class="title">{{ landing.stack.title }}</span>
+      <template #first-pane>
+        <span ref="text" class="text fade" />
+      </template>
 
-      <div class="bipane">
-        <span ref="copy" class="copy fade" />
+      <template #second-pane>
         <SpinnerCarousel
           ref="carousel"
           :images="landing.stack.content.map((e: {image: string}) => e.image)"
         />
-      </div>
-    </div>
+      </template>
+    </DualPaneLayout>
+
+    <svg class="deco-hexa deco-hexa-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
+    </svg>
+    <svg class="deco-hexa deco-hexa-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
+    </svg>
+    <svg class="deco-hexa deco-hexa-3" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
+    </svg>
+    <svg class="deco-hexa deco-hexa-4" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
+    </svg>
+
+    <svg class="deco-hexa deco-hexa-5" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
+    </svg>
   </div>
 </template>
 
@@ -164,14 +158,14 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import landing from '@/assets/copy/en/landing.yml'
 
-const copy = ref()
+const text = ref()
 const carousel = ref()
 
 let currentContentIdx = 0
 
 function update() {
   const state = landing.stack.content[currentContentIdx]
-  copy.value.innerHTML = state.text
+  text.value.innerHTML = state.text
 }
 
 const doContentTransition = () => {
@@ -186,11 +180,11 @@ const doContentTransition = () => {
 }
 
 onMounted(() => {
-  copy.value.addEventListener('animationiteration', doContentTransition)
+  text.value.addEventListener('animationiteration', doContentTransition)
   update()
 })
 
 onBeforeUnmount(() => {
-  copy.value.removeEventListener('animationiteration', doContentTransition)
+  text.value.removeEventListener('animationiteration', doContentTransition)
 })
 </script>

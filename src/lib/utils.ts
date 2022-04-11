@@ -43,3 +43,10 @@ export function rotateArray(arr: (any)[], reverse: boolean = false): void {
     }
   }
 }
+
+export function preloadImage(url: string) {
+    const img = new Image()
+    img.src = url
+}
+
+export const scrollToTop = () => { window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })}

@@ -1,9 +1,8 @@
-<style scoped>
-</style>
-
 <template>
   <HeroSection />
+  <PortfolioSection />
   <TechStackSection />
+  <CTASection />
 </template>
 
 <route lang="yaml">

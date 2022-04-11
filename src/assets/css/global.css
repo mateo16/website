@@ -32,8 +32,8 @@
 
 .full-page {
   position: relative;
-  display: grid;
+  display: flex;
 
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 }

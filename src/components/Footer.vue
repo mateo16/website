@@ -4,7 +4,6 @@
   /* position: relative; */
   bottom: 0;
   width: 100%;
-  /* min-height: var(--nav-height); */
   padding: 0 var(--content-margin);
 
   display: flex;
@@ -17,8 +16,8 @@
   transition: transform 400ms ease-out;
 
   border-top: .04rem solid var(--border-color);
-  /* background-color: var(--background-color-callout); */
-  /* border: 1px solid yellow; */
+  backdrop-filter: blur(3px);
+  min-height: var(--footer-height);
 }
 
 .footer-text {
@@ -32,7 +31,7 @@
 
 <template>
   <footer class="footer footer-text non-selectable">
-    <span>{{ copy.company }} {{ thisYear }} – {{ copy.footer.copyright }}</span>
+    <span>{{ copy.company }}™ {{ thisYear }} – {{ copy.footer.copyright }}</span>
   </footer>
 </template>
 

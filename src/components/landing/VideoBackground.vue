@@ -31,6 +31,7 @@
     preload="auto"
     :autoplay="autoplay"
     poster="@/assets/images/apsis_hero_cover.jpg"
+    @play="emit('playback-started')"
   >
     <source type="video/mp4" :src="props.src" />
     Your browser doesn't support video. =(
@@ -41,6 +42,9 @@
 </template>
 
 <script setup lang="ts">
+
+const emit = defineEmits(['playback-started'])
+
 const props = defineProps({
   src: {
     type: String,
