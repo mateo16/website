@@ -13,12 +13,12 @@
 
 .video-darken-overlay {
   background-color: #000;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .video-overlay-texture {
   background-image: url('@/assets/images/dot-matrix.png');
-  opacity: 0.2;
+  opacity: 0.5;
 }
 </style>
 

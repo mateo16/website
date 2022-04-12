@@ -56,7 +56,6 @@
 }
 
 .deco-hexa {
-  /* fill: #000; */
   position: absolute;
 
   animation: fall;
@@ -118,23 +117,6 @@
 
 <template>
   <div class="full-page section">
-    <DualPaneLayout>
-      <template #title>
-        <span class="title">{{ landing.stack.title }}</span>
-      </template>
-
-      <template #first-pane>
-        <span ref="text" class="text fade" />
-      </template>
-
-      <template #second-pane>
-        <SpinnerCarousel
-          ref="carousel"
-          :images="landing.stack.content.map((e: {image: string}) => e.image)"
-        />
-      </template>
-    </DualPaneLayout>
-
     <svg class="deco-hexa deco-hexa-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
       <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
     </svg>
@@ -151,6 +133,23 @@
     <svg class="deco-hexa deco-hexa-5" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
       <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
     </svg>
+
+    <DualPaneLayout>
+      <template #title>
+        <span class="title">{{ landing.stack.title }}</span>
+      </template>
+
+      <template #first-pane>
+        <span ref="text" class="text fade" />
+      </template>
+
+      <template #second-pane>
+        <SpinnerCarousel
+          ref="carousel"
+          :images="landing.stack.content.map((e: {image: string}) => e.image)"
+        />
+      </template>
+    </DualPaneLayout>
   </div>
 </template>
 

@@ -97,7 +97,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import landing from '@/assets/copy/en/landing.yml'
-import video from '@/assets/video/apsis_hero_1000kbps.mp4'
+import video from '@/assets/video/apsis-hero_1000kbps.mp4'
 
 let currentMarqueeState = 0
 

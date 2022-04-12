@@ -18,7 +18,8 @@
 }
 
 .image-pane {
-  max-width: 40rem;
+  max-width: 30rem;
+  margin: 1rem;
   transition: opacity .2s ease-out;
 }
 
@@ -36,7 +37,7 @@
   width: 100%;
   font-size: 1.4rem;
   margin-bottom: 1rem;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.02rem;
 }
 
 @media (--hover) {

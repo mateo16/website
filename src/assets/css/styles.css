@@ -49,11 +49,8 @@
 }
 
 html {
-  color: var(--text-color);
-  background-color: var(--background-color);
   font-family: var(--primary-font);
   box-sizing: border-box;
-
   scroll-behavior: smooth;
 
   /* animate dark/light transition */
@@ -61,11 +58,14 @@ html {
 }
 
 body {
+  color: var(--text-color);
+  background-color: var(--background-color);
   padding: 0;
   margin: 0;
   font-size: 1rem;
   font-weight: 350;
   letter-spacing: 0.02rem;
+  overflow-x: hidden;
 }
 
 #app {
