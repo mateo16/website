@@ -2,8 +2,8 @@
   <main>
     <router-view />
   </main>
-  <Footer />
   <Nav scroll-target="app" />
+  <Footer scroll-target="app" />
   <Notification />
 </template>
 

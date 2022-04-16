@@ -30,7 +30,7 @@
 
 .nav-link {
   font-size: .8rem;
-  font-weight: 350;
+  font-weight: 400;
   letter-spacing: .04rem;
   text-transform: uppercase;
   text-decoration: none;

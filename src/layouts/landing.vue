@@ -1,6 +1,6 @@
 <template>
   <router-view />
-  <Footer />
+  <Footer scroll-target="app" />
   <Nav scroll-target="app" />
 </template>
 

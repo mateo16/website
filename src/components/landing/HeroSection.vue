@@ -92,9 +92,16 @@
     <!-- TODO: make moving text -->
     <div class="hero-text-container">
       <span class="loading" v-if="loading">loading...</span>
+
       <span>{{ landing.hero.marquee.title }}</span>
-      <span ref="marquee" class="marquee" :style="`color: ${marqueeColor}`">{{ marqueeText }}</span>
-      <br />
+
+      <span
+        ref="marquee"
+        style="margin-bottom: 4rem"
+        class="marquee"
+        :style="`color: ${marqueeColor}`"
+      >{{ marqueeText }}</span>
+
       <Button
         :text="landing.hero.cta"
         :color="marqueeColor"
