@@ -1,8 +1,14 @@
 <template>
   <router-view />
   <Footer />
-  <Nav />
+  <Nav scroll-target="app" />
 </template>
+
+<script lang="ts">
+export default {
+  name: 'LandingPageLayout'
+}
+</script>
 
 <script setup lang="ts">
 import { useColorSchemeManager } from '@/lib/colorScheme'

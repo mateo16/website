@@ -1,4 +1,8 @@
 <style scoped>
+.section {
+  scroll-snap-align: start;
+}
+
 .hero-text-container {
   position: relative;
   display: flex;
@@ -78,7 +82,7 @@
 </style>
 
 <template>
-  <div class="full-page">
+  <section class="section full-page non-selectable">
     <VideoBackground
       autoplay
       :src="video"
@@ -88,35 +92,41 @@
     <!-- TODO: make moving text -->
     <div class="hero-text-container">
       <span class="loading" v-if="loading">loading...</span>
-      <span>we power</span>
-      <span ref="marquee" class="marquee" />
+      <span>{{ landing.hero.marquee.title }}</span>
+      <span ref="marquee" class="marquee" :style="`color: ${marqueeColor}`">{{ marqueeText }}</span>
+      <br />
+      <Button
+        :text="landing.hero.cta"
+        :color="marqueeColor"
+        @click="router.push('/contact')"
+      />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { useRouter } from 'vue-router'
 import landing from '@/assets/copy/en/landing.yml'
 import video from '@/assets/video/apsis-hero_1000kbps.mp4'
 
-let currentMarqueeState = 0
-
+const router = useRouter()
+const marqueeActiveIndex = ref(0)
 const marquee = ref()
-
 const loading = ref(true)
 
+const marqueeColor = computed(() => landing.hero.marquee.elements[marqueeActiveIndex.value].color)
+const marqueeText = computed(() => landing.hero.marquee.elements[marqueeActiveIndex.value].text)
+
 const doMarqueeTransition = () => {
-  const state = landing.marquee[currentMarqueeState]
-  marquee.value.style.color = state.color
-  marquee.value.innerHTML = state.text
-  currentMarqueeState += 1
-  if (currentMarqueeState === landing.marquee.length) {
-    currentMarqueeState = 0
+  let index = marqueeActiveIndex.value + 1
+  if (index === landing.hero.marquee.elements.length) {
+    index = 0
   }
+  marqueeActiveIndex.value = index
 }
 
 onMounted(() => {
-  doMarqueeTransition()
   marquee.value.addEventListener('animationiteration', doMarqueeTransition)
 })
 

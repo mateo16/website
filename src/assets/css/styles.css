@@ -47,6 +47,13 @@
   }
 }
 
+.app {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+  overflow-y: scroll;
+}
+
 /* DOCUMENT STYLES */
 *,
 *::before,
@@ -76,11 +83,6 @@ body {
   overflow-x: hidden;
 }
 
-#app {
-  position: relative;
-  min-height: 100vh;
-}
-
 main {
   position: relative;
   max-width: var(--max-content-width);
@@ -88,8 +90,6 @@ main {
   margin: auto;
   padding-top: 4rem;
   padding-bottom: 5rem;
-
-  /* border: 1px solid cyan; */
 }
 
 p {

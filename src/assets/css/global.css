@@ -37,3 +37,9 @@
   width: 100vw;
   min-height: 100vh;
 }
+
+.content {
+  margin-right: var(--content-margin);
+  margin-left: var(--content-margin);
+  max-width: var(--max-content-width);
+}

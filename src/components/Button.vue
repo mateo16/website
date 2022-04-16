@@ -3,7 +3,7 @@
   background-color: var(--border-color);
   position: relative;
   height: 3rem;
-  border-radius: 0.3rem;
+  /* border-radius: 0.3rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -50,7 +50,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: transform 0.1s linear, background-color 0.1s linear;
+  transition: transform 0.1s linear, background-color 200ms linear;
   transform-origin: center left;
   transform: scaleX(1.0);
 }

@@ -3,7 +3,7 @@
     <router-view />
   </main>
   <Footer />
-  <Nav />
+  <Nav scroll-target="app" />
   <Notification />
 </template>
 

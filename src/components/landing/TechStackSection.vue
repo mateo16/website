@@ -5,6 +5,8 @@
 
   padding-top: 3rem;
   padding-bottom: 2rem;
+
+  scroll-snap-align: start;
 }
 
 .title {
@@ -116,7 +118,7 @@
 </style>
 
 <template>
-  <div class="full-page section">
+  <section class="section full-page non-selectable">
     <svg class="deco-hexa deco-hexa-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
       <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
     </svg>
@@ -150,7 +152,7 @@
         />
       </template>
     </DualPaneLayout>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

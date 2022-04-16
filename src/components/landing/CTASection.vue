@@ -11,6 +11,8 @@
   background-repeat: no-repeat;
   background-position: top center;
   background-size: cover;
+
+  scroll-snap-align: start;
 }
 
 .text {
@@ -34,14 +36,15 @@
 </style>
 
 <template>
-  <div class="full-page section">
+  <section class="full-page section non-selectable">
     <span class="text">{{landing.callToAction.title}}</span>
     <Button
       :text="landing.callToAction.button"
       @click="router.push('/contact')"
     />
-  </div>
-  <span class="photo-caption">{{ landing.callToAction.photoCaption }}</span>
+
+    <span class="photo-caption">{{ landing.callToAction.photoCaption }}</span>
+  </section>
 </template>
 
 <script setup lang="ts">

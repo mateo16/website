@@ -4,6 +4,7 @@
 
   padding-top: 3rem;
   padding-bottom: 2rem;
+  scroll-snap-align: start;
 }
 
 .section-title {
@@ -97,7 +98,7 @@
 </style>
 
 <template>
-  <div class="full-page section" :style="`background: linear-gradient(${accentColor}, #ddd)`">
+  <section class="section full-page non-selectable" :style="`background: linear-gradient(${accentColor}, #ddd)`">
     <DualPaneLayout>
       <template #title>
         <span class="section-title">{{ landing.portfolio.title }}</span>
@@ -142,7 +143,7 @@
         @selected="onPageSelected"
       />
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

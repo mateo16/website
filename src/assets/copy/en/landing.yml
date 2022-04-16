@@ -1,11 +1,15 @@
 # Hero section
-marquee:
-  - text: metaverses
-    color: '#f07'
-  - text: web 3.0
-    color: '#ff0'
-  - text: media streaming
-    color: '#0f8'
+hero:
+  marquee:
+    title: We power
+    elements:
+    - text: metaverses
+      color: '#f07'
+    - text: web 3.0
+      color: '#ff0'
+    - text: media streaming
+      color: '#0f8'
+  cta: contact us
 
 # Tech stack section
 stack:
