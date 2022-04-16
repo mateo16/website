@@ -17,10 +17,15 @@ export class ColorSchemeManager {
 
   constructor(config: ColorSchemeConfig) {
     this._colorSchemeConfig = config
+
+    // initialize by following OS active color scheme
+    this.apply(ColorScheme.auto)
+
+    // reapply scheme when OS changes it
     this._darkModeMediaQuery.addEventListener('change', () => {
       if (this.colorScheme === ColorScheme.auto) {
         // refresh scheme to sync it with system preference
-        this.applyColorScheme(ColorScheme.auto)
+        this.apply(ColorScheme.auto)
       }
     })
   }
@@ -31,7 +36,7 @@ export class ColorSchemeManager {
 
   set colorScheme(scheme: ColorScheme) {
     if (this._colorScheme !== scheme) {
-      this.applyColorScheme(scheme)
+      this.apply(scheme)
       this._colorScheme = scheme
       // TODO: emit event
     }
@@ -41,7 +46,7 @@ export class ColorSchemeManager {
   setLight() { this.colorScheme = ColorScheme.light }
   setAuto() { this.colorScheme = ColorScheme.auto }
 
-  private applyColorScheme(scheme: ColorScheme) {
+  private apply(scheme: ColorScheme) {
     const activeScheme = scheme === ColorScheme.auto
       ? (this.isDarkModeActive ? ColorScheme.dark : ColorScheme.light)
       : scheme

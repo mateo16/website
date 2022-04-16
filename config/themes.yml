@@ -1,0 +1,49 @@
+# Color themes
+
+default:
+  name: Apsis
+  description: Apsis basic color theme
+
+  light:
+    --accent-color: '#0cf'
+    --error-color: '#f90'
+    --text-color: '#222'
+    --highlighted-text-color: '#000'
+    --muted-text-color: '#666'
+    --background-color: '#eee'
+    --background-color-callout: '#ddd'
+    --border-color: '#aaa'
+
+  dark:
+    --accent-color: '#0cf'
+    --error-color: '#f90'
+    --text-color: '#ddd'
+    --highlighted-text-color: '#fff'
+    --muted-text-color: '#aaa'
+    --background-color: '#222'
+    --background-color-callout: '#333'
+    --border-color: '#555'
+
+superuva:
+  name: Superuva
+  description: Deep purple theme
+
+  light:
+    --accent-color: '#0df'
+    --error-color: '#f70'
+    --text-color: '#002633'
+    --highlighted-text-color: '#00171f'
+    --muted-text-color: '#5c6b70'
+    --background-color: '#f5f8ff'
+    --background-color-callout: '#ecf1f9'
+    --border-color: '#a2aab3'
+
+  dark:
+    --accent-color: '#00f7ff'
+    --error-color: '#f70'
+    --text-color: '#e5e3e8'
+    --highlighted-text-color: '#f5f5ff'
+    --muted-text-color: '#7d738c'
+    --background-color: '#110b1b'
+    --background-color-callout: '#181221'
+    --border-color: '#464158'

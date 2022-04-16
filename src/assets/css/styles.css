@@ -1,8 +1,5 @@
 /* STYLES GLOBAL CONFIGURATION */
 :root {
-  --accent-color: #0cf;
-  --error-color: #f90;
-
   --content-margin: 1rem;
   --dialog-width: 26rem;
   --nav-height: 3rem;
@@ -14,14 +11,6 @@
   --root-size-mobile: 18px;
   --root-size-desktop: 19px;
   --root-size-desktop-large: 20px;
-
-  /* HOTFIX (AP-30): these should be defined and initialized by the scheme color manager */
-  --text-color: #ddd;
-  --highlighted-text-color: #fff;
-  --muted-text-color: #aaa;
-  --background-color: #222;
-  --background-color-callout: #333;
-  --border-color: #555;
 }
 
 ::selection {
@@ -51,7 +40,8 @@
   height: 100vh;
   scroll-snap-type: y mandatory;
   scroll-snap-stop: always;
-  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* DOCUMENT STYLES */
@@ -67,9 +57,6 @@ html {
   font-family: var(--primary-font);
   box-sizing: border-box;
   scroll-behavior: smooth;
-
-  /* animate dark/light transition */
-  /* transition: color .1s linear, background-color .1s linear; */
 }
 
 body {
@@ -80,7 +67,9 @@ body {
   font-size: 1rem;
   font-weight: 350;
   letter-spacing: 0.02rem;
-  overflow-x: hidden;
+
+  /* animate dark/light transition */
+  /* transition: color .1s linear, background-color .1s linear; */
 }
 
 main {
@@ -98,7 +87,6 @@ p {
 }
 
 h1 {
-  color: var(--highlighted-text-color);
   font-family: var(--secondary-font);
   font-weight: 500;
   font-size: 3rem;
@@ -109,7 +97,6 @@ h1 {
 }
 
 h2 {
-  color: var(--highlighted-text-color);
   font-family: var(--primary-font);
   font-size: 1rem;
   font-weight: 700;
@@ -120,7 +107,6 @@ h2 {
 }
 
 h3 {
-  color: var(--highlighted-text-color);
   font-family: var(--primary-font);
   font-size: .9rem;
   font-weight: 500;
@@ -131,7 +117,6 @@ h3 {
 }
 
 h4 {
-  color: var(--highlighted-text-color);
   font-family: var(--secondary-font);
   font-size: .9rem;
   font-weight: 400;
