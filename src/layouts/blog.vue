@@ -1,14 +1,30 @@
 <template>
-  <div class="selectable">
-    <h1 v-if="frontmatter.title">{{ frontmatter.title }}</h1>
-    <PostInfoHeader
+  <main>
+    <!-- BLOG POST HEADER -->
+    <BlogPostHeader
+      :title="frontmatter.title"
       :author="frontmatter.author"
       :date="frontmatter.date"
     />
-    <Separator v-if="frontmatter.title" />
-    <slot />
-  </div>
+    <Separator />
+
+    <!-- BLOG POST -->
+    <router-view />
+
+    <!-- BLOG POST FOOTER -->
+    <BlogPostFooter />
+
+  </main>
+  <Nav scroll-target="app" />
+  <Footer scroll-target="app" />
+  <Notification />
 </template>
+
+<script lang="ts">
+export default {
+  name: 'BlogPostLayout'
+}
+</script>
 
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
@@ -16,16 +32,17 @@ import { useRoute } from 'vue-router'
 import { getAppConfig } from '@/lib/config'
 import copy from '@/assets/copy/en/app.yml'
 
-const { frontmatter } = defineProps<{ frontmatter: any }>()
+const route = useRoute()
+const frontmatter = route.meta.frontmatter as any
 
 const appConfig = getAppConfig()
 const title = `${frontmatter.title} | ${copy.blog.title}`
-const url = `${appConfig.appUrl}${useRoute().fullPath}`
+const url = `${appConfig.appUrl}${route.fullPath}`
 
 useHead({
   title,
-  // OpenGraph config
   meta: [
+    // OpenGraph config
     { property: 'og:site_name', content: copy.blog.title },
     { property: 'og:title', content: title },
     { property: 'og:type', content: 'website' },

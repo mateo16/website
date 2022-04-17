@@ -75,10 +75,11 @@ body {
 main {
   position: relative;
   max-width: var(--max-content-width);
-  padding: 0 var(--content-margin);
   margin: auto;
-  padding-top: 4rem;
-  padding-bottom: 5rem;
+  padding-top: var(--nav-height);
+  padding-bottom: var(--footer-height);
+  padding-left: var(--content-margin);
+  padding-right: var(--content-margin);
 }
 
 p {
@@ -91,7 +92,7 @@ h1 {
   font-weight: 500;
   font-size: 3rem;
   line-height: 4rem;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.02rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }

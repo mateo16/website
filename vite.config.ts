@@ -46,13 +46,19 @@ export default defineConfig({
         if (mdpath.endsWith('.md')) {
           const md = readFileSync(mdpath, 'utf-8')
           const { data } = grayMatter(md)
+
+          // expand route metadata with markdown frontmatter
           route.meta = Object.assign(route.meta || {}, { frontmatter: data })
+
+          // set blog posts layout automatically
+          if (route.path.startsWith('/blog/')) {
+            route.meta.layout = 'blog'
+          }
         }
         return route
       }
     }),
     Markdown({
-      wrapperComponent: 'BlogPost',
       headEnabled: true,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)

@@ -19,6 +19,8 @@ blog:
   title: Apsis Tech Blog
   subtitle: Fun lessons learned in the land of technology
   blog: blog
+  footer:
+    cta: Get in touch 👈
 
 contact:
   title: Contact us

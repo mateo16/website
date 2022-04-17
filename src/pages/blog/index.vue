@@ -34,9 +34,10 @@
       {{ post.meta.frontmatter.title }}
     </router-link>
 
-    <PostInfoHeader
+    <BlogPostHeader
       :author="post.meta.frontmatter.author"
       :date="post.meta.frontmatter.date"
+      :social-links="false"
       photo-size="1.6rem"
     />
   </div>
