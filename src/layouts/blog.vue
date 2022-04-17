@@ -17,6 +17,7 @@
   </main>
   <Nav scroll-target="app" />
   <Footer scroll-target="app" />
+  <ReadProgress scroll-target="app" />
   <Notification />
 </template>
 
