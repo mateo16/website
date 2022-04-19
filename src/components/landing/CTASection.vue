@@ -15,6 +15,14 @@
   scroll-snap-align: start;
 }
 
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
 .text {
   margin-bottom: 1rem;
   text-align: center;
@@ -37,26 +45,21 @@
 
 <template>
   <section class="full-page section non-selectable">
-    <span class="text">{{landing.callToAction.title}}</span>
-    <Button
-      :text="landing.callToAction.button"
-      @click="router.push('/contact')"
-    />
+    <div class="content">
+      <span class="text">{{landing.callToAction.title}}</span>
+      <Button
+        :text="landing.callToAction.button"
+        @click="router.push('/contact')"
+      />
+    </div>
 
     <span class="photo-caption">{{ landing.callToAction.photoCaption }}</span>
   </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import landing from '@/assets/copy/en/landing.yml'
 
 const router = useRouter()
-
-onMounted(() => {
-})
-
-onBeforeUnmount(() => {
-})
 </script>

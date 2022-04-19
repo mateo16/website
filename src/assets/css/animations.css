@@ -44,7 +44,7 @@
 
 .slide-in-left {
   animation: slide-in-left;
-  animation-duration: .5s;
+  animation-duration: .8s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -63,7 +63,7 @@
 
 .slide-in-right {
   animation: slide-in-right;
-  animation-duration: .5s;
+  animation-duration: .8s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }

@@ -2,8 +2,7 @@
 .section {
   color: #000;
 
-  padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   scroll-snap-align: start;
 }
 
@@ -18,9 +17,10 @@
   line-height: 3rem;
 }
 
-.image-pane {
+.image {
+  display: inline-block;
   max-width: 30rem;
-  margin: 1rem;
+  margin: 0 1rem;
   transition: opacity .2s ease-out;
 }
 
@@ -36,8 +36,8 @@
   text-decoration-thickness: .08rem;
   text-underline-offset: 0.08rem;
   width: 100%;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
   letter-spacing: 0.02rem;
 }
 
@@ -105,7 +105,7 @@
       </template>
 
       <template #first-pane>
-        <div ref="_image" class="image-pane">
+        <div ref="_image" class="image">
           <img :src="image" alt="">
         </div>
       </template>
@@ -171,7 +171,7 @@ const transitionIntervalMS = 6000
 
 onMounted(() => {
   for (const item of landing.portfolio.content) {
-    preloadImage(`${config.appUrl}/${item.image}`)
+    preloadImage(`${config.appUrl}${item.image}`)
   }
 
   timeoutId = window.setInterval(next, transitionIntervalMS)

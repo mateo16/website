@@ -11,9 +11,15 @@ hero:
       color: '#0f8'
   cta: contact us
 
+about:
+  title: What we do
+  text: We build gorgeous, end to end digital products using the latest and greatest tech to power amazing experiences your users will love.
+  text2: We put an emphasis on beauty and simplicity, making sure no detail goes unnoticed.
+  text3: We also offer consulting services for companies with in-house development teams of their own.
+
 # Tech stack section
 stack:
-  title: Our tech stack
+  title: Our stack
   content:
     - text: We embrace the open web, leveraging the latest and greatest web standards to deliver world-class products.
       image: /img/web.png
