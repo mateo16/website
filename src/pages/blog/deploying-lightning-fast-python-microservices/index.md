@@ -6,19 +6,21 @@ date: 2022-01-29 21:43:56
 banner: /src/pages/posts/narwhal/narwhal.png
 ---
 
-Python is such a great fit for powering all kinds of applications. At Apsis, we use it for a wide range of things, from powering metaverse infrastructure, to orchestrating media transcoding pipelines, automating crypto transactions and more.
+Python is such a great fit for powering all kinds of applications. We write Python for things like orchestrating gaming infrastructure, transcoding media, posting blockchain transactions, test automation and more.
 
-With such a wide array of applications, it's worth asking: what is the best way to deploy your Python apps?
+With such a wide range of applications it's pretty natural to ask: what is the optimal way to deploy Python apps?
 
-We devote a lot of time and effort to architecting our tools for delivering world-class apps. What follows is a walkthrough of the main design elements we use so you can leverage them in your products too.
+We devote a lot of brain cycles to architecting our tools for delivering world-class apps. What follows is a walkthrough of our own Python service architecture so you can leverage the same principles in your products to make them awesome. ✨
 
 ## TL,DR
 
-If you want get your hands on the code, we created an open source project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) that implements all of the features described below. It also adds utility commands, extra configuration, and a few other goodies you can use to build on top of.
+Wanna get coding right away? We open sourced an internal project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) which implements all of the features described below.
 
 ![Logo](./narwhal.svg)<figcaption>🐳 Docker + 🦄 uvicorn + ⚡️ FastAPI = Narwhal</figcaption>
 
-### Quick Setup
+It also comes with utility commands and a few other goodies you can use to bootstrap your projects.
+
+### Narwhal Quick Setup
 
 ```bash
 $ git clone https://github.com/ApsisTechnologies/narwhal.git
@@ -32,27 +34,26 @@ INFO:     Started server process [82697]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
-That's it! You should be up and running. 🚀
 
-## Motivation
+And voilà! You're up and running. 🚀
 
-Before we delve into details, let's discuss the main goals when architecting our services. Obviously, every organization is different but these are the ones that are important to us:
+## Now onto the deets!
+
+Before we delve into the details, let's discuss the main goals when architecting our services:
 
 - **Speed**: We want every bit of performance we can squeeze out of our code. Snappy services make for happy users.
-- **Safety**: Safe code is a must. User data needs to be secure at all times, no BS.
-- **Continuous deployment**: We want to deliver software as fast as possible without compromising on [developer experience](https://future.a16z.com/the-case-for-developer-experience/).
+- **Safety**: Secure code is a must. User data needs to be secure at all times, no excuses.
+- **Ease of deployment**: We want to deliver software as fast and as painlessly as possible without compromising on [developer experience](https://future.a16z.com/the-case-for-developer-experience/).
 
-## Gimme the deets!
-
-With these goals in mind let's look at specific design elements and put it all together.
+Which brings us to...
 
 ### FastAPI for the win
 
-We're big fans of [FastAPI](https://fastapi.tiangolo.com/uk/deployment/server-workers/). If you're not yet familiar, FastAPI allows you to write blazing-fast Python services that are self-documenting thanks to automatically-generated OpenAPI docs and much more. FastAPI is at the heart of how we deliver our services.
+We're big fans of [FastAPI](https://fastapi.tiangolo.com/uk/deployment/server-workers/). FastAPI is at the heart of how we deliver our services.
 
-FastAPI uses [uvicorn](https://www.uvicorn.org/) as its server gateway interface (which uses [uvloop](https://github.com/MagicStack/uvloop)), providing ultra-fast response times for your Python APIs, on par with Node.js.
+In case you haven't yet heard of it, FastAPI is an [ASGI](https://asgi.readthedocs.io/en/latest/) server framework. It provides OpenAPI documentation out of the box as well as type checking. It uses [uvicorn](https://www.uvicorn.org/) as its server gateway interface (which uses [uvloop](https://github.com/MagicStack/uvloop)), providing ultra-fast response times for your Python APIs, on par with Node.js.
 
-Here's the Python code we'll be using:
+Here's all the Python code you'll need:
 
 ```python
 # src/main.py
@@ -154,17 +155,15 @@ ENTRYPOINT /opt/app/entrypoint.sh $0 $@
 CMD ["uvicorn", "main:app", "--proxy-headers", "--loop uvloop", "--workers 1", "--host 0.0.0.0", "--port 8000"]
 ```
 
-There's a lot going on here so let's break it down.
+There's a lot going on here, let's break it down. First, we base our app image on [Alpine Linux](https://www.alpinelinux.org/) to keep our containers light. Alpine's base image with the Python runtime is ~45MiB, with our final app being at around ~72MiB!
 
-First, we base our app image on [Alpine Linux](https://www.alpinelinux.org/) to keep things ultra-lightweight. Alpine's base image with the Python 3.9 runtime is ~45MiB, with our final app being at around ~72MiB!
-
-Also, since we don't want to keep intermediate build artifacts in our final app image, we'll create another fresh build stage called `app-image-base` and copy the resulting virtual environment with all our dependencies into it. Once that's done, we don't even need Poetry into it, just a clean Python app with all its dependencies.
+Also, since we don't want to keep intermediate build artifacts in our final app image (derived from compiling uvloop), we'll create a base build stage called `app-image-base` and copy the resulting virtual environment with all our dependencies into it. This leave us with a clean Python app and all its dependencies.
 
 ### Seatbelts please!
 
-Most Linux containers in the wild are run as `root` which is a big no-no. You don't want anyone running with root permissions on your infrastructure. That's why we create a new, non-root user called `app` to run our application and switch to it by default.
+Most Linux containers in the wild are run as `root` which is ill-advised to put it mildly. In order to avoid any [privilege escalation](https://en.wikipedia.org/wiki/Privilege_escalation) hazards, we create a new, non-root user called `app` to run our application and switch to it by default.
 
-Finally, we add an `entrypoint.sh` helper script that we pass the app's arguments to run our FastAPI server for us when the container starts:
+Finally, we add an `entrypoint.sh` helper script which receives the app's command line arguments to run our FastAPI server for us when the container starts:
 
 ```bash
 #!/bin/sh
@@ -184,8 +183,6 @@ Running app container on http://localhost:8000
 ```
 ### Summary
 
-So that's it! We got our FastAPI server running in no time. You now have a solid foundation to write blazing-fast, secure Python APIs and deploy them on your infrastructure of choice.
+That's it! We got our FastAPI server running in no time. You should now have a solid foundation to deploy lightning-fast, secure Python APIs onto your favorite infrastructure provider.
 
-Some of our top picks for deploying containers are Kubernetes + Knative, AWS Fargate and Google Cloud Run.
-
-But that's a subject for another post, stay tuned!
+Enjoy! 🥳

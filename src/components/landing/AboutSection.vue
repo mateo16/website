@@ -44,13 +44,13 @@
 <template>
   <section class="full-page section non-selectable">
     <span class="title">{{ landing.about.title }}</span>
-    <IntersectionContainer animation-name="slide-in-left">
+    <IntersectionContainer animation-name="slide-in-left" style="opacity: 0">
       <span class="text">{{ landing.about.text }}</span>
     </IntersectionContainer>
-    <IntersectionContainer animation-name="slide-in-right">
+    <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .2s">
       <span class="text">{{ landing.about.text2 }}</span>
     </IntersectionContainer>
-    <IntersectionContainer animation-name="slide-in-left">
+    <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .4s">
       <span class="text">{{ landing.about.text3 }}</span>
     </IntersectionContainer>
   </section>

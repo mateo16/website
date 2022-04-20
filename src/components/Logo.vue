@@ -5,6 +5,17 @@
 
 .a-frame {
   stroke-width: 150px;
+  transition: stroke 150ms linear;
+}
+
+@media (--hover) {
+  .a-frame:hover {
+    stroke: var(--accent-color);
+  }
+
+  .logo:hover {
+    cursor: pointer;
+  }
 }
 
 .animate {
@@ -26,7 +37,8 @@
 <template>
   <div
     :class="`logo flex-row ${props.animate ? 'animate' : ''}`"
-    :style="`${props.width ? `width: ${props.width}` : ''}`">
+    :style="`${props.width ? `width: ${props.width}` : ''}`"
+  >
     <svg
       width="100%"
       height="100%"

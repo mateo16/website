@@ -36,7 +36,7 @@
   display: inline-block;
   padding: 1.5rem;
   border-radius: .4rem;
-  border: var(--decoration-line-thickness) solid var(--border-color);
+  border: var(--text-decoration-line-thickness) solid var(--border-color);
   transform-origin: center center;
 
   transition: all 200ms ease-out;

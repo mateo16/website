@@ -104,6 +104,7 @@
 </template>
 
 <route lang="yaml">
+name: landing
 meta:
   layout: landing
 </route>
@@ -116,8 +117,8 @@ export default {
 
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
-import copy from '@/assets/copy/en/app.yml'
 import { getAppConfig } from '@/lib/config'
+import copy from '@/assets/copy/en/app.yml'
 
 const config = getAppConfig()
 

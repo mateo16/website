@@ -4,7 +4,7 @@ import Components from 'vite-plugin-components'
 import Compression from 'vite-plugin-compression'
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
-import Markdown from 'vite-plugin-md'
+import VitePluginMarkdown from 'vite-plugin-md'
 import MarkdownItAnchor from 'markdown-it-anchor'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItExternalLinks from 'markdown-it-external-links'
@@ -58,8 +58,8 @@ export default defineConfig({
         return route
       }
     }),
-    Markdown({
-      headEnabled: true,
+    VitePluginMarkdown({
+      headEnabled: false,
       markdownItSetup(md) {
         md.use(MarkdownItAttrs)
         md.use(MarkdownItExternalLinks, {
@@ -67,10 +67,10 @@ export default defineConfig({
           internalTarget: '_self',
           externalTarget: '_blank'
         })
-        md.use(MarkdownItAnchor, {
-          level: 2,
-          permalink: MarkdownItAnchor.permalink.headerLink(),
-        })
+        // md.use(MarkdownItAnchor, {
+        //   level: 2,
+        //   permalink: MarkdownItAnchor.permalink.headerLink(),
+        // })
       },
     }),
     yaml()

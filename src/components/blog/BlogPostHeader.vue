@@ -12,7 +12,7 @@
   display: inline;
   position: relative;
   padding: .05rem;
-  border: var(--decoration-line-thickness) solid var(--border-color);
+  border: var(--text-decoration-line-thickness) solid var(--border-color);
   border-radius: 50%;
   transition: border 150ms ease;
 }

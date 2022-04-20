@@ -48,9 +48,7 @@ import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
 import copy from '@/assets/copy/en/app.yml'
 
-useHead({
-  title: `${copy.blog.title}`
-})
+useHead({ title: `${copy.blog.title}` })
 
 const router = useRouter()
 

@@ -3,7 +3,7 @@
   display: block;
   width: 100%;
   margin: 2rem auto;
-  border-top: var(--decoration-line-thickness) solid var(--border-color);
+  border-top: var(--text-decoration-line-thickness) solid var(--border-color);
   border-bottom: 0;
   border-left: 0;
   border-right: 0;

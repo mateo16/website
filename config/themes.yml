@@ -29,21 +29,21 @@ superuva:
   description: Deep purple theme
 
   light:
-    --accent-color: '#0df'
+    --accent-color: '#09f'
     --error-color: '#f70'
     --text-color: '#002633'
     --highlighted-text-color: '#00171f'
     --muted-text-color: '#5c6b70'
     --background-color: '#f5f8ff'
     --background-color-callout: '#ecf1f9'
-    --border-color: '#a2aab3'
+    --border-color: '#abb2ba'
 
   dark:
-    --accent-color: '#00f7ff'
+    --accent-color: '#0df'
     --error-color: '#f70'
     --text-color: '#e5e3e8'
     --highlighted-text-color: '#f5f5ff'
-    --muted-text-color: '#7d738c'
+    --muted-text-color: '#b1abba'
     --background-color: '#110b1b'
     --background-color-callout: '#181221'
     --border-color: '#464158'

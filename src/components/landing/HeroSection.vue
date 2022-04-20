@@ -105,7 +105,7 @@
       <Button
         :text="landing.hero.cta"
         :color="marqueeColor"
-        @click="router.push('/contact')"
+        to="/contact"
       />
     </div>
   </section>
@@ -113,11 +113,9 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
-import { useRouter } from 'vue-router'
 import landing from '@/assets/copy/en/landing.yml'
 import video from '@/assets/video/apsis-hero_1000kbps.mp4'
 
-const router = useRouter()
 const marqueeActiveIndex = ref(0)
 const marquee = ref()
 const loading = ref(true)

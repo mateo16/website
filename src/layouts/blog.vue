@@ -28,8 +28,8 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useHead } from '@vueuse/head'
 import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
 import copy from '@/assets/copy/en/app.yml'
 
@@ -37,15 +37,17 @@ const route = useRoute()
 const frontmatter = route.meta.frontmatter as any
 
 const appConfig = getAppConfig()
-const title = `${frontmatter.title} | ${copy.blog.title}`
+const blogPostTitle = frontmatter.title
+const pageTitle = `${blogPostTitle} | ${copy.blog.title}`
 const url = `${appConfig.appUrl}${route.fullPath}`
 
 useHead({
-  title,
+  title: pageTitle,
+
   meta: [
     // OpenGraph config
     { property: 'og:site_name', content: copy.blog.title },
-    { property: 'og:title', content: title },
+    { property: 'og:title', content: blogPostTitle },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
     { property: 'og:image', content: `${appConfig.appUrl}/img/apsis.png` },

@@ -15,21 +15,22 @@ export const install = ({ router }: ViteSSGContext) => {
   });
 
   if (isAnalyticsEnabled()) {
-    // initialize analytics
-    initializeAnalytics(app, {
+    const config = {
       // disable automatic events
       config: {
         send_page_view: false,
         allow_google_signals: false,
         allow_ad_personalization_signals: false
       }
-    })
-
-    router.afterEach(() => {
-      // track navigation via Vue router's navguard
-      trackNavigation()
-    })
+    }
+    // initialize analytics
+    initializeAnalytics(app, config)
   } else {
-    console.debug('Analytics are disabled')
+    console.debug('Analytics disabled')
   }
+
+  // track all navigation via Vue router's navguard
+  router.afterEach(() => {
+    trackNavigation()
+  })
 }

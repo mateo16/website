@@ -13,7 +13,6 @@
 </style>
 
 <template>
-  <!-- <div ref="container" style="opacity: 0"> -->
   <div ref="container">
     <slot />
   </div>

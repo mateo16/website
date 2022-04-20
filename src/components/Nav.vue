@@ -8,20 +8,10 @@
   min-height: var(--nav-height);
   width: 100%;
   transition: transform 400ms ease-out;
-
-  /* border: 1px solid pink; */
 }
 
 .nav-hidden {
   transform: translateY(-100%) scaleX(0)
-}
-
-.wordmark {
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: .1rem;
-  color: var(--highlighted-text-color);
 }
 
 .separator {
@@ -30,11 +20,15 @@
 
 .nav-link {
   font-size: .8rem;
-  font-weight: 400;
   letter-spacing: .04rem;
   text-transform: uppercase;
   text-decoration: none;
   margin: 0 .5rem;
+}
+
+.wordmark {
+  font-weight: 700;
+  letter-spacing: .12rem;
 }
 
 .nav-backdrop {
@@ -63,13 +57,16 @@
     <!--  LOGO -->
     <!-- adjust logo a bit... -->
     <div style="transform: translateY(.1rem)">
-      <Logo color="var(--highlighted-text-color)" width="1.4rem" animate />
+      <Logo
+        animate
+        color="var(--highlighted-text-color)"
+        width="1.4rem"
+        @click="router.push('/')"
+      />
     </div>
 
     <!--  WORDMARK -->
-    <router-link to="/">
-      <span class="wordmark" style="text-decoration: none">{{copy.company}}</span>
-    </router-link>
+    <router-link class="nav-link wordmark" to="/">{{copy.company}}</router-link>
 
     <span class="separator" />
 
@@ -81,8 +78,10 @@
 
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import copy from '@/assets/copy/en/app.yml'
 
+const router = useRouter()
 const threshold = 30;
 const hidden = ref(false)
 

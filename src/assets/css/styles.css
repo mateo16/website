@@ -5,7 +5,8 @@
   --nav-height: 3rem;
   --footer-height: 2rem;
   --max-content-width: 40rem;
-  --decoration-line-thickness: .1rem;
+  --text-decoration-line-thickness: .1rem;
+  --text-decoration-offset: 0.2rem;
 
   /* BREAKPOINT ROOT SIZES */
   --root-size-mobile: 18px;
@@ -98,23 +99,25 @@ h1 {
 }
 
 h2 {
-  font-family: var(--primary-font);
-  font-size: 1rem;
+  font-family: var(--secondary-font);
+  font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.06rem;
   line-height: 1.6rem;
   text-transform: uppercase;
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  margin-bottom: .8rem;
 }
 
 h3 {
-  font-family: var(--primary-font);
-  font-size: .9rem;
-  font-weight: 500;
+  font-family: var(--secondary-font);
+  font-size: 1rem;
+  font-weight: 400;
   letter-spacing: 0.06rem;
   line-height: 2rem;
   text-transform: uppercase;
-  margin-bottom: .4rem;
+  margin-top: .4rem;
+  margin-bottom: .5rem;
 }
 
 h4 {
@@ -133,22 +136,22 @@ h1 > a, h2 > a, h3 > a, h4 > a {
 
 /* BEGIN link styling */
 a, a:visited {
-  color: var(--highlighted-text-color);
+  color: var(--text-color);
   cursor: pointer;
 
-  font-weight: 500;
   position: relative;
 
-  text-underline-offset: 0.08rem;
-  text-decoration-thickness: 0.08rem;
+  text-underline-offset: var(--text-decoration-offset);
+  text-decoration-thickness: var(--text-decoration-line-thickness);
   text-decoration-color: var(--border-color);
+  transition: color 150ms linear;
 }
 
 a:after {
-  bottom: 0.2rem;
   content: "";
+  bottom: var(--text-decoration-offset);
+  height: var(--text-decoration-line-thickness);
   display: block;
-  height: var(--decoration-line-thickness);
   left: 50%;
   position: absolute;
   background-color: var(--accent-color);
@@ -157,7 +160,8 @@ a:after {
 }
 
 @media (--hover) {
-  a, a:visited {
+  a:hover, a:hover:visited {
+    color: var(--accent-color);
     text-decoration: none;
   }
 
@@ -173,7 +177,7 @@ img, picture {
 }
 
 figcaption {
-  font-size: .8rem;
+  font-size: .7rem;
   font-weight: 500;
   width: 100%;
   text-align: center;
@@ -205,12 +209,12 @@ pre {
   margin-bottom: 1rem;
   transition: color .3s linear, background-color .3s linear;
   overflow-x: auto;
-  border-radius: 0 .2rem .2rem 0;
-  border: none;
-  border-left: var(--decoration-line-thickness) solid var(--accent-color);
+  border-radius: .4rem;
+  border: var(--text-decoration-line-thickness) solid var(--border-color);
 }
 
 code {
+  color: var(--muted-text-color);
   font-family: var(--code-font);
   font-size: .9rem;
   font-weight: 400;
@@ -219,4 +223,19 @@ code {
 
 pre > code {
   font-size: .7rem;
+}
+
+blockquote {
+  font-size: .8rem;
+  font-weight: 400;
+  max-width: 70vw;
+  text-align: center;
+  background-color: var(--background-color-callout);
+  padding: 1rem;
+  margin: 1rem auto;
+}
+
+blockquote > p {
+  line-height: 1rem;
+  padding-bottom: .3rem;
 }

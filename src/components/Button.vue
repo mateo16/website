@@ -2,7 +2,7 @@
 .button {
   background-color: var(--border-color);
   position: relative;
-  height: 3rem;
+  height: 2.6rem;
   /* border-radius: 0.3rem; */
   display: flex;
   flex-direction: column;
@@ -34,9 +34,9 @@
 .button-text {
   position: relative;
   font-weight: 900;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: normal;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   pointer-events: none;
 }
@@ -84,6 +84,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { clamp } from '@/lib/utils'
+import { useRouter } from 'vue-router'
 
 const props = defineProps({
   icon: {
@@ -92,6 +93,11 @@ const props = defineProps({
     required: false
   },
   text: {
+    type: String,
+    default: null,
+    required: false
+  },
+  to: {
     type: String,
     default: null,
     required: false
@@ -122,6 +128,8 @@ const props = defineProps({
     required: false
   }
 })
+
+const router = useRouter()
 
 const style_ = computed(() =>
   `${props.enabled ? '' : 'pointer-events: none;'}` +
@@ -155,7 +163,10 @@ const doRipple = (event: Event) => {
 
 const onClick = (event: Event) => {
   if (props.enabled) {
-    doRipple(event);
+    doRipple(event)
+    if (props.to) {
+      router.push(props.to)
+    }
   }
 }
 

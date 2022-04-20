@@ -1,7 +1,7 @@
 import { getAnalytics, logEvent } from "firebase/analytics"
 import { isAnalyticsEnabled } from '@/lib/config'
 
-const track = (eventName: string, params?: object) => {
+const trackEvent = (eventName: string, params?: object) => {
   if (isAnalyticsEnabled()) {
     logEvent(getAnalytics(), eventName, params);
   }
@@ -9,17 +9,9 @@ const track = (eventName: string, params?: object) => {
 
 // Navigation
 export function trackNavigation() {
-  track('navigation')
+  trackEvent('navigation')
 }
 
-// Navigation
 export function trackContactRequest() {
-  track('contact-request')
+  trackEvent('contact-request')
 }
-
-// Auth events
-// export function trackUser(userId: string) {
-//   if (isAnalyticsEnabled()) {
-//     setUserId(getAnalytics(), userId)
-//   }
-// }
