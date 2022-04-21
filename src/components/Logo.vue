@@ -37,7 +37,7 @@
 <template>
   <div
     :class="`logo flex-row ${props.animate ? 'animate' : ''}`"
-    :style="`${props.width ? `width: ${props.width}` : ''}`"
+    :style="`${props.noInteraction ? 'pointer-events: none;' : ''} ${props.width ? `width: ${props.width}` : ''}`"
   >
     <svg
       width="100%"
@@ -69,6 +69,11 @@ const props = defineProps({
     required: false
   },
   animate: {
+    type: Boolean,
+    default: false,
+    required: false
+  },
+  noInteraction: {
     type: Boolean,
     default: false,
     required: false

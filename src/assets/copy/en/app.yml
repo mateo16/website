@@ -5,7 +5,7 @@ nav:
   contact: contact
 
 footer:
-  copyright: All rights reserved
+  notice: Designed by
 
 landing:
   description: Digital product design and development solutions.
@@ -42,6 +42,9 @@ contact:
     failure: Apologies, something went wrong. Please retry.
 
 error:
+  # used for notifying user about global app errors and crashes
+  globalHandler: We just hit a snag, please retry...
+
   notFound:
     title: Page not found
     caption: Hmm... We couldn't find what you're looking for 🤔

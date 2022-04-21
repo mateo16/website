@@ -15,3 +15,7 @@ export function trackNavigation() {
 export function trackContactRequest() {
   trackEvent('contact-request')
 }
+
+export function trackError(message: string) {
+  trackEvent('app-error', { value: message })
+}

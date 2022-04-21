@@ -38,8 +38,9 @@
   text-shadow: 1px 1px 2px #0008;
   color: var(--muted-text-color);
   transform-origin: top right;
+  transform: rotate(90deg);
   bottom: 2rem;
-  right: .4rem;
+  right: 0;
 }
 </style>
 

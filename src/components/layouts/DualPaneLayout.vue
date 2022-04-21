@@ -35,6 +35,7 @@
 
 .pane {
   position: relative;
+  display: flex;
 }
 </style>
 
