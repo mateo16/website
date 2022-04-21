@@ -17,7 +17,7 @@
   content: "";
   position: relative;
   display: block;
-  height: var(--text-decoration-line-thickness);
+  height: var(--decoration-line-thickness);
   background: var(--accent-color);
   transform: scaleX(0);
   transform-origin: 0%;

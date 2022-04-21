@@ -3,12 +3,12 @@ hero:
   marquee:
     title: We power
     elements:
-    - text: metaverses
+    - text: gaming
       color: '#f07'
-    - text: web 3.0
-      color: '#ff0'
     - text: media streaming
       color: '#0f8'
+    - text: web 3.0
+      color: '#ff0'
   cta: contact us
 
 about:
