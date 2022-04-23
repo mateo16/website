@@ -14,7 +14,7 @@
   font-size: 2.6rem;
   letter-spacing: 0.2rem;
   line-height: 3.4rem;
-  font-weight: 300;
+  font-weight: 900;
   width: 100%;
 }
 

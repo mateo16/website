@@ -1,4 +1,3 @@
-# Hero section
 hero:
   marquee:
     title: We power
@@ -12,28 +11,13 @@ hero:
   cta: contact us
 
 about:
-  title: What we do
+  title: About us
   text: We build gorgeous digital products end to end using the latest and greatest tech to power amazing experiences your users will love.
   text2: We put an emphasis on beauty and simplicity, making sure no detail goes unnoticed.
   text3: We also offer consulting services for companies already having their own in-house development team.
 
-# Tech stack section
-stack:
-  title: Our stack
-  content:
-    - text: We embrace the open web, leveraging the latest web standards to deliver world-class products.
-      image: /img/web.png
-    - text: Gaming is in our DNA. We create immersive experiences, having deep expertise in next-gen game engines and computer graphics.
-      image: /img/gaming.png
-    - text: Our cloud-native approach allows us to deliver rock-solid APIs that can scale globally to reach millions of users.
-      image: /img/cloud.png
-    - text: We build on top of cutting-edge blockchain technologies to pave the way to a fully decentralized future.
-      image: /img/blockchain.png
-    - text: We actively contribute to the open source community by sharing many of our <a style="color:black; font-weight:600" href="https://github.com/orgs/ApsisTechnologies/repositories" target="_blank">internal projects</a> to empower fellow developer teams.
-      image: /img/open-source.png
-
 portfolio:
-  title: Project portfolio
+  title: Portfolio
   content:
     - title: Groovly
       url: https://groovly.fm/
@@ -47,6 +31,20 @@ portfolio:
       caption: 'Stack: Vue.js, Unreal Engine, AWS.'
       image: /img/portfolio/ristband.png
       accentColor: '#fe0'
+
+stack:
+  title: Tech stack
+  content:
+    - text: We embrace the open web, leveraging the latest web standards to deliver world-class products.
+      image: /img/web.png
+    - text: Gaming is in our DNA. We create immersive experiences, having deep expertise in next-gen game engines and computer graphics.
+      image: /img/gaming.png
+    - text: Our cloud-native approach allows us to deliver rock-solid APIs that can scale globally to reach millions of users.
+      image: /img/cloud.png
+    - text: We build on top of cutting-edge blockchain technologies to pave the way to a fully decentralized future.
+      image: /img/blockchain.png
+    - text: We actively contribute to the open source community by sharing many of our <a style="color:black; font-weight:600" href="https://github.com/orgs/ApsisTechnologies/repositories" target="_blank">internal projects</a> to empower fellow developer teams.
+      image: /img/open-source.png
 
 callToAction:
   title: Let's build the future.

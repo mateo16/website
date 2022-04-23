@@ -31,6 +31,11 @@ const props = defineProps({
     required: false,
     default: 0.0
   },
+  margin: {
+    type: String,
+    required: false,
+    default: undefined
+  },
   once: {
     type: Boolean,
     required: false,
@@ -54,6 +59,7 @@ onMounted(() => {
     }
   }, {
     root: null,
+    rootMargin: props.margin,
     threshold: props.threshold
   })
 

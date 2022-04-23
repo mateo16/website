@@ -1,6 +1,6 @@
 import { ViteSSGContext } from 'vite-ssg'
 import { ColorSchemeManager }  from '@/lib/colorScheme'
-import themes from '../../config/themes.yml'
+import themes from '@/config/themes.yml'
 
 export function install({ app }: ViteSSGContext) {
   const schemeManager = new ColorSchemeManager(themes.superuva)

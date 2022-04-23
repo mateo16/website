@@ -11,8 +11,8 @@
 .title {
   width: 100%;
   display: block;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .14rem;

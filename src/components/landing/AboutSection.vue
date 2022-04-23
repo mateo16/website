@@ -21,8 +21,8 @@
   display: block;
   width: 100%;
   padding: 2rem 0;
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 900;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: .14rem;
@@ -43,14 +43,16 @@
 
 <template>
   <section class="full-page section non-selectable">
-    <span class="title">{{ landing.about.title }}</span>
-    <IntersectionContainer animation-name="slide-in-left" style="opacity: 0">
-      <span class="text">{{ landing.about.text }}</span>
+    <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
+      <span class="title">{{ landing.about.title }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .2s">
-      <span class="text">{{ landing.about.text2 }}</span>
+      <span class="text">{{ landing.about.text }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .4s">
+      <span class="text">{{ landing.about.text2 }}</span>
+    </IntersectionContainer>
+    <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .6s">
       <span class="text">{{ landing.about.text3 }}</span>
     </IntersectionContainer>
   </section>
