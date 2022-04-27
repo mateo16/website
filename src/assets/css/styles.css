@@ -210,7 +210,6 @@ pre {
   transition: color .3s linear, background-color .3s linear;
   overflow-x: auto;
   border-radius: .4rem;
-  border: var(--decoration-line-thickness) solid var(--border-color);
 }
 
 code {

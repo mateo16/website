@@ -35,7 +35,7 @@ superuva:
     --highlighted-text-color: '#00171f'
     --muted-text-color: '#5c6b70'
     --background-color: '#f5f8ff'
-    --background-color-callout: '#ecf1f9'
+    --background-color-callout: '#e8ecf3'
     --border-color: '#abb2ba'
 
   dark:
@@ -45,5 +45,5 @@ superuva:
     --highlighted-text-color: '#f5f5ff'
     --muted-text-color: '#b1abba'
     --background-color: '#110b1b'
-    --background-color-callout: '#181221'
+    --background-color-callout: '#22192e'
     --border-color: '#464158'

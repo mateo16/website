@@ -16,7 +16,7 @@ landing:
     text: <p>In the meantime, feel free to read through our <a href="/blog">tech blog</a>.</p><p>Or <a href="/contact">drop us a note</a> to get in touch.</p>
 
 blog:
-  title: Apsis Blog
+  title: Apsis Tech Blog
   subtitle: Fun lessons learned in the land of technology
   blog: blog
   footer:

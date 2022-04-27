@@ -1,6 +1,19 @@
 <style scoped>
 .post {
   margin-bottom: 1.5rem;
+  background-color: var(--background-color-callout);
+  border-radius: .5rem;
+  padding: 1rem;
+  transition: all 100ms ease-out;
+}
+
+@media (--hover) {
+  .post:hover {
+    transform: scale(1.02);
+    background-color: var(--border-color);
+    color: var(--highlighted-text-color);
+    cursor: pointer;
+  }
 }
 
 .post-title {
@@ -19,20 +32,15 @@
   <h1>{{ copy.blog.title }}</h1>
   <h4>{{ copy.blog.subtitle }}</h4>
 
+  <Separator />
+
   <div
     class="post"
     v-for="post in posts"
     :key="post.path"
+    @click="router.push(post.path)"
   >
-    <Separator />
-
-    <router-link
-      class="post-title"
-      style="font-weight: 400"
-      :to="post.path"
-    >
-      {{ post.meta.frontmatter.title }}
-    </router-link>
+    <span class="post-title">{{ post.meta.frontmatter.title }}</span>
 
     <BlogPostHeader
       :author="post.meta.frontmatter.author"

@@ -2,7 +2,7 @@
 .separator {
   display: block;
   width: 100%;
-  margin: 2rem auto;
+  margin: 1.5rem auto;
   border-top: var(--decoration-line-thickness) solid var(--border-color);
   border-bottom: 0;
   border-left: 0;
