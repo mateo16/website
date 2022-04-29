@@ -4,7 +4,8 @@ module.exports = {
       importFrom: [{
         customMedia: {
           // Breakpoint definitions
-          '--res-mobile': 'only screen and (max-width: 576px)',
+          '--res-mobile-legacy': 'only screen and (max-width: 320px)',
+          '--res-mobile': 'only screen and (min-width: 321px) and (max-width: 576px)',
           '--res-desktop': 'only screen and (min-width: 577px) and (max-width: 1439px)',
           '--res-desktop-large': 'only screen and (min-width: 1440px)',
 

@@ -117,7 +117,7 @@ const onSendContactRequest = async () => {
     messageStatus.value = 'SENT'
   } catch (e) {
     console.error('Failed to send contact request:', e)
-    // TODO: notify user
+    // notify user
     eventBus.notify(copy.contact.error.failure, '😵')
   }
 }

@@ -1,20 +1,10 @@
 <style scoped>
 .section {
   color: #000;
+  display: flex;
 
-  padding: 2rem 0;
   scroll-snap-align: start;
-}
-
-.section-title {
-  display: block;
-  width: 100%;
-  font-size: 3rem;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .14rem;
-  line-height: 3rem;
+  padding: 2rem var(--content-margin);
 }
 
 .image {
@@ -101,7 +91,7 @@
   <section class="section full-page non-selectable" :style="`background: linear-gradient(${accentColor}, #ddd)`">
     <DualPaneLayout>
       <template #title>
-        <span class="section-title">{{ landing.portfolio.title }}</span>
+        <span class="landing-title">{{ landing.portfolio.title }}</span>
       </template>
 
       <template #first-pane>

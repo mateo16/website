@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 0 var(--content-margin);
   width: 100%;
   gap: 1rem;
 }

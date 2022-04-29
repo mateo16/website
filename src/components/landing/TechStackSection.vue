@@ -1,22 +1,12 @@
 <style scoped>
 .section {
+  display: flex;
+
   color: #000;
   background-color: #ddd;
-
-  padding: 2rem 0;
+  padding: 2rem var(--content-margin);
 
   scroll-snap-align: start;
-}
-
-.title {
-  width: 100%;
-  display: block;
-  font-size: 3rem;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .14rem;
-  line-height: 3rem;
 }
 
 .text {
@@ -47,7 +37,7 @@
   <section class="section full-page non-selectable">
     <DualPaneLayout style="z-index: 1">
       <template #title>
-        <span class="title">{{ landing.stack.title }}</span>
+        <span class="landing-title">{{ landing.stack.title }}</span>
       </template>
 
       <template #first-pane>

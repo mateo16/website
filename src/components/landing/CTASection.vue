@@ -1,12 +1,10 @@
 <style scoped>
 .section {
-  color: black;
+  padding: 2rem var(--content-margin);
   justify-content: flex-start;
   align-items: center;
-  padding-top: 25vh;
-  align-content: center;
-  flex-direction: column;
 
+  color: black;
   background-image: url('@/assets/images/joshua-tree.jpg');
   background-repeat: no-repeat;
   background-position: top center;
@@ -17,6 +15,7 @@
 
 .content {
   position: relative;
+  top: 6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,7 +44,7 @@
 </style>
 
 <template>
-  <section class="full-page section non-selectable">
+  <section class="full-page flex-col section non-selectable">
     <div class="content">
       <span class="text">{{landing.callToAction.title}}</span>
       <Button

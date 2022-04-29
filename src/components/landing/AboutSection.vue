@@ -1,11 +1,7 @@
 <style scoped>
 .section {
   color: black;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-  flex-direction: column;
-  padding: 0 var(--content-margin);
+  padding: 2rem var(--content-margin);
 
   background-color: #ddd;
   background-image: url('@/assets/images/girl-on-whiteboard.jpg');
@@ -13,20 +9,10 @@
   background-position: center center;
   background-size: cover;
 
-  scroll-snap-align: start;
-}
+  justify-content: flex-start;
+  align-items: center;
 
-.title {
-  position: relative;
-  display: block;
-  width: 100%;
-  padding: 2rem 0;
-  font-size: 3rem;
-  font-weight: 900;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: .14rem;
-  line-height: 3rem;
+  scroll-snap-align: start;
 }
 
 .text {
@@ -42,9 +28,9 @@
 </style>
 
 <template>
-  <section class="full-page section non-selectable">
+  <section class="section full-page flex-col non-selectable">
     <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
-      <span class="title">{{ landing.about.title }}</span>
+      <span class="landing-title" style="margin-bottom: 3rem">{{ landing.about.title }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .2s">
       <span class="text">{{ landing.about.text }}</span>

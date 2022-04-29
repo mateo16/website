@@ -1,4 +1,5 @@
 hero:
+  loading: loading...
   marquee:
     title: We power
     elements:

@@ -9,6 +9,7 @@
   --text-decoration-offset: 0.2rem;
 
   /* BREAKPOINT ROOT SIZES */
+  --root-size-mobile-legacy: 14px;
   --root-size-mobile: 18px;
   --root-size-desktop: 19px;
   --root-size-desktop-large: 20px;
@@ -17,6 +18,12 @@
 ::selection {
   color: var(--highlighted-text-color);
   background: var(--border-color);
+}
+
+@media (--res-mobile-legacy) {
+  html {
+    font-size: var(--root-size-mobile-legacy);
+  }
 }
 
 @media (--res-mobile) {
@@ -39,7 +46,7 @@
 
 .app {
   height: 100vh;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-snap-stop: always;
   overflow-x: hidden;
   overflow-y: auto;

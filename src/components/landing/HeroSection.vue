@@ -3,28 +3,6 @@
   scroll-snap-align: start;
 }
 
-.hero-text-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: flex-start;
-  text-transform: uppercase;
-  font-size: 2.6rem;
-  letter-spacing: 0.2rem;
-  line-height: 3.4rem;
-  font-weight: 900;
-  width: 100%;
-}
-
-@media (--res-mobile) {
-  .hero-text-container {
-    font-size: 1.8rem;
-    line-height: 2.4rem;
-  }
-}
-
 .marquee {
   position: relative;
   display: block;
@@ -66,8 +44,9 @@
 
 .loading {
   position: absolute;
-  top: 10rem;
+  top: 6rem;
   font-size: .8rem;
+  letter-spacing: .1rem;
   animation-name: glow;
   animation-iteration-count: infinite;
   animation-duration: 400ms;
@@ -82,32 +61,27 @@
 </style>
 
 <template>
-  <section class="section full-page non-selectable">
-    <VideoBackground
-      autoplay
-      :src="video"
-      @playback-started="loading = false"
+  <section class="section full-page flex-col flex-center non-selectable">
+    <VideoBackground autoplay :src="video" @playback-started="loading = false" />
+
+    <span class="loading" v-if="loading">{{ landing.hero.loading }}</span>
+
+    <span class="landing-title">{{ landing.hero.marquee.title }}</span>
+
+    <span
+      ref="marquee"
+      style="margin-bottom: 4rem"
+      class="marquee landing-title"
+      :style="`color: ${marqueeColor}`"
+    >
+      {{ marqueeText }}
+    </span>
+
+    <Button
+      :text="landing.hero.cta"
+      :color="marqueeColor"
+      to="/contact"
     />
-
-    <!-- TODO: make moving text -->
-    <div class="hero-text-container">
-      <span class="loading" v-if="loading">loading...</span>
-
-      <span>{{ landing.hero.marquee.title }}</span>
-
-      <span
-        ref="marquee"
-        style="margin-bottom: 4rem"
-        class="marquee"
-        :style="`color: ${marqueeColor}`"
-      >{{ marqueeText }}</span>
-
-      <Button
-        :text="landing.hero.cta"
-        :color="marqueeColor"
-        to="/contact"
-      />
-    </div>
   </section>
 </template>
 
