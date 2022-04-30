@@ -9,11 +9,7 @@
   scroll-snap-align: start;
 }
 
-.text {
-  display: block;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 500;
+.text-pane {
   max-width: 25rem;
 }
 
@@ -37,11 +33,13 @@
   <section class="section full-page non-selectable">
     <DualPaneLayout style="z-index: 1">
       <template #title>
-        <span class="landing-title">{{ landing.stack.title }}</span>
+        <IntersectionContainer animation-name="fade-in" margin="-10px" style="opacity: 0">
+          <span class="landing-title">{{ landing.stack.title }}</span>
+        </IntersectionContainer>
       </template>
 
       <template #first-pane>
-        <span ref="text" class="text fade" />
+        <span ref="text" class="text-pane landing-text fade" />
       </template>
 
       <template #second-pane>

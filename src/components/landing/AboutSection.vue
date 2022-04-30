@@ -14,17 +14,6 @@
 
   scroll-snap-align: start;
 }
-
-.text {
-  position: relative;
-  display: block;
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: 500;
-  line-height: 1.6rem;
-  max-width: 25rem;
-  padding-bottom: 2rem;
-}
 </style>
 
 <template>
@@ -33,13 +22,13 @@
       <span class="landing-title" style="margin-bottom: 3rem">{{ landing.about.title }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .2s">
-      <span class="text">{{ landing.about.text }}</span>
+      <span class="landing-text">{{ landing.about.text }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .4s">
-      <span class="text">{{ landing.about.text2 }}</span>
+      <span class="landing-text">{{ landing.about.text2 }}</span>
     </IntersectionContainer>
     <IntersectionContainer animation-name="slide-in-left" style="opacity: 0; animation-delay: .6s">
-      <span class="text">{{ landing.about.text3 }}</span>
+      <span class="landing-text">{{ landing.about.text3 }}</span>
     </IntersectionContainer>
   </section>
 </template>

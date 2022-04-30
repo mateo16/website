@@ -37,16 +37,10 @@
   }
 }
 
-.text {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 400;
-}
-
 .caption {
   text-align: center;
   font-size: .7rem;
-  font-weight: 400;
+  font-weight: 350;
 }
 
 .arrow {
@@ -91,7 +85,9 @@
   <section class="section full-page non-selectable" :style="`background: linear-gradient(${accentColor}, #ddd)`">
     <DualPaneLayout>
       <template #title>
-        <span class="landing-title">{{ landing.portfolio.title }}</span>
+        <IntersectionContainer animation-name="fade-in" margin="-10px" style="opacity: 0">
+          <span class="landing-title">{{ landing.portfolio.title }}</span>
+        </IntersectionContainer>
       </template>
 
       <template #first-pane>
@@ -103,7 +99,7 @@
       <template #second-pane>
         <div ref="_text" class="text-pane">
           <span class="title" @click="navigate(url, true)">{{ title }}</span>
-          <p class="text" v-html="text"></p>
+          <p class="landing-text" v-html="text"></p>
           <p class="caption" v-html="caption"></p>
         </div>
       </template>
