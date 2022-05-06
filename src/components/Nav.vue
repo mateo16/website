@@ -23,7 +23,7 @@
   letter-spacing: .04rem;
   text-transform: uppercase;
   text-decoration: none;
-  margin: 0 .5rem;
+  margin: 0 .2rem;
 }
 
 .wordmark {
@@ -58,7 +58,6 @@
     <!-- adjust logo a bit... -->
     <div style="transform: translateY(.1rem)">
       <Logo
-        animate
         color="var(--highlighted-text-color)"
         width="1.4rem"
         @click="router.push('/')"

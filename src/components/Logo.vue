@@ -1,54 +1,48 @@
 <style scoped>
-.logo {
+.logo-container {
   position: relative;
+  transform-origin: 50% 56%;
 }
 
-.a-frame {
-  stroke-width: 150px;
+.logo {
   transition: stroke 150ms linear;
 }
 
 @media (--hover) {
-  .a-frame:hover {
-    stroke: var(--accent-color);
+  .logo-container:hover {
+    cursor: pointer;
+    animation-name: rotate;
+    animation-duration: .6s;
+    animation-timing-function: ease-in-out;
   }
 
   .logo:hover {
-    cursor: pointer;
+    stroke: var(--accent-color);
   }
-}
-
-.animate {
-  animation-name: rotate;
-  animation-duration: 6s;
-  animation-delay: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
-  transform-origin: 50% 56%;
 }
 
 @keyframes rotate {
   0%   { transform: rotate(0); }
-  10%  { transform: rotate(360deg); }
-  100% { transform: rotate(360deg); }
+  100% { transform: rotate(1turn); }
 }
 </style>
 
 <template>
   <div
-    :class="`logo flex-row ${props.animate ? 'animate' : ''}`"
+    class="logo-container flex-row"
     :style="`${props.noInteraction ? 'pointer-events: none;' : ''} ${props.width ? `width: ${props.width}` : ''}`"
   >
     <svg
+      class="logo"
       width="100%"
       height="100%"
       viewBox="0 0 800 800"
       fill="none"
+      :stroke="props.color"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        class="a-frame"
-        :stroke="props.color"
+        stroke-width="150"
         stroke-linejoin="bevel"
         d="M404 118C341 320 243.5 489 118 613C294.5 574.5 488.944 572.667 690 613C557 471.5 466 321.5 404 118Z"
       />
@@ -66,11 +60,6 @@ const props = defineProps({
   color: {
     type: String,
     default: 'currentColor',
-    required: false
-  },
-  animate: {
-    type: Boolean,
-    default: false,
     required: false
   },
   noInteraction: {
