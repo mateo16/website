@@ -4,15 +4,15 @@
   --dialog-width: 26rem;
   --nav-height: 3rem;
   --footer-height: 2rem;
-  --max-content-width: 40rem;
+  --max-content-width: 36rem;
   --decoration-line-thickness: .1rem;
   --text-decoration-offset: 0.2rem;
 
   /* BREAKPOINT ROOT SIZES */
   --root-size-mobile-legacy: 14px;
   --root-size-mobile: 18px;
-  --root-size-desktop: 19px;
-  --root-size-desktop-large: 20px;
+  --root-size-desktop: 24px;
+  --root-size-desktop-large: 30px;
 }
 
 ::selection {
@@ -68,6 +68,7 @@ html {
 }
 
 body {
+  position: relative;
   color: var(--text-color);
   background-color: var(--background-color);
   padding: 0;
@@ -96,13 +97,15 @@ p {
 }
 
 h1 {
+  position: relative;
   font-family: var(--secondary-font);
   font-weight: 500;
   font-size: 3rem;
-  line-height: 4rem;
-  letter-spacing: 0.04rem;
+  line-height: 1.5em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  word-break: break-word;
 }
 
 h2 {
@@ -114,6 +117,7 @@ h2 {
   text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: .8rem;
+  word-break: break-word;
 }
 
 h3 {
@@ -125,6 +129,7 @@ h3 {
   text-transform: uppercase;
   margin-top: .4rem;
   margin-bottom: .5rem;
+  word-break: break-word;
 }
 
 h4 {
@@ -134,6 +139,7 @@ h4 {
   letter-spacing: 0.06rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  word-break: break-word;
 }
 
 /* override link styling for headers that are also links */
@@ -150,7 +156,7 @@ a, a:visited {
 
   text-underline-offset: var(--text-decoration-offset);
   text-decoration-thickness: var(--decoration-line-thickness);
-  text-decoration-color: var(--border-color);
+  text-decoration-color: var(--accent-color);
   transition: color 150ms linear;
 }
 
@@ -161,14 +167,13 @@ a:after {
   display: block;
   left: 50%;
   position: absolute;
-  background-color: var(--accent-color);
+  background-color: var(--text-color);
   transition: width 150ms ease-out, left 150ms ease-out;
   width: 0;
 }
 
 @media (--hover) {
   a:hover, a:hover:visited {
-    color: var(--accent-color);
     text-decoration: none;
   }
 
@@ -188,6 +193,7 @@ figcaption {
   font-weight: 500;
   width: 100%;
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 ul {

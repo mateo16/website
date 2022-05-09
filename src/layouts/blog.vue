@@ -1,6 +1,6 @@
 <template>
+  <PostDecoration scroll-target="app"  />
   <main>
-    <!-- BLOG POST HEADER -->
     <BlogPostHeader
       :title="frontmatter.title"
       :author="frontmatter.author"
@@ -11,9 +11,7 @@
     <!-- BLOG POST -->
     <router-view />
 
-    <!-- BLOG POST FOOTER -->
     <BlogPostFooter />
-
   </main>
   <Nav scroll-target="app" />
   <Footer scroll-target="app" />

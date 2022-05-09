@@ -14,7 +14,6 @@
   border: 1px solid var(--background-color);
   background-color: var(--border-color);
   transition: background 200ms linear;
-  box-shadow: inset;
 }
 
 .active {

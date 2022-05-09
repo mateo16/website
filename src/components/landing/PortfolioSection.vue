@@ -9,7 +9,7 @@
 
 .image {
   display: inline-block;
-  max-width: 30rem;
+  max-width: 26rem;
   margin: 0 1rem;
   transition: opacity .2s ease-out;
 }

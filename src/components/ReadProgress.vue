@@ -23,52 +23,32 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
-
-const threshold = 30;
-const hidden = ref(false)
+import { ref, watchEffect } from 'vue'
+import useScroll from '@/lib/composable/scroll'
+import { getElement } from '@/lib/element'
 
 const props = defineProps({
-  showBackground: {
-    type: Boolean,
-    default: false,
-    required: false
-  },
   scrollTarget: {
     type: String,
-    default: null,
-    required: false
+    required: true
+  },
+  threshold: {
+    type: Number,
+    required: false,
+    default: 30
   }
 })
 
+const hidden = ref(false)
 const width = ref(0)
 
-const onScroll = () => {
-  const scrollPos = element ? element.scrollTop : window.scrollY
-  hidden.value = scrollPos < threshold
+const element = getElement(props.scrollTarget)
+
+const { scrollY } = useScroll(element)
+
+watchEffect(() => {
+  const scrollPos = scrollY.value
+  hidden.value = scrollPos < props.threshold
   width.value = element ? element.scrollTop / (element.scrollHeight - element.clientHeight) * 100.0 : 0
-}
-
-let element: HTMLElement | null
-
-onMounted(() => {
-  if (props.scrollTarget) {
-    element = document.getElementById(props.scrollTarget)
-    if (!element) {
-      console.error(`Element with id "${props.scrollTarget}" not found`)
-      throw new Error(`Element with id "${props.scrollTarget}" not found`)
-    }
-    element.addEventListener('scroll', onScroll)
-  } else {
-    window.addEventListener('scroll', onScroll)
-  }
-})
-
-onBeforeUnmount(() => {
-  if (element) {
-    element.removeEventListener('scroll', onScroll)
-  } else {
-    window.removeEventListener('scroll', onScroll)
-  }
 })
 </script>

@@ -68,18 +68,18 @@
 
     <span class="landing-title">{{ landing.hero.marquee.title }}</span>
 
+      <!-- :style="`color: ${marqueeColor}`" -->
     <span
       ref="marquee"
-      style="margin-bottom: 4rem"
+      style="margin-bottom: 4rem; color: var(--accent-color)"
       class="marquee landing-title"
-      :style="`color: ${marqueeColor}`"
     >
       {{ marqueeText }}
     </span>
 
+      <!-- :color="marqueeColor" -->
     <Button
       :text="landing.hero.cta"
-      :color="marqueeColor"
       to="/contact"
     />
   </section>

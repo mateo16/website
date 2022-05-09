@@ -64,61 +64,51 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { navigate } from '@/lib/utils'
+import { getElement } from '@/lib/element'
 import copy from '@/assets/copy/en/app.yml'
+import useScroll from '@/lib/composable/scroll'
 import config from '@/assets/config.yml'
-
-const router = useRouter()
-const thisYear = computed(() => `${new Date().getFullYear()}`)
-const footerHeight = 30;
-const hidden = ref(true)
-
-// the scrollable element
-let element: HTMLElement | null
-
-// Vue router's afterEach guard nav's callback removal function
-let removeAfterEachHook: () => void
 
 const props = defineProps({
   scrollTarget: {
     type: String,
-    default: null,
-    required: false
+    required: true
+  },
+  threshold: {
+    type: Number,
+    required: false,
+    default: 30
   }
 })
 
+const router = useRouter()
+const thisYear = computed(() => `${new Date().getFullYear()}`)
+const hidden = ref(true)
+
+// Vue router's afterEach guard nav's callback removal function
+let removeAfterEachHook: () => void
+
+const element = getElement(props.scrollTarget)
+const { scrollY } = useScroll(element)
+
 const onScroll = () => {
-  if (element) {
-    hidden.value = element.scrollHeight - element.clientHeight - footerHeight > element.scrollTop
-  }
+  hidden.value = element.scrollHeight - element.clientHeight - props.threshold > scrollY.value
 }
 
+watch(scrollY, () => { onScroll() })
+
+removeAfterEachHook = router.afterEach(() => { nextTick(onScroll) })
+
 onMounted(() => {
-  if (props.scrollTarget) {
-    element = document.getElementById(props.scrollTarget)
-    if (!element) {
-      const msg = `Element with id "${props.scrollTarget}" not found`
-      console.error(msg)
-      throw new Error(msg)
-    }
-
-    // recalculate footer visibility when scroll position changes,
-    // when the scrollable container is resized and after navigation
-    element.addEventListener('scroll', onScroll)
-    element.addEventListener('resize', onScroll)
-    removeAfterEachHook = router.afterEach(() => { nextTick(onScroll) })
-
-    // initialize
-    onScroll()
-  }
+  // initialize
+  onScroll()
 })
 
 onBeforeUnmount(() => {
-  if (element) {
-    element.removeEventListener('scroll', onScroll)
-    element.removeEventListener('resize', onScroll)
+  if (removeAfterEachHook) {
     removeAfterEachHook()
   }
 })

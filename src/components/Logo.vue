@@ -1,6 +1,7 @@
 <style scoped>
 .logo-container {
   position: relative;
+  pointer-events: all;
   transform-origin: 50% 56%;
 }
 
@@ -10,14 +11,9 @@
 
 @media (--hover) {
   .logo-container:hover {
-    cursor: pointer;
     animation-name: rotate;
     animation-duration: .6s;
     animation-timing-function: ease-in-out;
-  }
-
-  .logo:hover {
-    stroke: var(--accent-color);
   }
 }
 

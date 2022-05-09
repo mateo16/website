@@ -2,7 +2,7 @@
 .author-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   gap: 0.5rem;
   justify-content: flex-start;
@@ -12,12 +12,15 @@
   display: inline;
   position: relative;
   border-radius: 50%;
+  border: var(--decoration-line-thickness) solid var(--border-color);
   transition: border 150ms ease;
 }
 
 .post-info {
+  position: relative;
   font-size: .8rem;
-  letter-spacing: 0.01rem;
+  font-weight: 300;
+  letter-spacing: 0.03rem;
   text-transform: capitalize;
 }
 
@@ -92,7 +95,7 @@ const props = defineProps({
   photoSize: {
     type: String,
     required: false,
-    default: "2.4rem"
+    default: "2rem"
   },
   socialLinks: {
     type: Boolean,

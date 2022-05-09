@@ -3,11 +3,12 @@
   position: fixed;
   top: 0;
   padding: 0 var(--content-margin);
-  gap: .5rem;
+  gap: 1rem;
   align-items: center;
   min-height: var(--nav-height);
   width: 100%;
   transition: transform 400ms ease-out;
+  pointer-events: none;
 }
 
 .nav-hidden {
@@ -19,16 +20,17 @@
 }
 
 .nav-link {
+  pointer-events: all;
   font-size: .8rem;
-  letter-spacing: .04rem;
+  letter-spacing: .08rem;
   text-transform: uppercase;
   text-decoration: none;
   margin: 0 .2rem;
 }
 
 .wordmark {
-  font-weight: 700;
-  letter-spacing: .12rem;
+  font-weight: 800;
+  letter-spacing: .2rem;
 }
 
 .nav-backdrop {
@@ -60,7 +62,6 @@
       <Logo
         color="var(--highlighted-text-color)"
         width="1.4rem"
-        @click="router.push('/')"
       />
     </div>
 
@@ -76,13 +77,10 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import useScroll from '@/lib/composable/scroll'
+import { getElement } from '@/lib/element'
 import copy from '@/assets/copy/en/app.yml'
-
-const router = useRouter()
-const threshold = 30;
-const hidden = ref(false)
 
 const props = defineProps({
   showBackground: {
@@ -92,36 +90,16 @@ const props = defineProps({
   },
   scrollTarget: {
     type: String,
-    default: null,
-    required: false
+    required: true
+  },
+  threshold: {
+    type: Number,
+    required: false,
+    default: 30
   }
 })
 
-const onScroll = () => {
-  const scrollPos = targetElement ? targetElement.scrollTop : window.scrollY
-  hidden.value = scrollPos > threshold
-}
-
-let targetElement: HTMLElement | null
-
-onMounted(() => {
-  if (props.scrollTarget) {
-    targetElement = document.getElementById(props.scrollTarget)
-    if (!targetElement) {
-      console.error(`Element with id "${props.scrollTarget}" not found`)
-      throw new Error(`Element with id "${props.scrollTarget}" not found`)
-    }
-    targetElement.addEventListener('scroll', onScroll)
-  } else {
-    window.addEventListener('scroll', onScroll)
-  }
-})
-
-onBeforeUnmount(() => {
-  if (targetElement) {
-    targetElement.removeEventListener('scroll', onScroll)
-  } else {
-    window.removeEventListener('scroll', onScroll)
-  }
-})
+const element = getElement(props.scrollTarget)
+const { scrollY } = useScroll(element)
+const hidden = computed(() => scrollY.value > props.threshold)
 </script>

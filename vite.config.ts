@@ -5,7 +5,7 @@ import Compression from 'vite-plugin-compression'
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
 import VitePluginMarkdown from 'vite-plugin-md'
-import MarkdownItAnchor from 'markdown-it-anchor'
+// import MarkdownItAnchor from 'markdown-it-anchor'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItExternalLinks from 'markdown-it-external-links'
 import path from 'path'
@@ -26,7 +26,8 @@ export default defineConfig({
 
   ssgOptions: {
     script: 'async',
-    formatting: 'minify'
+    formatting: 'minify',
+    mock: false
   },
 
   plugins: [
