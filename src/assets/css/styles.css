@@ -6,7 +6,7 @@
   --footer-height: 2rem;
   --max-content-width: 36rem;
   --decoration-line-thickness: .1rem;
-  --text-decoration-offset: 0.2rem;
+  --text-decoration-offset: 0.2em;
 
   /* BREAKPOINT ROOT SIZES */
   --root-size-mobile-legacy: 14px;
@@ -198,6 +198,10 @@ figcaption {
 
 ul {
   list-style: none;
+}
+
+ol, ul {
+  list-style-position: inside;
   margin-bottom: 1rem;
 }
 
@@ -209,8 +213,8 @@ li {
 ul > li::before {
   content: "•";
   display: inline-block;
-  width: 1.2em;
-  color: var(--border-color);
+  padding-right: .6em;
+  color: var(--muted-text-color);
 }
 
 /* Code styling */
@@ -228,26 +232,27 @@ pre {
 code {
   color: var(--muted-text-color);
   font-family: var(--code-font);
-  font-size: .9rem;
+  font-size: .9em;
   font-weight: 400;
+  letter-spacing: 0.02em;
+  padding: 0 .4em;
   background-color: var(--background-color-callout);
 }
 
 pre > code {
   font-size: .7rem;
+  padding: 0;
 }
 
 blockquote {
-  font-size: .8rem;
-  font-weight: 400;
-  max-width: 70vw;
-  text-align: center;
+  font-size: .7rem;
+  font-weight: 300;
   background-color: var(--background-color-callout);
   padding: 1rem;
   margin: 1rem auto;
 }
 
 blockquote > p {
-  line-height: 1rem;
+  line-height: 1.3rem;
   padding-bottom: .3rem;
 }
