@@ -28,15 +28,15 @@
   <svg :class="`deco deco1 ${hidden ? 'hidden' : ''}`" viewBox="0 0 1280 655" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="gradient" gradientTransform="rotate(90)">
-        <stop offset="0%" stop-color="var(--accent-color)" stop-opacity=".6" />
-        <stop offset="100%" stop-color="var(--accent-color)" stop-opacity=".1" />
+        <stop offset="0%" stop-color="var(--text-color)" stop-opacity=".3" />
+        <stop offset="100%" stop-color="var(--text-color)" stop-opacity=".05" />
       </linearGradient>
     </defs>
     <path d="M0 654.5V0H1280V225.5C934 281 478 654.5 0 654.5Z" fill="url(#gradient)"/>
   </svg>
 
   <svg :class="`deco deco2 ${hidden ? 'hidden' : ''}`" viewBox="0 0 1280 348"  preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0V339C521 402 832.5 111 1280 111V0H0Z" fill="var(--accent-color)" opacity="0.6" />
+    <path d="M0 0V339C521 402 832.5 111 1280 111V0H0Z" fill="var(--text-color)" opacity=".1" />
   </svg>
 </template>
 
