@@ -1,0 +1,44 @@
+hero:
+  loading: loading...
+  marquee:
+    title: We power
+    elements: [
+      'Web 3.0',
+      'Gaming',
+      'Media streaming',
+    ]
+  cta: get in touch
+
+about:
+  title: About us
+  text: We design gorgeous products using the latest and greatest tech to power amazing experiences your users will love.
+  text2: We put an emphasis on beauty and simplicity, making sure no detail goes unnoticed.
+  text3: Need consulting services? We've got you covered! We'll get your in-house team on the right track, guiding it through the entire development cycle.
+
+portfolio:
+  title: Portfolio
+  content:
+    - title: Groovly
+      url: https://groovly.fm/
+      text: Audio platform aimed at promoting independent artists.
+      caption: 'Stack: Vue.js, AWS.'
+      image: /img/portfolio/groovly.png
+    - title: Ristband
+      url: https://ristband.co/
+      text: Metaverse multiplayer platform running entirely on the cloud.
+      caption: 'Stack: Unreal Engine, Polygon, AWS.'
+      image: /img/portfolio/ristband.png
+
+stack:
+  title: Tech stack
+  content:
+    - text: We embrace the open web, leveraging the latest web standards to deliver world-class products.
+      image: /img/web.png
+    - text: Gaming is in our DNA. We create immersive experiences through our deep expertise in rendering and next-gen game engines.
+      image: /img/gaming.png
+    - text: Our cloud-native approach allows us to deliver rock-solid APIs that can scale globally to millions of users.
+      image: /img/cloud.png
+    - text: We build on top of cutting-edge blockchain technologies to pave the way to a fully decentralized future.
+      image: /img/blockchain.png
+    - text: We open source many of our <a style="color:black; font-weight:600" href="https://github.com/orgs/ApsisTechnologies/repositories" target="_blank">internal projects</a> and share them with the community.
+      image: /img/open-source.png

@@ -28,8 +28,8 @@
   position: absolute;
   width: 95%;
   height: 95%;
-  stroke: #ccc;
-  stroke-width: .03rem;
+  stroke: var(--border-color);
+  stroke-width: .01rem;
 }
 </style>
 
@@ -61,7 +61,7 @@ const props = defineProps({
   iconGrowthFactor: {
     type: Number,
     required: false,
-    default: 3.0
+    default: 2.5
   },
   iconShrinkFactor: {
     type: Number,

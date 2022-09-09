@@ -1,10 +1,17 @@
-import { ref } from 'vue'
-import { useEventListener } from '@/lib/composable/event'
+import { useEventListener, useWindowEventListener } from '@/lib/composable/event'
 
-export default function useScrollPos(target: HTMLElement) {
-  const scrollY = ref(0)
+export function useScrollPos(target: HTMLElement) {
+  let scrollY = $ref(0)
 
-  useEventListener(target, 'scroll', () => { scrollY.value = target.scrollTop })
+  useEventListener(target, 'scroll', () => { scrollY = target.scrollTop })
 
-  return { scrollY }
+  return $$({ scrollY })
+}
+
+export function useWindowScrollPos() {
+  let scrollY = $ref(0)
+
+  useWindowEventListener('scroll', () => { scrollY = window.scrollY })
+
+  return $$({ scrollY })
 }

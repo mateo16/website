@@ -1,10 +1,4 @@
-<style scoped>
-</style>
-
 <template>
-  <h1>{{copy.contact.title}}</h1>
-  <p>{{copy.contact.text}}</p>
-
   <TextInput
     ref="nameField"
     :name="copy.contact.namePlaceholder"
@@ -42,7 +36,7 @@ import { sendContactRequest }  from '@/lib/apsis/contact'
 import { useEventBus }  from '@/lib/event'
 import { trackContactRequest }  from '@/lib/analytics'
 import { isValidEmailAddress }  from '@/lib/utils'
-import copy from '@/assets/copy/en/app.yml'
+import copy from 'assets/copy/en/app.yml'
 
 useHead({ title: `${copy.contact.title} | ${copy.company}` })
 

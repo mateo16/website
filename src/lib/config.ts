@@ -6,6 +6,9 @@ export function getAppConfig() {
   return {
     appUrl: import.meta.env.APSIS_APP_URL,
     homeRoute: import.meta.env.APSIS_HOME_ROUTE,
-    apiBaseUrl: import.meta.env.APSIS_API_BASE_URL
+    apiBaseUrl: import.meta.env.APSIS_API_BASE_URL,
+    linkedInUrl: import.meta.env.APSIS_LINKEDIN_URL,
+    githubUrl: import.meta.env.APSIS_GITHUB_URL,
+    contactEmailAddress: import.meta.env.APSIS_CONTACT_EMAIL_ADDRESS,
   }
 }

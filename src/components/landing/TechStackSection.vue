@@ -2,15 +2,12 @@
 .section {
   display: flex;
 
-  color: #000;
-  background-color: #ddd;
-  padding: 2rem var(--content-margin);
-
-  scroll-snap-align: start;
+  background-color: var(--background-color);
+  padding: var(--content-margin);
 }
 
 .text-pane {
-  max-width: 25rem;
+  max-width: 20rem;
 }
 
 .fade {
@@ -30,16 +27,14 @@
 </style>
 
 <template>
-  <section class="section full-page non-selectable">
+  <section class="section pos-relative full-page non-selectable">
     <DualPaneLayout style="z-index: 1">
       <template #title>
-        <IntersectionContainer animation-name="fade-in" margin="-10px" style="opacity: 0">
-          <span class="landing-title">{{ landing.stack.title }}</span>
-        </IntersectionContainer>
+        <h1 class="gradient-text">{{ landing.stack.title }}</h1>
       </template>
 
       <template #first-pane>
-        <span ref="text" class="text-pane landing-text fade" />
+        <span ref="text" class="text-pane text-center fade" />
       </template>
 
       <template #second-pane>
@@ -53,17 +48,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import landing from '@/assets/copy/en/landing.yml'
+import { onMounted, onBeforeUnmount } from 'vue';
+import landing from 'assets/copy/en/landing.yml'
 
-const text = ref()
-const carousel = ref()
+const text: HTMLElement = $ref()
+const carousel = $ref()
 
 let currentContentIdx = 0
 
 function update() {
   const state = landing.stack.content[currentContentIdx]
-  text.value.innerHTML = state.text
+  text.innerHTML = state.text
 }
 
 const doContentTransition = () => {
@@ -74,15 +69,15 @@ const doContentTransition = () => {
 
   update()
 
-  carousel.value.cycle()
+  carousel.cycle()
 }
 
 onMounted(() => {
-  text.value.addEventListener('animationiteration', doContentTransition)
+  text.addEventListener('animationiteration', doContentTransition)
   update()
 })
 
 onBeforeUnmount(() => {
-  text.value.removeEventListener('animationiteration', doContentTransition)
+  text.removeEventListener('animationiteration', doContentTransition)
 })
 </script>

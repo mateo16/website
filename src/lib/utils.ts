@@ -1,6 +1,6 @@
 export const formatDate = (date: string) => (new Date(date)).toDateString()
 
-export const navigate = (url: URL, external: boolean = false) => {
+export const navigate = (url: string, external: boolean = false) => {
   window.open(url.toString(), external ? '_blank' : undefined)
 }
 
@@ -10,7 +10,11 @@ export function wait(milliseconds: number) {
   });
 }
 
-export function pickRandomElement(array: []) {
+export const randomNumber = (min: number, max: number) => Math.random() * (max - min) + min
+
+export const randomInt = (min: number, max: number) => Math.trunc(randomNumber(min, max))
+
+export function randomElement(array: []) {
   if (!Array.isArray(array)) {
     return null;
   }
@@ -43,6 +47,8 @@ export function rotateArray(arr: (any)[], reverse: boolean = false): void {
     }
   }
 }
+
+export const rotateForward = (v: number, max: number) => v === max - 1 ? 0 : v + 1
 
 export function preloadImage(url: string) {
     const img = new Image()

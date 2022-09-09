@@ -2,14 +2,14 @@
 .field {
   position: relative;
   border-bottom: 1px solid var(--border-color);
-  border-radius: .2rem .2rem 0 0;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
   margin: 2rem auto 1rem;
   transition: background 300ms;
 }
 
 @media (--hover) {
   .field:hover {
-    background: #0001;
+    background: #fff2;
     cursor: text;
   }
 }
@@ -19,7 +19,7 @@
   position: relative;
   display: block;
   height: var(--decoration-line-thickness);
-  background: var(--accent-color);
+  background: var(--main-gradient);
   transform: scaleX(0);
   transform-origin: 0%;
   opacity: 0;
@@ -54,9 +54,8 @@
   font-family: inherit;
   font-weight: inherit;
   letter-spacing: inherit;
-  user-select: text;
   color: var(--text-color);
-  caret-color: var(--accent-color);
+  caret-color: var(--text-color);
   transition: border 500ms, color 200ms;
 }
 
@@ -88,7 +87,7 @@
     <span
       ref="textInput"
       :contenteditable="enabled"
-      :class="`text-input ${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
+      :class="`text-input selectable ${enabled ? '' : ' disabled'}${invalidMessage ? ' invalid' : ''}`"
       :maxlength="maxLength"
       @input="onEdit"
       @keypress="onKeyPressed"

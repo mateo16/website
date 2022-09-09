@@ -28,6 +28,9 @@
   APSIS_HOME_ROUTE = "/"
   APSIS_APP_URL = "https://apsistechnologies.com"
   APSIS_API_BASE_URL = "https://75ac870d94.execute-api.us-east-1.amazonaws.com"
+  APSIS_LINKEDIN_URL = "https://www.linkedin.com/company/apsis-tech/"
+  APSIS_GITHUB_URL = "https://github.com/ApsisTechnologies"
+  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistechnologies.com"
 
 [context.branch-deploy.environment]
   APSIS_FIREBASE_API_KEY = "AIzaSyBGof6saap535XQY7sTHg4pOLf3_Yl7v4o"
@@ -39,3 +42,6 @@
   APSIS_HOME_ROUTE = "/"
   APSIS_APP_URL = "https://dev.apsistechnologies.com"
   APSIS_API_BASE_URL = "https://9scn83sbph.execute-api.us-east-1.amazonaws.com"
+  APSIS_LINKEDIN_URL = "https://www.linkedin.com/company/apsis-tech/"
+  APSIS_GITHUB_URL = "https://github.com/ApsisTechnologies"
+  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistechnologies.com"

@@ -19,3 +19,7 @@ export function trackContactRequest() {
 export function trackError(message: string) {
   trackEvent('app-error', { value: message })
 }
+
+export function trackSocial(value: string) {
+  trackEvent('social', { value })
+}

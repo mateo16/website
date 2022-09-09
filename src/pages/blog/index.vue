@@ -2,9 +2,10 @@
 .post {
   margin-bottom: 1.5rem;
   background-color: var(--background-color-callout);
-  border-radius: .5rem;
+  border-radius: var(--border-radius);
   padding: 1rem;
-  transition: all 100ms ease-out;
+  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
+  transition: all 150ms ease-out;
 }
 
 @media (--hover) {
@@ -24,12 +25,12 @@
   text-transform: uppercase;
   margin-bottom: .3rem;
   padding-bottom: .2rem;
-  line-height: 1.6rem;
+  line-height: 1.4rem;
 }
 </style>
 
 <template>
-  <h1>{{ copy.blog.title }}</h1>
+  <h1 class="gradient-text">{{ copy.blog.title }}</h1>
   <h4>{{ copy.blog.subtitle }}</h4>
 
   <Separator />
@@ -40,13 +41,13 @@
     :key="post.path"
     @click="router.push(post.path)"
   >
-    <span class="post-title">{{ post.meta.frontmatter.title }}</span>
+    <span class="post-title gradient-text">{{ post.meta.frontmatter.title }}</span>
 
     <BlogPostHeader
       :author="post.meta.frontmatter.author"
       :date="post.meta.frontmatter.date"
       :social-links="false"
-      photo-size="1.6rem"
+      photo-size="2.4rem"
     />
   </div>
 </template>
@@ -54,7 +55,7 @@
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
-import copy from '@/assets/copy/en/app.yml'
+import copy from 'assets/copy/en/app.yml'
 
 useHead({ title: `${copy.blog.title}` })
 

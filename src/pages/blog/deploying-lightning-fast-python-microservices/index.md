@@ -1,5 +1,5 @@
 ---
-title: Deploying lightning-fast Python microservices 🐍⚡️
+title: Deploying lightning-fast Python microservices
 description: Using FastAPI and Docker to seamlessly deploy ultra-fast, lightweight microservices.
 author: Martin
 date: 2022-01-29 21:43:56
@@ -15,8 +15,6 @@ We devote a lot of brain cycles to architecting our tools for delivering world-c
 ## TL,DR
 
 Wanna get coding right away? We open sourced an internal project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) which implements all of the features described below.
-
-![Logo](./narwhal.svg)<figcaption>🐳 Docker + 🦄 uvicorn + ⚡️ FastAPI = Narwhal</figcaption>
 
 It also comes with utility commands and a few other goodies you can use to bootstrap your projects.
 

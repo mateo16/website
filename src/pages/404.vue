@@ -4,5 +4,5 @@
 </template>
 
 <script setup lang="ts">
-import copy from '@/assets/copy/en/app.yml'
+import copy from 'assets/copy/en/app.yml'
 </script>

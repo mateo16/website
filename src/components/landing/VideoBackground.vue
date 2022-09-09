@@ -1,6 +1,5 @@
 <style scoped>
 .overlay {
-  position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
@@ -13,32 +12,32 @@
 
 .video-darken-overlay {
   background-color: #000;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .video-overlay-texture {
-  background-image: url('@/assets/images/dot-matrix.png');
+  background-image: url('assets/images/dot-matrix.png');
   opacity: 0.5;
 }
 </style>
 
 <template>
   <video
-    class="overlay background-video"
+    class="overlay background-video pos-fixed"
     loop
     muted
     playsinline
     preload="auto"
     :autoplay="autoplay"
-    poster="@/assets/images/apsis_hero_cover.jpg"
+    poster="assets/images/apsis_hero_cover.jpg"
     @play="emit('playback-started')"
   >
     <source type="video/mp4" :src="props.src" />
     Your browser doesn't support video. =(
   </video>
 
-  <div class="overlay video-overlay-texture" />
-  <div class="overlay video-darken-overlay" />
+  <div class="overlay pos-fixed video-overlay-texture" />
+  <div class="overlay pos-fixed video-darken-overlay" />
 </template>
 
 <script setup lang="ts">

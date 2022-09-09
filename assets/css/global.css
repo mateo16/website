@@ -1,0 +1,132 @@
+.full-page {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.stretch {
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  padding: var(--content-margin);
+  max-width: var(--max-content-width);
+}
+
+.non-breaking-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectable {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: auto;
+}
+
+.non-selectable {
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: default;
+}
+
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+.pos-fixed {
+  position: fixed;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-no-wrap {
+  flex-wrap: nowrap;
+}
+
+.flex-gap {
+  gap: var(--flex-gap);
+}
+
+.scroll-snap-y-soft {
+  scroll-snap-type: y proximity;
+  scroll-snap-stop: always;
+}
+
+.scroll-snap-y-hard {
+  scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+}
+
+.scroll-snap-align-start {
+  scroll-snap-align: start;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.wordmark {
+  font-weight: 700;
+  letter-spacing: .2rem;
+  text-transform: uppercase;
+}
+
+.icon-button {
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: scale 150ms ease-out;
+}
+
+@media (--hover) {
+  .icon-button:hover {
+    scale: 1.2;
+    cursor: pointer;
+  }
+}
+
+.gradient-text {
+  background-image: var(--main-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

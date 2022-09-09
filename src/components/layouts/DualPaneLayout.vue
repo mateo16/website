@@ -11,7 +11,6 @@
 
 .title-pane {
   position: relative;
-  width: 100%;
 }
 
 .dual-pane {

@@ -5,7 +5,6 @@ default:
   description: Apsis basic color theme
 
   light:
-    --accent-color: '#f0e'
     --error-color: '#f90'
     --text-color: '#222'
     --highlighted-text-color: '#000'
@@ -15,7 +14,6 @@ default:
     --border-color: '#aaa'
 
   dark:
-    --accent-color: '#0cf'
     --error-color: '#f90'
     --text-color: '#ddd'
     --highlighted-text-color: '#fff'
@@ -29,21 +27,21 @@ superuva:
   description: Deep purple theme
 
   light:
-    --accent-color: '#0ef'
     --error-color: '#f70'
     --text-color: '#203'
     --highlighted-text-color: '#102'
     --muted-text-color: '#5c5062'
     --background-color: '#f5f8ff'
     --background-color-callout: '#e8ecf3'
-    --border-color: '#abb2ba'
+    --border-color: '#8f98a3'
+    --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'
 
   dark:
-    --accent-color: '#0ef'
     --error-color: '#f70'
     --text-color: '#f2f1f4'
     --highlighted-text-color: '#f5f5ff'
     --muted-text-color: '#b1abba'
     --background-color: '#110b1b'
     --background-color-callout: '#22192e'
-    --border-color: '#464158'
+    --border-color: '#5e5775'
+    --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'

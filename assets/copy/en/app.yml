@@ -1,22 +1,18 @@
-company: Apsis
+company: Apsis Technologies
+companyShort: Apsis
 
 nav:
   blog: blog
   contact: contact
 
 footer:
-  notice: Designed by
+  notice: All rights reserved.
 
 landing:
   description: Product development and design solutions.
 
-  # Under construction section
-  underConstruction:
-    title: We're revamping our site!
-    text: <p>In the meantime, feel free to read through our <a href="/blog">tech blog</a>.</p><p>Or <a href="/contact">drop us a note</a> to get in touch.</p>
-
 blog:
-  title: Apsis Tech Blog
+  title: Apsis Blog
   subtitle: Fun lessons learned in the land of technology
   blog: blog
   footer:
@@ -24,16 +20,19 @@ blog:
 
 contact:
   title: Contact us
-  text: Fill the form below to get in touch with our team, we'll get back to you shortly.
+  text1: Need help getting your project launched? We'd love to talk! Drop us a line with your info below, we'll get back to you in no time.
+  text2: Can't wait to hear about your earth-shattering project!
+  text3: You can also write to us to <a href="mailto:{EMAIL}">{EMAIL}</a>.
+
   namePlaceholder: Name
   emailPlaceholder: Email
   messagePlaceholder: Message
 
   confirmation: Message sent! We'll get in touch with you soon.
 
-  cta: Send message
+  cta: Send
   sending: Sending...
-  sent: Message sent
+  sent: Sent!
 
   error:
     invalidName: Please type your name

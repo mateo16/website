@@ -1,6 +1,6 @@
 <template>
-  <PostDecoration scroll-target="app"  />
-  <main>
+  <PostDecoration />
+  <main class="selectable">
     <BlogPostHeader
       :title="frontmatter.title"
       :author="frontmatter.author"
@@ -13,9 +13,9 @@
 
     <BlogPostFooter />
   </main>
-  <Nav scroll-target="app" />
-  <Footer scroll-target="app" />
-  <ReadProgress scroll-target="app" />
+  <Nav />
+  <Footer />
+  <ReadProgress />
   <Notification />
 </template>
 
@@ -29,7 +29,7 @@ export default {
 import { useRoute } from 'vue-router'
 import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
-import copy from '@/assets/copy/en/app.yml'
+import copy from 'assets/copy/en/app.yml'
 
 const route = useRoute()
 const frontmatter = route.meta.frontmatter as any

@@ -3,7 +3,7 @@
   background-color: var(--border-color);
   position: relative;
   height: 2.6rem;
-  /* border-radius: 0.3rem; */
+  border-radius: var(--border-radius);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,14 +16,6 @@
   box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
 }
 
-@media (--hover) {
-  .button:hover {
-    cursor: pointer;
-    box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.3);
-    transform: scale(1.03);
-  }
-}
-
 .button-icon {
   position: absolute;
   left: 1rem;
@@ -33,12 +25,25 @@
 
 .button-text {
   position: relative;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 1.1rem;
   line-height: normal;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;
+  transition: all 150ms ease-out;
+}
+
+@media (--hover) {
+  .button:hover {
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+  }
+
+  .button:hover > .button-text {
+    font-weight: 900;
+  }
 }
 
 .text-with-icon {
@@ -104,12 +109,12 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'var(--accent-color)',
+    default: 'var(--main-gradient)',
     required: false
   },
   textColor: {
     type: String,
-    default: '#000',
+    default: 'var(--background-color)',
     required: false
   },
   enabled: {
@@ -138,7 +143,7 @@ const style_ = computed(() =>
 
 const backgroundStyle_ = computed(() =>
   `transform: scaleX(${clamp(props.progress, 0, 1)});` +
-  `background-color: ${props.enabled ? props.color : 'var(--border-color)'};`
+  `background: ${props.enabled ? props.color : 'var(--border-color)'};`
 )
 
 const svg_ = computed(async () => {

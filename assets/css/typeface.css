@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('assets/fonts/Exo-Variable.woff2') format('woff2 supports variations'),
+       url('assets/fonts/Exo-Variable.woff2') format('woff2-variations'),
+       url('assets/fonts/Exo-Regular.woff2') format('woff2'),
+       url('assets/fonts/Exo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('assets/fonts/Cairo-Variable.woff2') format('woff2 supports variations'),
+       url('assets/fonts/Cairo-Variable.woff2') format('woff2-variations'),
+       url('assets/fonts/Cairo-Regular.woff2') format('woff2'),
+       url('assets/fonts/Cairo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('assets/fonts/SourceCodePro-Variable.woff2') format('woff2 supports variations'),
+       url('assets/fonts/SourceCodePro-Variable.woff2') format('woff2-variations'),
+       url('assets/fonts/SourceCodePro-Regular.woff2') format('woff2'),
+       url('assets/fonts/SourceCodePro-Regular.ttf') format('truetype');
+}
+
+:root {
+  --primary-font: Cairo, sans-serif;
+  --secondary-font: Exo, sans-serif;
+  --code-font: Source Code Pro, monospace;
+}

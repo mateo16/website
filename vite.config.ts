@@ -9,6 +9,7 @@ import VitePluginMarkdown from 'vite-plugin-md'
 import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItExternalLinks from 'markdown-it-external-links'
 import path from 'path'
+import svg from 'vite-svg-loader'
 import yaml from '@rollup/plugin-yaml'
 import grayMatter from 'gray-matter'
 import { readFileSync } from 'fs'
@@ -20,19 +21,21 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, '/src'),
+      '@': path.resolve(__dirname, 'src'),
+      'assets': `${path.resolve(__dirname, 'assets')}`,
     },
   },
 
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
-    mock: false
+    mock: true
   },
 
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
+      reactivityTransform: true,
     }),
     Components({
       extensions: ['vue', 'md'],
@@ -74,6 +77,7 @@ export default defineConfig({
         // })
       },
     }),
+    svg(),
     yaml()
   ]
 })

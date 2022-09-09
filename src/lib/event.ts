@@ -9,22 +9,22 @@ export enum Events {
   SERVICE_WORKER_UPDATED = 'service-worker-updated',
 };
 
-type Callback = (e: CustomEvent) => void
+export type ApplicationEventCallback = (e: CustomEvent) => void
 
 export class EventBus {
   constructor() {
     this.target = new EventTarget();
   }
 
-  on(type: Events, listener: Callback) {
+  on(type: Events, listener: ApplicationEventCallback) {
     return this.target.addEventListener(type, listener as (e: Event) => void);
   }
 
-  once(type: Events, listener: Callback) {
+  once(type: Events, listener: ApplicationEventCallback) {
     return this.target.addEventListener(type, listener as (e: Event) => void, { once: true });
   }
 
-  off(type: Events, listener: Callback) {
+  off(type: Events, listener: ApplicationEventCallback) {
     return this.target.removeEventListener(type, listener as (e: Event) => void);
   }
 

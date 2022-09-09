@@ -1,7 +1,22 @@
 <style scoped>
+.hexagon {
+  position: absolute;
+  fill: #f082;
+
+  animation: fall;
+  animation-fill-mode: backwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  user-select: none;
+}
+
 @keyframes fall {
   0% {
-    top: -15%;
+    top: -5%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
   }
   50% {
     opacity: 1;
@@ -12,68 +27,8 @@
   }
 }
 
-.deco-hexa {
-  position: absolute;
-
-  animation: fall;
-  animation-fill-mode: backwards;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  user-select: none;
-}
-
-.deco-hexa-1 {
-  fill: #0002;
-  left: 10%;
-  height: 7rem;
-  opacity: .04;
-
-  animation-duration: 90s;
-  animation-delay: -10s;
-}
-
-.deco-hexa-2 {
-  fill: #0001;
-  left: 18%;
-  height: 5rem;
-  opacity: .03;
-
-  animation-duration: 60s;
-  animation-delay: 0s;
-}
-
-.deco-hexa-3 {
-  fill: #0002;
-  left: 30%;
-  height: 10rem;
-  opacity: .03;
-
-  animation-duration: 45s;
-  animation-delay: -5s;
-}
-
-.deco-hexa-4 {
-  fill: #0002;
-  left: 45%;
-  height: 4rem;
-  opacity: .06;
-
-  animation-duration: 140s;
-  animation-delay: -2s;
-}
-
-.deco-hexa-5 {
-  fill: #0002;
-  left: 75%;
-  height: 3rem;
-  opacity: .06;
-
-  animation-duration: 50s;
-  animation-delay: -20s;
-}
-
-.anim-container {
-  position: relative;
+.hexagon-container {
+  overflow-x: hidden;
 }
 </style>
 
@@ -81,25 +36,15 @@
   <HeroSection />
   <AboutSection />
   <PortfolioSection />
-  <div class="anim-container">
+  <div class="hexagon-container pos-relative">
     <TechStackSection />
-    <CTASection />
+    <ContactSection />
 
-    <svg class="deco-hexa deco-hexa-1" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-    </svg>
-    <svg class="deco-hexa deco-hexa-2" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-    </svg>
-    <svg class="deco-hexa deco-hexa-3" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-    </svg>
-    <svg class="deco-hexa deco-hexa-4" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-    </svg>
-    <svg class="deco-hexa deco-hexa-5" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-      <path d="M150 0L279.904 75V225L150 300L20.0962 225L20.0962 75L150 0Z" />
-    </svg>
+    <Hexagon
+      v-for="_ in hexagonCount"
+      class="hexagon"
+      :style="hexagonStyle()"
+    />
   </div>
 </template>
 
@@ -118,9 +63,19 @@ export default {
 <script setup lang="ts">
 import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
-import copy from '@/assets/copy/en/app.yml'
+import { randomInt, randomNumber } from '@/lib/utils'
+import copy from 'assets/copy/en/app.yml'
+import Hexagon from 'assets/icons/hexagon.svg'
 
 const config = getAppConfig()
+
+const hexagonCount = 12
+
+const hexagonStyle = () => `left: ${randomInt(10, 90)}%;` +
+                           `height: ${randomInt(2, 8)}rem;` +
+                           `animation-duration: ${randomInt(20, 300)}s;` +
+                           `animation-delay: ${randomInt(-80, 0)}s;` +
+                           `opacity: ${randomNumber(0.1, 1)};`
 
 useHead({
   title: `${copy.company} | ${copy.landing.description}`,

@@ -1,10 +1,6 @@
 <style scoped>
 .section {
-  color: #000;
-  display: flex;
-
-  scroll-snap-align: start;
-  padding: 2rem var(--content-margin);
+  padding: var(--content-margin);
 }
 
 .image {
@@ -20,21 +16,10 @@
 }
 
 .title {
-  display: inline-block;
-  text-align: center;
-  text-decoration: underline;
-  text-decoration-thickness: .08rem;
-  text-underline-offset: 0.08rem;
-  width: 100%;
-  font-size: 1.2rem;
-  margin-bottom: .5rem;
-  letter-spacing: 0.02rem;
-}
-
-@media (--hover) {
-  .title {
-    cursor: pointer;
-  }
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
 }
 
 .caption {
@@ -46,30 +31,25 @@
 .arrow {
   position: absolute;
   top: 50%;
-  stroke: black;
+  stroke: var(--text-color);
   fill: none;
-  height: 2rem;
-  opacity: .8;
-}
-
-@media (--res-mobile) {
-  .arrow {
-    height: 1rem;
-  }
+  height: 1rem;
+  transition: opacity .3s linear;
 }
 
 @media (--hover) {
   .arrow:hover {
     cursor: pointer;
+    opacity: .6;
   }
 }
 
 .left-arrow {
-  left: 1%;
+  left: 3%;
 }
 
 .right-arrow {
-  right: 1%;
+  right: 3%;
   transform: rotate(.5turn);
 }
 
@@ -82,26 +62,30 @@
 </style>
 
 <template>
-  <section class="section full-page non-selectable" :style="`background: linear-gradient(${accentColor}, #ddd)`">
+  <section class="section pos-relative flex-col flex-center full-page non-selectable">
     <DualPaneLayout>
       <template #title>
-        <IntersectionContainer animation-name="fade-in" margin="-10px" style="opacity: 0">
-          <span class="landing-title">{{ landing.portfolio.title }}</span>
+        <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
+          <h1 class="gradient-text">{{ landing.portfolio.title }}</h1>
         </IntersectionContainer>
       </template>
 
       <template #first-pane>
-        <div ref="_image" class="image">
-          <img :src="image" alt="">
-        </div>
+        <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0; animation-delay: .3s">
+          <div ref="_image" class="image">
+            <img :src="image" alt="">
+          </div>
+        </IntersectionContainer>
       </template>
 
       <template #second-pane>
-        <div ref="_text" class="text-pane">
-          <span class="title" @click="navigate(url, true)">{{ title }}</span>
-          <p class="landing-text" v-html="text"></p>
-          <p class="caption" v-html="caption"></p>
-        </div>
+        <IntersectionContainer animation-name="slide-in-right" margin="-10px" style="opacity: 0; animation-delay: .6s">
+          <div ref="_text" class="text-pane flex-col flex-center">
+            <span class="title link" @click="navigate(url, true)">{{ title }}</span>
+            <p class="text-center" v-html="text"></p>
+            <p class="caption" v-html="caption"></p>
+          </div>
+          </IntersectionContainer>
       </template>
     </DualPaneLayout>
 
@@ -134,7 +118,7 @@
 
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
-import landing from '@/assets/copy/en/landing.yml'
+import landing from 'assets/copy/en/landing.yml'
 import { preloadImage, navigate } from '@/lib/utils'
 import { getAppConfig } from '@/lib/config'
 
@@ -148,7 +132,6 @@ const title = computed((): string => landing.portfolio.content[index.value].titl
 const url = computed((): string => landing.portfolio.content[index.value].url)
 const text = computed((): string => landing.portfolio.content[index.value].text)
 const caption = computed((): string => landing.portfolio.content[index.value].caption)
-const accentColor = computed((): string => landing.portfolio.content[index.value].accentColor)
 
 let activeIndex = 0
 let transitionEnabled = true
