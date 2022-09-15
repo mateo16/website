@@ -55,6 +55,8 @@ html {
   font-family: var(--primary-font);
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overscroll-behavior: none;
+
   /* scroll-snap-type: y proximity;
   scroll-snap-stop: always; */
 
@@ -69,6 +71,7 @@ body {
   height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
+  overscroll-behavior: none;
 
   color: var(--text-color);
   background-color: var(--background-color);

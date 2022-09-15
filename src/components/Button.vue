@@ -25,7 +25,7 @@
 
 .button-text {
   position: relative;
-  font-weight: 700;
+  font-weight: 650;
   font-size: 1.1rem;
   line-height: normal;
   letter-spacing: 0.1em;

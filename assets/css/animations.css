@@ -61,6 +61,25 @@
   }
 }
 
+.slide-in-bottom {
+  animation: slide-in-bottom;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .slide-in-right {
   animation: slide-in-right;
   animation-duration: .8s;
@@ -77,6 +96,21 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+.float {
+  animation: float;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes float {
+  to {
+    transform: translateY(-10%);
   }
 }
 

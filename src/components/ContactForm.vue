@@ -31,14 +31,11 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useHead } from '@vueuse/head'
 import { sendContactRequest }  from '@/lib/apsis/contact'
 import { useEventBus }  from '@/lib/event'
 import { trackContactRequest }  from '@/lib/analytics'
 import { isValidEmailAddress }  from '@/lib/utils'
 import copy from 'assets/copy/en/app.yml'
-
-useHead({ title: `${copy.contact.title} | ${copy.company}` })
 
 const MAX_MESSAGE_LENGTH = 250
 
@@ -76,7 +73,7 @@ const validateEmail = (emailAddress: string) => {
 }
 
 const validateName = (name: string) => {
-  isNameValid.value = name.length > 0
+  isNameValid.value = name.trim().length > 0
   return isNameValid.value ? '' : copy.contact.error.invalidName
 }
 
