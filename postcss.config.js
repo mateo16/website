@@ -9,6 +9,9 @@ module.exports = {
           '--res-desktop': 'only screen and (min-width: 577px) and (max-width: 1439px)',
           '--res-desktop-large': 'only screen and (min-width: 1440px)',
 
+          // Breakpoint for all mobile resolutions
+          '--res-mobile-all': 'only screen and (max-width: 576px)',
+
           // Device orientation
           '--landscape': '(orientation: landscape)',
           '--portrait': '(orientation: portrait)',

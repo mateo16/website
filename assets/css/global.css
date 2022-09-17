@@ -106,20 +106,22 @@
 }
 
 .wordmark {
-  font-weight: 700;
-  letter-spacing: .2rem;
+  font-family: var(--primary-font);
+  font-weight: 900;
+  letter-spacing: .3rem;
   text-transform: uppercase;
 }
 
 .icon-button {
   width: 1.2rem;
   height: 1.2rem;
-  transition: scale 150ms ease-out;
+  transition: scale 150ms ease-out, rotate 150ms ease-out;
 }
 
 @media (--hover) {
   .icon-button:hover {
     scale: 1.2;
+    rotate: 5deg;
     cursor: pointer;
   }
 }

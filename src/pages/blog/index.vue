@@ -10,7 +10,7 @@
 
 @media (--hover) {
   .post:hover {
-    transform: scale(1.02);
+    scale: 1.02;
     background-color: var(--border-color);
     color: var(--highlighted-text-color);
     cursor: pointer;

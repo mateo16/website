@@ -1,6 +1,8 @@
 <style scoped>
 .section {
   padding: var(--content-margin);
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .image {
@@ -20,6 +22,7 @@
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
+  margin-bottom: .5rem;
 }
 
 .caption {
@@ -62,7 +65,7 @@
 </style>
 
 <template>
-  <section class="section pos-relative flex-col flex-center full-page non-selectable">
+  <section class="section pos-relative flex-col full-page non-selectable">
     <DualPaneLayout>
       <template #title>
         <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
@@ -81,7 +84,7 @@
       <template #second-pane>
         <IntersectionContainer animation-name="slide-in-right" margin="-10px" style="opacity: 0; animation-delay: .6s">
           <div ref="_text" class="text-pane flex-col flex-center">
-            <span class="title link" @click="navigate(url, true)">{{ title }}</span>
+            <span :class="`title ${url ? 'link' : ''}`" @click="onProjectClick(url)">{{ title }}</span>
             <p class="text-center" v-html="text"></p>
             <p class="caption" v-html="caption"></p>
           </div>
@@ -117,26 +120,26 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount, nextTick } from 'vue';
+import { onMounted, onBeforeUnmount, nextTick } from 'vue';
 import landing from 'assets/copy/en/landing.yml'
 import { preloadImage, navigate } from '@/lib/utils'
 import { getAppConfig } from '@/lib/config'
 
 const config = getAppConfig()
-const index = ref(0)
-const _text = ref()
-const _image = ref()
+let index = $ref(0)
+const _text: HTMLElement = $ref()
+const _image: HTMLElement = $ref()
 
-const image = computed((): string => landing.portfolio.content[index.value].image)
-const title = computed((): string => landing.portfolio.content[index.value].title)
-const url = computed((): string => landing.portfolio.content[index.value].url)
-const text = computed((): string => landing.portfolio.content[index.value].text)
-const caption = computed((): string => landing.portfolio.content[index.value].caption)
+const image = $computed((): string => landing.portfolio.content[index].image)
+const title = $computed((): string => landing.portfolio.content[index].title)
+const url = $computed((): string => landing.portfolio.content[index].url)
+const text = $computed((): string => landing.portfolio.content[index].text)
+const caption = $computed((): string => landing.portfolio.content[index].caption)
 
 let activeIndex = 0
 let transitionEnabled = true
 let timeoutId: number
-const transitionIntervalMS = 6000
+const transitionIntervalMS = 10000
 
 onMounted(() => {
   for (const item of landing.portfolio.content) {
@@ -155,6 +158,12 @@ const onPageSelected = (index: number) => {
     transitionEnabled = false
     activeIndex = index
     doTransition()
+  }
+}
+
+const onProjectClick = (url?: string) => {
+  if (url) {
+    navigate(url, true)
   }
 }
 
@@ -181,16 +190,16 @@ const prev = () => {
 }
 
 const doTransition = () => {
-  _text.value.style.opacity = 0;
-  _image.value.style.opacity = 0;
+  _text.style.opacity = '0';
+  _image.style.opacity = '0';
 
-  _image.value.addEventListener('transitionend', () => {
-    index.value = activeIndex
+  _image.addEventListener('transitionend', () => {
+    index = activeIndex
     nextTick(() => {
-      _text.value.style.opacity = 1;
-      _image.value.style.opacity = 1;
+      _text.style.opacity = '1';
+      _image.style.opacity = '1';
 
-      _image.value.addEventListener('transitionend', () => {
+      _image.addEventListener('transitionend', () => {
         transitionEnabled = true
       }, {once: true})
     })

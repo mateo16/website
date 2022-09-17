@@ -13,33 +13,51 @@
   transform: translateY(-100%) scaleX(0)
 }
 
+.nav-links-container {
+  gap: 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
 .separator {
   margin: auto;
 }
 
 .nav-link {
   font-size: .8rem;
-  letter-spacing: .08rem;
+  font-weight: 600;
+  letter-spacing: .1rem;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+@media (--res-mobile-all){
+  .wordmark {
+    display: none;
+  }
 }
 </style>
 
 <template>
   <nav :class="`nav flex-row flex-gap ${hidden ? 'nav-hidden' : ''}`">
-    <Logo @click="router.push('/')" />
-    <span class="link wordmark" @click="router.push('/')">{{copy.companyShort}}</span>
+    <div class="logo-container flex-row flex-center flex-gap">
+      <Logo @click="router.push('/')" />
+      <span class="link wordmark hide-wordmark" @click="router.push('/')">{{copy.companyShort}}</span>
+    </div>
 
     <span class="separator" />
 
     <!--  NAV LINKS -->
-    <span class="link nav-link" @click="router.push('/blog')">{{copy.nav.blog}}</span>
-    <span class="link nav-link" @click="router.push({path: '/', hash: '#contact'})">{{copy.nav.contact}}</span>
+    <div class="nav-links-container flex-center">
+      <span class="link nav-link" @click="router.push('/blog')">{{ copy.nav.blog }}</span>
+      <span class="link nav-link" @click="router.push({ path: '/', hash: '#contact' })">{{copy.nav.contact}}</span>
 
-    <SocialButtonGroup
-      :linkedin="appConfig.linkedInUrl"
-      :github="appConfig.githubUrl"
-    />
+      <SocialButtonGroup
+        :linkedin="appConfig.linkedInUrl"
+        :github="appConfig.githubUrl"
+        :twitter="appConfig.twitterUrl"
+      />
+    </div>
   </nav>
 </template>
 

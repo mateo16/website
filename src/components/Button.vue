@@ -13,6 +13,11 @@
   overflow: hidden;
   transition: all 150ms ease-out;
 
+  font-weight: 650;
+  font-size: 1.1rem;
+  line-height: normal;
+  letter-spacing: 0.08em;
+
   box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -25,10 +30,6 @@
 
 .button-text {
   position: relative;
-  font-weight: 650;
-  font-size: 1.1rem;
-  line-height: normal;
-  letter-spacing: 0.1em;
   text-transform: uppercase;
   pointer-events: none;
   transition: all 150ms ease-out;
@@ -131,13 +132,19 @@ const props = defineProps({
     type: Boolean,
     default: false,
     required: false
-  }
+  },
+  small: {
+    type: Boolean,
+    default: false,
+    required: false
+  },
 })
 
 const router = useRouter()
 
 const style_ = computed(() =>
   `${props.enabled ? '' : 'pointer-events: none;'}` +
+  `${props.small ? 'height: 2rem; padding: 0 1.5rem; font-size: .9rem' : ''};` +
   `color: ${props.enabled ? props.textColor : 'var(--muted-text-color)'}`
 )
 

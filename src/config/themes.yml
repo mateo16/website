@@ -33,6 +33,7 @@ superuva:
     --muted-text-color: '#5c5062'
     --background-color: '#f5f8ff'
     --background-color-callout: '#e8ecf3'
+    --background-gradient: 'linear-gradient(hsl(260deg 30% 95%), hsl(260deg 100% 95%))'
     --border-color: '#8f98a3'
     --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'
 
@@ -43,5 +44,6 @@ superuva:
     --muted-text-color: '#b1abba'
     --background-color: '#110b1b'
     --background-color-callout: '#22192e'
+    --background-gradient: 'linear-gradient(hsl(260deg 40% 10%), hsl(275, 100%, 10%))'
     --border-color: '#5e5775'
     --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'

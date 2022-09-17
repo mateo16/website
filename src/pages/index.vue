@@ -108,10 +108,10 @@ useHead({
     { property: 'og:site_name', content: copy.company },
     { property: 'og:title', content: copy.company },
     { property: 'og:description', content: copy.landing.description },
-    { property: 'og:image', content: `${config.appUrl}/img/apsis-wordmark.png` },
+    { property: 'og:image', content: `${config.appUrl}/img/opengraph-banner.png` },
     { property: 'og:image:type', content: 'image/png' },
     { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '500' },
+    { property: 'og:image:height', content: '630' },
     { property: 'og:locale', content: 'en_US' },
   ]
 })

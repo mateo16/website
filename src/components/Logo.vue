@@ -13,13 +13,17 @@
   }
 
   .logo-container:hover > .logo {
-    animation: spin .6s ease-in-out;
+    animation: spin .7s ease-in-out;
   }
 }
 
 @keyframes spin {
-  70% { scale: 1.3; }
-  100% { rotate: 1turn; scale: 1; }
+  60% {
+    scale: 1.5;
+  }
+  100% {
+    rotate: 1turn;
+  }
 }
 </style>
 
@@ -48,7 +52,7 @@
 const props = defineProps({
   width: {
     type: String,
-    default: '1.4rem',
+    default: '1.8rem',
     required: false
   },
   color: {

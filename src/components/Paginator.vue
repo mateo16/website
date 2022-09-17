@@ -1,8 +1,6 @@
 <style scoped>
 .container {
-  display: flex;
   position: relative;
-  flex-direction: row;
   gap: .5rem;
 }
 
@@ -11,13 +9,13 @@
   width: .4rem;
   height: .4rem;
   border-radius: 50%;
-  border: 1px solid var(--background-color);
-  background-color: var(--border-color);
+  background-color: var(--muted-text-color);
   transition: background 200ms linear;
 }
 
 .active {
   background-color: var(--text-color);
+  pointer-events: none;
 }
 
 @media (--hover) {
@@ -28,7 +26,7 @@
 </style>
 
 <template>
-  <div class="container">
+  <div class="container flex-row">
     <div
       :class="`dot ${(i - 1) === props.index ? 'active' : ''}`"
       v-for="i of props.count"

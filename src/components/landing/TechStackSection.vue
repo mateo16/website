@@ -34,7 +34,7 @@
       </template>
 
       <template #first-pane>
-        <span ref="text" class="text-pane text-center fade" />
+        <span ref="text" class="flex-col flex-center text-pane text-center fade" />
       </template>
 
       <template #second-pane>

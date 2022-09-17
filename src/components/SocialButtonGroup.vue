@@ -1,21 +1,23 @@
 <template>
-  <LinkedInLogo
-    v-if="props.linkedin"
-    class="icon-button"
-    @click="onNavigateLinkedIn"
-  />
+  <div class="flex-row flex-gap flex-center">
+    <LinkedInLogo
+      v-if="props.linkedin"
+      class="icon-button"
+      @click="onNavigateLinkedIn"
+    />
 
-  <GitHubLogo
-    v-if="props.github"
-    class="icon-button"
-    @click="onNavigateGitHub"
-  />
+    <GitHubLogo
+      v-if="props.github"
+      class="icon-button"
+      @click="onNavigateGitHub"
+    />
 
-  <TwitterLogo
-    v-if="props.twitter"
-    class="icon-button"
-    @click="onNavigateTwitter"
-  />
+    <TwitterLogo
+      v-if="props.twitter"
+      class="icon-button"
+      @click="onNavigateTwitter"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">

@@ -20,7 +20,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: var(--content-margin);
-  align-items: center;
+  align-items: stretch;
   width: 100%;
   height: 100%;
 }

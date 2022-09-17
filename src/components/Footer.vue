@@ -2,7 +2,7 @@
 .footer {
   width: 100%;
   padding: var(--content-margin);
-  background-color: var(--background-color);
+  background-image: var(--background-gradient);
 
   display: flex;
   align-items: center;
@@ -22,10 +22,10 @@
   <footer class="footer pos-relative flex-col flex-center">
     <div class="flex-row flex-center flex-gap">
       <SocialButtonGroup
-      :linkedin="appConfig.linkedInUrl"
-      :github="appConfig.githubUrl"
+        :linkedin="appConfig.linkedInUrl"
+        :github="appConfig.githubUrl"
+        :twitter="appConfig.twitterUrl"
       />
-      <!-- twitter="https://twitter.com" -->
     </div>
     <Separator margin="1rem" />
     <div class="flex-row flex-center flex-gap">

@@ -26,6 +26,7 @@
     :text="ctaText"
     :enabled="sendEnabled"
     @click="onSendContactRequest"
+    small
   />
 </template>
 

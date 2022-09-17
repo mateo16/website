@@ -117,7 +117,7 @@
 .ripple {
   position: absolute;
   transform: scale(0, 1);
-  background-color: #ddd;
+  background-color: var(--text-color);
   animation: ripple 300ms linear;
   transform-origin: center center;
   opacity: .8;

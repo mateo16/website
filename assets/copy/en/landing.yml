@@ -3,31 +3,36 @@ hero:
   marquee:
     title: We power
     elements:
-      - Blockchain
-      - Gaming
-      - Mobile
+      - web 3.0
+      - gaming
+      - mobile
+      - cloud
   cta: get in touch
 
 about:
   title: About us
 
-  text1: We craft beautiful products your users will love, making sure no detail goes unnoticed.
+  text1: We craft beautiful products that users love, making sure no detail goes unnoticed.
   text2: We tackle hard technical problems, solving them at scale with elegance and simplicity.
-  text3: Looking for expert guidance? No problem! We'll coach your in-house team, guiding it through the entire development cycle.
+  text3: Looking for expert guidance? No problem! We'll coach your in-house team for success, guiding it through the entire development cycle.
 
 portfolio:
   title: Portfolio
   content:
-    - title: Groovly
-      url: https://groovly.fm/
-      text: Audio platform aimed at promoting independent artists.
-      caption: 'Stack: Vue.js, AWS.'
-      image: /img/portfolio/groovly.png
     - title: Ristband
       url: https://ristband.co/
-      text: Metaverse multiplayer platform running entirely on the cloud.
-      caption: 'Stack: Unreal Engine, Polygon, AWS.'
+      text: NFT multiplayer metaverse game running entirely on the cloud and controlled remotely through the player's browser with near-zero latency.
+      caption: 'Tech stack: Unreal Engine, Polygon, AWS.'
       image: /img/portfolio/ristband.png
+    - title: Forestify
+      text: Decentralized app (a.k.a. "dapp") that allows users to offset their carbon footprint through nature-backed NFTs.
+      caption: 'Tech stack: Solidity, Polygon, MetaMask, Vue.js.'
+      image: /img/portfolio/forestify.png
+    - title: Groovly
+      url: https://groovly.fm/
+      text: Music platform where artists can promote their music and fans can listen, vote on their favorite releases and connect with artists.
+      caption: 'Tech stack: Vue.js, WebGL, AWS.'
+      image: /img/portfolio/groovly.png
 
 stack:
   title: Tech stack
