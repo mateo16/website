@@ -1,23 +1,33 @@
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
-import Components from 'vite-plugin-components'
+import Components from 'unplugin-vue-components/vite'
 import Compression from 'vite-plugin-compression'
 import Layouts from 'vite-plugin-vue-layouts'
 import Pages from 'vite-plugin-pages'
-import VitePluginMarkdown from 'vite-plugin-md'
+import Markdown from 'vite-plugin-vue-markdown'
 // import MarkdownItAnchor from 'markdown-it-anchor'
-import MarkdownItAttrs from 'markdown-it-attrs'
 import MarkdownItExternalLinks from 'markdown-it-external-links'
 import path from 'path'
-import svg from 'vite-svg-loader'
-import yaml from '@rollup/plugin-yaml'
+import SVG from 'vite-svg-loader'
+import Yaml from '@rollup/plugin-yaml'
 import grayMatter from 'gray-matter'
+import PostCSSCustomMedia from 'postcss-custom-media'
 import { readFileSync } from 'fs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // Environment variables prefix
   envPrefix: 'APSIS_',
+
+  css: {
+    postcss: {
+      plugins: [
+        PostCSSCustomMedia({
+          importFrom: 'postcss.json'
+        })
+      ]
+    }
+  },
 
   resolve: {
     alias: {
@@ -29,7 +39,6 @@ export default defineConfig({
   ssgOptions: {
     script: 'async',
     formatting: 'minify',
-    mock: true
   },
 
   plugins: [
@@ -37,12 +46,19 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
       reactivityTransform: true,
     }),
+
     Components({
+      // allow auto load markdown components under `./src/components/`
       extensions: ['vue', 'md'],
-      customLoaderMatcher: (path) => path.endsWith('.md'),
+      // allow auto import and register components used in markdown
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
+      dts: false,
     }),
+
     Compression(),
+
     Layouts(),
+
     Pages({
       extensions: ['vue', 'md'],
       extendRoute(route) {
@@ -62,10 +78,10 @@ export default defineConfig({
         return route
       }
     }),
-    VitePluginMarkdown({
+
+    Markdown({
       headEnabled: false,
       markdownItSetup(md) {
-        md.use(MarkdownItAttrs)
         md.use(MarkdownItExternalLinks, {
           internalDomains: ['localhost', 'apsistechnologies.com'],
           internalTarget: '_self',
@@ -77,7 +93,8 @@ export default defineConfig({
         // })
       },
     }),
-    svg(),
-    yaml()
+
+    SVG(),
+    Yaml()
   ]
 })

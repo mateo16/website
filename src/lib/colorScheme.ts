@@ -11,12 +11,13 @@ export enum ColorScheme {
 }
 
 export class ColorSchemeManager {
-  private _colorScheme: ColorScheme = ColorScheme.auto
-  private _darkModeMediaQuery: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)')
+  private _colorScheme = ColorScheme.auto
+  private _darkModeMediaQuery: MediaQueryList
   private _colorSchemeConfig: ColorSchemeConfig
 
   constructor(config: ColorSchemeConfig) {
     this._colorSchemeConfig = config
+    this._darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
     // initialize by following OS active color scheme
     this.apply(ColorScheme.auto)

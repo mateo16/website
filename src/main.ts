@@ -1,15 +1,18 @@
 import { ViteSSG } from 'vite-ssg'
-import App from './App.vue'
 import { setupLayouts } from 'virtual:generated-layouts'
-import generatedRoutes from 'virtual:generated-pages'
+import App from './App.vue'
+import generatedRoutes from '~pages'
 import { trackError } from '@/lib/analytics'
 import copy from 'assets/copy/en/app.yml'
+import { type ViteSSGContext } from 'vite-ssg'
 
 // global stylesheets
 import 'assets/css/typeface.css'
 import 'assets/css/styles.css'
 import 'assets/css/global.css'
 import 'assets/css/animations.css'
+
+type UserModule = (ctx: ViteSSGContext) => void
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -21,8 +24,8 @@ export const createApp = ViteSSG(
   (ctx) => {
     if (ctx.isClient) {
       // install modules
-      const modules = Object.values(import.meta.globEager('./modules/*.ts'))
-      modules.map(i => i.install?.(ctx))
+      Object.values(import.meta.glob<{ install: UserModule }>('./modules/*.ts', { eager: true }))
+      .forEach(i => i.install?.(ctx))
 
       // add fallback 404 redirect
       ctx.router.addRoute({
