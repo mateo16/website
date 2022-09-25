@@ -26,11 +26,11 @@ export function clamp(value: number, min: number, max: number) {
 }
 
 export function getCssVariable(name: string) {
-  return getComputedStyle(document.documentElement).getPropertyValue(name);
+  return getComputedStyle(window.document.documentElement).getPropertyValue(name);
 }
 
 export function setCssVariable(name: string, value: string) {
-  document.documentElement.style.setProperty(name, value);
+  window.document.documentElement.style.setProperty(name, value);
 }
 
 export function isValidEmailAddress(email: string) {

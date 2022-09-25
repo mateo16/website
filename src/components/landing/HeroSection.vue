@@ -38,11 +38,6 @@
     opacity: 0;
   }
 }
-
-@keyframes glow {
-  from { opacity: 0.5; }
-  to { opacity: 1.0; }
-}
 </style>
 
 <template>

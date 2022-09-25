@@ -6,12 +6,12 @@
   "author": "Martin Zenzerovich",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "vite --port 3000 --host 0.0.0.0",
-    "build": "yarn typecheck && vite-ssg build",
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite-ssg build",
     "clean": "git clean -fdx",
     "health": "yarn audit --groups dependencies",
     "serve": "http-server --cors -p 3000 dist",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "vue-tsc --noEmit",
     "update": "yarn upgrade --latest"
   },
   "dependencies": {

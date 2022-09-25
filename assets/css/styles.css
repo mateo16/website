@@ -101,7 +101,7 @@ p {
 
 h1 {
   position: relative;
-  font-family: var(--secondary-font);
+  font-family: var(--title-font);
   font-weight: 800;
   font-size: 3rem;
   letter-spacing: 0.02em;
@@ -112,7 +112,7 @@ h1 {
 }
 
 h2 {
-  font-family: var(--secondary-font);
+  font-family: var(--title-font);
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.06rem;
@@ -124,7 +124,7 @@ h2 {
 }
 
 h3 {
-  font-family: var(--secondary-font);
+  font-family: var(--title-font);
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.06rem;
@@ -136,7 +136,7 @@ h3 {
 }
 
 h4 {
-  font-family: var(--secondary-font);
+  font-family: var(--title-font);
   font-size: .9rem;
   font-weight: 400;
   letter-spacing: 0.06rem;
@@ -196,8 +196,9 @@ a:after {
   bottom: .1em;
   position: relative;
   background: var(--text-color);
-  transition: width 150ms ease-out, left 150ms ease-out;
+  transition: all 150ms ease-out;
   width: 0;
+  opacity: 0.5;
 }
 
 @media (--hover) {
@@ -208,6 +209,7 @@ a:after {
   a:hover:after, .link:hover:after {
     width: 100%;
     left: 0;
+    opacity: 1;
   }
 }
 /* END link styling */

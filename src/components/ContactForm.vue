@@ -31,51 +31,51 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { sendContactRequest }  from '@/lib/apsis/contact'
 import { useEventBus }  from '@/lib/event'
 import { trackContactRequest }  from '@/lib/analytics'
 import { isValidEmailAddress }  from '@/lib/utils'
+import TextInput from '@/components/TextInput.vue'
 import copy from 'assets/copy/en/app.yml'
 
 const MAX_MESSAGE_LENGTH = 250
 
 const eventBus = useEventBus()
 
-const nameField = ref()
-const emailField = ref()
-const messageField = ref()
+const nameField = $ref<InstanceType<typeof TextInput>>()
+const emailField = $ref<InstanceType<typeof TextInput>>()
+const messageField = $ref<InstanceType<typeof TextInput>>()
 
-const isEmailValid = ref(false)
-const isNameValid = ref(false)
-const isMessageValid = ref(false)
-const messageStatus = ref('NOT_SENT')
+let isEmailValid = $ref(false)
+let isNameValid = $ref(false)
+let isMessageValid = $ref(false)
+let messageStatus = $ref('NOT_SENT')
 
-const sendEnabled = computed(() =>
-  isEmailValid.value &&
-  isNameValid.value &&
-  isMessageValid.value &&
-  messageStatus.value === 'NOT_SENT'
+const sendEnabled = $computed(() =>
+  isEmailValid &&
+  isNameValid &&
+  isMessageValid &&
+  messageStatus === 'NOT_SENT'
 )
 
-const formFieldEnabled = computed(() => messageStatus.value === 'NOT_SENT')
+const formFieldEnabled = $computed(() => messageStatus === 'NOT_SENT')
 
-const ctaText = computed(() =>
-  messageStatus.value === 'NOT_SENT'
+const ctaText = $computed(() =>
+  messageStatus === 'NOT_SENT'
   ? copy.contact.cta
-  : messageStatus.value === 'SENT'
+  : messageStatus === 'SENT'
     ? copy.contact.sent
     : copy.contact.sending
 )
 
 const validateEmail = (emailAddress: string) => {
-  isEmailValid.value = isValidEmailAddress(emailAddress)
-  return isEmailValid.value ? '' : copy.contact.error.invalidEmail
+  isEmailValid = isValidEmailAddress(emailAddress)
+  return isEmailValid ? '' : copy.contact.error.invalidEmail
 }
 
 const validateName = (name: string) => {
-  isNameValid.value = name.trim().length > 0
-  return isNameValid.value ? '' : copy.contact.error.invalidName
+  isNameValid = name.trim().length > 0
+  return isNameValid ? '' : copy.contact.error.invalidName
 }
 
 const validateMessage = (message: string) => {
@@ -85,19 +85,19 @@ const validateMessage = (message: string) => {
   } else if (message.length > MAX_MESSAGE_LENGTH) {
     msg = `-${message.length - MAX_MESSAGE_LENGTH}`
   }
-  isMessageValid.value = (msg === '')
+  isMessageValid = (msg === '')
   return msg
 }
 
 const onSendContactRequest = async () => {
   try {
-    messageStatus.value = 'SENDING'
+    messageStatus = 'SENDING'
 
     // send contact request
     await sendContactRequest(
-      nameField.value.text,
-      emailField.value.text,
-      messageField.value.text
+      nameField.text,
+      emailField.text,
+      messageField.text
     )
 
     // log analytics event
@@ -106,7 +106,7 @@ const onSendContactRequest = async () => {
     // notify success
     eventBus.notify(copy.contact.confirmation, '🎉', 5000)
 
-    messageStatus.value = 'SENT'
+    messageStatus = 'SENT'
   } catch (e) {
     console.error('Failed to send contact request:', e)
     // notify user

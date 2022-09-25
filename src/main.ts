@@ -46,5 +46,8 @@ export const createApp = ViteSSG(
         trackError(message)
       }
     }
+
+    // console.debug(window)
+    // process.exit(2)
   }
 )

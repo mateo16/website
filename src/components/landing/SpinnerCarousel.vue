@@ -42,11 +42,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 
 const elements: HTMLElement[] = []
 
-const container = ref()
+const container = $ref<HTMLElement>()
 
 const translation = 'translateY(-7rem)'
 
@@ -82,13 +82,13 @@ function createElements() {
   }
 
   for (let i = 0; i < images.length; i += 1) {
-    const div = document.createElement('div')
-    const img = document.createElement('img')
+    const div = window.document.createElement('div')
+    const img = window.document.createElement('img')
     div.classList.add('icon-wrapper')
     img.src = images[i] as string
     img.classList.add('icon')
     div.appendChild(img)
-    container.value.appendChild(div)
+    container.appendChild(div)
     elements.push(div)
   }
 }

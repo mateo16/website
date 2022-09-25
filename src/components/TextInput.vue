@@ -105,8 +105,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const props = defineProps({
   name: {
     type: String,
@@ -137,18 +135,18 @@ const props = defineProps({
 
 const emit = defineEmits(['text-changed'])
 
-const textInput = ref<HTMLSpanElement>()
-const invalidMessage = ref('')
-const text = ref('')
+const textInput = $ref<HTMLSpanElement>()
+let invalidMessage = $ref('')
+let text = $ref('')
 
-const onClick = (event: Event) => {
-  if (textInput.value) {
-    textInput.value.focus()
+const onClick = () => {
+  if (textInput) {
+    textInput.focus()
   }
 }
 
 const onKeyPressed = (event: KeyboardEvent) => {
-  if (text.value.length >= props.maxLength ||
+  if (text.length >= props.maxLength ||
       (event.key === 'Enter' && !props.multiline)) {
     event.preventDefault()
   }
@@ -161,18 +159,18 @@ const onEdit = (event: Event) => {
 }
 
 const updateText = (value: string) => {
-  if (text.value !== value) {
-    text.value = value
+  if (text !== value) {
+    text = value
     if (props.validator) {
-      invalidMessage.value = props.validator(text.value);
+      invalidMessage = props.validator(text);
     }
-    emit('text-changed', text.value)
+    emit('text-changed', text)
   }
 }
 
 const clear = () => {
-  if (text.value && textInput.value) {
-    textInput.value.innerText = '';
+  if (text && textInput) {
+    textInput.innerText = '';
     updateText('')
   }
 }

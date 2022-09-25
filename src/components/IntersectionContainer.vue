@@ -13,13 +13,16 @@
 </style>
 
 <template>
-  <div ref="container">
+  <div
+    ref="container"
+    :style="props.debug ? 'outline: 1px solid cyan' : ''"
+  >
     <slot />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount } from 'vue'
 
 const props = defineProps({
   animationName: {
@@ -40,30 +43,38 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  debug: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 
-const container = ref()
+const emit = defineEmits(['intersected'])
+
+const container = $ref<HTMLElement>()
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
   observer = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting) {
-      container.value.classList.add(props.animationName)
+      container.classList.add(props.animationName)
       if (props.once) {
         observer?.disconnect()
         observer = null
       }
+      emit('intersected')
     } else {
-      container.value.classList.remove(props.animationName)
+      container.classList.remove(props.animationName)
     }
   }, {
     root: null,
-    rootMargin: props.margin,
+    rootMargin: props.margin ? props.margin : '0px',
     threshold: props.threshold
   })
 
-  observer.observe(container.value)
+  observer.observe(container)
 })
 
 onBeforeUnmount(() => {

@@ -40,7 +40,7 @@
       <template #second-pane>
         <SpinnerCarousel
           ref="carousel"
-          :images="landing.stack.content.map((e: {image: string}) => e.image)"
+          :images="images"
         />
       </template>
     </DualPaneLayout>
@@ -50,9 +50,11 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount } from 'vue';
 import landing from 'assets/copy/en/landing.yml'
+import SpinnerCarousel from '@/components/landing/SpinnerCarousel.vue'
 
 const text: HTMLElement = $ref()
-const carousel = $ref()
+const carousel = $ref<typeof SpinnerCarousel>()
+const images = landing.stack.content.map((e: { text: string, image: string } ) => e.image)
 
 let currentContentIdx = 0
 

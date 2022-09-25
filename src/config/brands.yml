@@ -1,0 +1,27 @@
+vue:
+  name: Vue.js
+  icon: /img/brands/vue.svg
+
+aws:
+  name: AWS
+  icon: /img/brands/aws.svg
+
+metamask:
+  name: MetaMask
+  icon: /img/brands/metamask.svg
+
+polygon:
+  name: Polygon
+  icon: /img/brands/polygon.svg
+
+ue:
+  name: Unreal Engine
+  icon: /img/brands/ue.svg
+
+webgl:
+  name: WebGL
+  icon: /img/brands/webgl.svg
+
+ionic:
+  name: Ionic
+  icon: /img/brands/ionic.svg

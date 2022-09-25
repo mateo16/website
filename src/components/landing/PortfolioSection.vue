@@ -3,6 +3,7 @@
   padding: var(--content-margin);
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 1rem;
 }
 
 .image {
@@ -15,20 +16,6 @@
 .text-pane {
   max-width: 20rem;
   transition: opacity .2s ease-out;
-}
-
-.title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  margin-bottom: .5rem;
-}
-
-.caption {
-  text-align: center;
-  font-size: .7rem;
-  font-weight: 350;
 }
 
 .arrow {
@@ -58,23 +45,58 @@
 
 .paginator {
   position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.brand-card-container {
+  gap: .3rem;
+}
+
+.brand-card {
+  justify-content: flex-start;
+  align-items: center;
+  gap: .3rem;
+  padding: .1rem .3rem;
+  border-radius: var(--border-radius);
+  font-family: var(--code-font);
+  font-size: .6rem;
+  line-height: 1rem;
+
+  border: var(--decoration-line-thickness) solid var(--border-color);
+  transition: background .1s linear;
+}
+
+@media (--hover) {
+  .brand-card:hover {
+    background: var(--border-color);
+  }
+}
+
+.tech-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.tech-stack-title {
+  margin-bottom: .3rem;
 }
 </style>
 
 <template>
-  <section class="section pos-relative flex-col full-page non-selectable">
+  <section class="section pos-relative flex-col flex-gap full-page non-selectable">
     <DualPaneLayout>
       <template #title>
-        <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
+        <IntersectionContainer once animation-name="slide-in-left" margin="-10px" style="opacity: 0">
           <h1 class="gradient-text">{{ landing.portfolio.title }}</h1>
         </IntersectionContainer>
       </template>
 
       <template #first-pane>
-        <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0; animation-delay: .3s">
+        <IntersectionContainer
+          once
+          animation-name="slide-in-left"
+          style="opacity: 0; animation-delay: .3s"
+          @intersected="onImageAppeared">
           <div ref="_image" class="image">
             <img :src="image" alt="">
           </div>
@@ -82,13 +104,21 @@
       </template>
 
       <template #second-pane>
-        <IntersectionContainer animation-name="slide-in-right" margin="-10px" style="opacity: 0; animation-delay: .6s">
+        <IntersectionContainer once animation-name="slide-in-right" margin="-10px" style="opacity: 0; animation-delay: .6s">
           <div ref="_text" class="text-pane flex-col flex-center">
-            <span :class="`title ${url ? 'link' : ''}`" @click="onProjectClick(url)">{{ title }}</span>
+            <h2 :class="`${url ? 'link' : ''}`" @click="onProjectClick(url)">{{ title }}</h2>
             <p class="text-center" v-html="text"></p>
-            <p class="caption" v-html="caption"></p>
+
+              <span class="tech-stack-title">{{ landing.portfolio.stack }}</span>
+
+              <div class="brand-card-container flex-row flex-wrap">
+                <div class="flex-row brand-card" v-for="key of stack">
+                  <img class="tech-icon" :src="brandInfo(key).icon" alt="technology icon">
+                  <span class="non-breaking-text">{{ brandInfo(key).name }}</span>
+                </div>
+              </div>
           </div>
-          </IntersectionContainer>
+        </IntersectionContainer>
       </template>
     </DualPaneLayout>
 
@@ -122,36 +152,59 @@
 <script setup lang="ts">
 import { onMounted, onBeforeUnmount, nextTick } from 'vue';
 import landing from 'assets/copy/en/landing.yml'
+import brands from '@/config/brands.yml'
 import { preloadImage, navigate } from '@/lib/utils'
 import { getAppConfig } from '@/lib/config'
 
 const config = getAppConfig()
 let index = $ref(0)
-const _text: HTMLElement = $ref()
-const _image: HTMLElement = $ref()
+const _text = $ref<HTMLElement>()
+const _image = $ref<HTMLElement>()
 
 const image = $computed((): string => landing.portfolio.content[index].image)
 const title = $computed((): string => landing.portfolio.content[index].title)
 const url = $computed((): string => landing.portfolio.content[index].url)
 const text = $computed((): string => landing.portfolio.content[index].text)
-const caption = $computed((): string => landing.portfolio.content[index].caption)
+const stack = $computed((): string => landing.portfolio.content[index].stack)
+
+interface BrandInfo {
+  name: string,
+  icon: string
+}
+
+const brandInfo = (key: string): BrandInfo => key in brands ? brands[key] : null
+
+const onImageAppeared = () => {
+  // only start cycling when image appears for the first time
+  restartTimer()
+}
 
 let activeIndex = 0
 let transitionEnabled = true
-let timeoutId: number
+let timeoutId: number | null
 const transitionIntervalMS = 10000
 
 onMounted(() => {
   for (const item of landing.portfolio.content) {
     preloadImage(`${config.appUrl}${item.image}`)
   }
-
-  timeoutId = window.setInterval(next, transitionIntervalMS)
 })
 
 onBeforeUnmount(() => {
-  window.clearInterval(timeoutId)
+  clearTimer()
 })
+
+function clearTimer() {
+  if (timeoutId) {
+    window.clearInterval(timeoutId)
+    timeoutId = null
+  }
+}
+
+function restartTimer() {
+  clearTimer()
+  timeoutId = window.setInterval(next, transitionIntervalMS)
+}
 
 const onPageSelected = (index: number) => {
   if (transitionEnabled && activeIndex !== index) {
@@ -201,7 +254,8 @@ const doTransition = () => {
 
       _image.addEventListener('transitionend', () => {
         transitionEnabled = true
-      }, {once: true})
+        restartTimer()
+      }, { once: true })
     })
 
 

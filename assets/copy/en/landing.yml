@@ -10,28 +10,35 @@ hero:
   cta: get in touch
 
 about:
-  title: About us
+  title: What we do
 
-  text1: We craft beautiful products that users love, making sure no detail goes unnoticed.
-  text2: We tackle hard technical problems, solving them at scale with elegance and simplicity.
-  text3: Looking for expert guidance? No problem! We'll coach your in-house team for success, guiding it through the entire development cycle.
+  title1: Design
+  text1: We craft <strong>beautiful products</strong> users love, making sure no detail goes unnoticed.
+  title2: Build
+  text2: We tackle hard problems, solving them through <strong>modern</strong>, <strong>scalable</strong>, <strong>future-proof</strong> solutions.
+  title3: Lead
+  text3: Looking for <strong>expert guidance</strong>? No problem! We'll coach your in-house team for success, guiding it through the entire development cycle.
 
 portfolio:
   title: Portfolio
+  stack: 'Tech stack:'
   content:
     - title: Ristband
       url: https://ristband.co/
       text: NFT multiplayer metaverse game running entirely on the cloud and controlled remotely through the player's browser with near-zero latency.
       caption: 'Tech stack: Unreal Engine, Polygon, AWS.'
+      stack: [ aws, ue, polygon ]
       image: /img/portfolio/ristband.png
     - title: Forestify
       text: Decentralized app (a.k.a. "dapp") that allows users to offset their carbon footprint through nature-backed NFTs.
       caption: 'Tech stack: Solidity, Polygon, MetaMask, Vue.js.'
+      stack: [ polygon, metamask, vue ]
       image: /img/portfolio/forestify.png
     - title: Groovly
       url: https://groovly.fm/
       text: Music platform where artists can promote their music and fans can listen, vote on their favorite releases and connect with artists.
       caption: 'Tech stack: Vue.js, WebGL, AWS.'
+      stack: [ aws, ionic, vue, webgl ]
       image: /img/portfolio/groovly.png
 
 stack:

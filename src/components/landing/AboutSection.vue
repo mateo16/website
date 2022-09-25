@@ -2,12 +2,13 @@
 .section {
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 2rem;
 }
 
 .card-container {
   justify-content: space-around;
   align-items: stretch;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .card {
@@ -15,42 +16,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 
-  max-width: 14rem;
-
-  font-size: 1rem;
-  font-weight: 350;
-  letter-spacing: 0.06rem;
+  max-width: 12rem;
 }
 </style>
 
 <template>
   <section class="section pos-relative full-page flex-col non-selectable">
-    <IntersectionContainer animation-name="slide-in-left" margin="-10px" style="opacity: 0">
+    <IntersectionContainer once animation-name="slide-in-left" style="opacity: 0">
       <h1 class="gradient-text">{{ landing.about.title }}</h1>
     </IntersectionContainer>
 
     <div class="card-container flex-row flex-wrap">
 
-      <IntersectionContainer animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .1s">
-        <div class="card">
+      <IntersectionContainer once animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .1s">
+        <div class="card text-center">
           <Diamond />
-          <p class="text-center">{{ landing.about.text1 }}</p>
+          <h2>{{ landing.about.title1 }}</h2>
+          <span v-html="landing.about.text1"></span>
         </div>
       </IntersectionContainer>
 
-      <IntersectionContainer animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .3s">
-        <div class="card">
+      <IntersectionContainer once animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .3s">
+        <div class="card text-center">
           <Cogs />
-          <p class="text-center">{{ landing.about.text2 }}</p>
+          <h2>{{ landing.about.title2 }}</h2>
+          <span v-html="landing.about.text2"></span>
         </div>
       </IntersectionContainer>
 
-      <IntersectionContainer animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .5s">
-        <div class="card">
+      <IntersectionContainer once animation-name="slide-in-bottom" style="opacity: 0; animation-delay: .5s">
+        <div class="card text-center">
           <Compass />
-          <p class="text-center">{{ landing.about.text3 }}</p>
+          <h2>{{ landing.about.title3 }}</h2>
+          <span v-html="landing.about.text3"></span>
         </div>
       </IntersectionContainer>
     </div>

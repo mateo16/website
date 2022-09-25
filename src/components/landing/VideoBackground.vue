@@ -19,6 +19,26 @@
   background-image: url('assets/images/dot-matrix.png');
   opacity: 0.5;
 }
+
+.loading {
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: .8rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  color: var(--muted-text-color);
+  animation-name: loading-glow;
+  animation-iteration-count: infinite;
+  animation-duration: 400ms;
+  animation-fill-mode: both;
+  animation-direction: alternate;
+}
+
+@keyframes loading-glow {
+  from { opacity: 0.5; }
+  to { opacity: 1.0; }
+}
 </style>
 
 <template>
@@ -30,7 +50,7 @@
     preload="auto"
     :autoplay="autoplay"
     poster="assets/images/apsis_hero_cover.jpg"
-    @play="emit('playback-started')"
+    @play="loading = false"
   >
     <source type="video/mp4" :src="props.src" />
     Your browser doesn't support video. =(
@@ -38,12 +58,11 @@
 
   <div class="overlay pos-fixed video-overlay-texture" />
   <div class="overlay pos-fixed video-darken-overlay" />
+
+  <span class="loading pos-fixed" v-if="loading">{{ props.loadingText }}</span>
 </template>
 
 <script setup lang="ts">
-
-const emit = defineEmits(['playback-started'])
-
 const props = defineProps({
   src: {
     type: String,
@@ -53,6 +72,13 @@ const props = defineProps({
     type: Boolean,
     required: false,
     default: false
+  },
+  loadingText: {
+    type: String,
+    required: false,
+    default: ''
   }
 })
+
+const loading = $ref(true)
 </script>

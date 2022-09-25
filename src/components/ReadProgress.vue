@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: .1rem;
+  height: .15rem;
   background: var(--main-gradient);
 
   transition: width 200ms ease-out;
@@ -16,14 +16,10 @@
 </template>
 
 <script setup lang="ts">
-import { watchEffect } from 'vue'
 import { useWindowScrollPos } from '@/lib/composable/scroll'
 
+const body = window.document.body
+
 const { scrollY } = $(useWindowScrollPos())
-
-let width = $ref(0)
-
-watchEffect(() => {
-  width = scrollY / (document.body.scrollHeight - document.body.clientHeight) * 100.0
-})
+const width = $computed(() => scrollY / (body.scrollHeight - body.clientHeight) * 100.0)
 </script>

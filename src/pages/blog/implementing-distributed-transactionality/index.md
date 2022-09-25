@@ -13,7 +13,7 @@ We use this design extensively for provisioning gaming infrastructure in an auto
 
 > (*) Some architectural patterns exist to help deal with this kind of problem (e.g. the [Saga pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/saga-pattern.html)) but they are not straightforward to implement. They typically involve undoing failed/aborted operations, which increases system complexity, API latency and cloud costs.
 
-## Problem description
+## The problem
 
 Imagine a scenario where users of a system, potentially in the millions, concurrently request a resource from a pool of pre-existing resources (say, from a cluster of dedicated compute instances).
 

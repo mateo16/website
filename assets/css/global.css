@@ -44,6 +44,10 @@
   position: fixed;
 }
 
+.pos-sticky {
+  position: sticky;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;

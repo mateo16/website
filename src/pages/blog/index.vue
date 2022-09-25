@@ -18,7 +18,7 @@
 }
 
 .post-title {
-  font-family: var(--primary-font);
+  font-family: var(--title-font);
   display: inline-block;
   font-size: 1rem;
   letter-spacing: 0.04rem;
@@ -41,11 +41,11 @@
     :key="post.path"
     @click="router.push(post.path)"
   >
-    <span class="post-title gradient-text">{{ post.meta.frontmatter.title }}</span>
+    <span class="post-title gradient-text">{{ (post.meta.frontmatter as Frontmatter).title }}</span>
 
     <BlogPostHeader
-      :author="post.meta.frontmatter.author"
-      :date="post.meta.frontmatter.date"
+      :author="(post.meta.frontmatter as Frontmatter).author"
+      :date="(post.meta.frontmatter as Frontmatter).date"
       :social-links="false"
       photo-size="2.4rem"
     />
@@ -56,6 +56,7 @@
 import { useHead } from '@vueuse/head'
 import { useRouter } from 'vue-router'
 import copy from 'assets/copy/en/app.yml'
+import { Frontmatter } from '@/types'
 
 useHead({ title: `${copy.blog.title}` })
 
@@ -64,7 +65,7 @@ const router = useRouter()
 const posts = router.getRoutes()
   .filter((r) => r.name !== undefined && r.path.startsWith('/blog/'))
   .sort(
-    (a, b) =>
-      +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date),
+    // @ts-ignore
+    (a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date),
   )
 </script>

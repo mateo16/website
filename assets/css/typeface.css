@@ -32,7 +32,7 @@
 }
 
 :root {
+  --title-font: Exo, sans-serif;
   --primary-font: Cairo, sans-serif;
-  --secondary-font: Exo, sans-serif;
   --code-font: Source Code Pro, monospace;
 }

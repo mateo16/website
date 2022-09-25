@@ -1,18 +1,4 @@
 <style scoped>
-.loading {
-  position: absolute;
-  top: 6rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: .8rem;
-  letter-spacing: .1rem;
-  animation-name: glow;
-  animation-iteration-count: infinite;
-  animation-duration: 400ms;
-  animation-fill-mode: both;
-  animation-direction: alternate;
-}
-
 .hexagon {
   position: absolute;
   fill: #f082;
@@ -47,8 +33,7 @@
 </style>
 
 <template>
-  <VideoBackground autoplay :src="video" @playback-started="loading = false" />
-  <span class="loading" v-if="loading">{{ landing.hero.loading }}</span>
+  <VideoBackground :src="video" :loading-text="landing.hero.loading" autoplay />
 
   <HeroSection />
   <AboutSection />
@@ -85,8 +70,6 @@ import copy from 'assets/copy/en/app.yml'
 import Hexagon from 'assets/icons/hexagon.svg'
 import video from 'assets/video/apsis-hero_1000kbps.mp4'
 import landing from 'assets/copy/en/landing.yml'
-
-const loading = $ref(true)
 
 const config = getAppConfig()
 

@@ -164,7 +164,7 @@ const svg_ = computed(async () => {
 const doRipple = (event: Event) => {
   const parent = event.currentTarget as HTMLElement;
   if (parent) {
-    const ripple = document.createElement('div');
+    const ripple = window.document.createElement('div');
     ripple.style.width = ripple.style.height = '100%';
     ripple.style.top = ripple.style.left = '0';
     ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
