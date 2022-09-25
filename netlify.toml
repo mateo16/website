@@ -13,8 +13,8 @@
 
 [[redirects]]
   # Redirect Netlify's subdomain to main domain
-  from = "https://apsis.netlify.app/"
-  to = "https://apsistechnologies.com"
+  from = "https://apsistech.netlify.app/"
+  to = "https://apsistech.io"
   status = 301
   force = true
 
@@ -26,9 +26,9 @@
   APSIS_FIREBASE_MEASUREMENT_ID = "G-J5NRR4XV03"
   APSIS_ANALYTICS_ENABLED = "true"
   APSIS_HOME_ROUTE = "/"
-  APSIS_APP_URL = "https://apsistechnologies.com"
+  APSIS_APP_URL = "https://apsistech.io"
   APSIS_API_BASE_URL = "https://75ac870d94.execute-api.us-east-1.amazonaws.com"
-  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistechnologies.com"
+  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistech.io"
   APSIS_LINKEDIN_URL = "https://www.linkedin.com/company/apsis-tech/"
   APSIS_GITHUB_URL = "https://github.com/ApsisTechnologies"
   APSIS_TWITTER_URL = "https://twitter.com/apsis_tech"
@@ -41,9 +41,9 @@
   APSIS_FIREBASE_MEASUREMENT_ID = "G-KTRSWZYLCH"
   APSIS_ANALYTICS_ENABLED = "true"
   APSIS_HOME_ROUTE = "/"
-  APSIS_APP_URL = "https://dev--apsis.netlify.app/"
+  APSIS_APP_URL = "https://dev.apsistech.io/"
   APSIS_API_BASE_URL = "https://9scn83sbph.execute-api.us-east-1.amazonaws.com"
-  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistechnologies.com"
+  APSIS_CONTACT_EMAIL_ADDRESS = "hello@apsistech.io"
   APSIS_LINKEDIN_URL = "https://www.linkedin.com/company/apsis-tech/"
   APSIS_GITHUB_URL = "https://github.com/ApsisTechnologies"
   APSIS_TWITTER_URL = "https://twitter.com/apsis_tech"
