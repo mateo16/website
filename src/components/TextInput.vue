@@ -175,8 +175,12 @@ const clear = () => {
   }
 }
 
+const getText = () => {
+  return text
+}
+
 defineExpose({
   clear,
-  text
+  getText
 })
 </script>

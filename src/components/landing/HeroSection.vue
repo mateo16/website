@@ -42,7 +42,7 @@
 
 <template>
   <section class="full-page pos-relative flex-col flex-center non-selectable">
-    <h1 class="gradient-text">{{ landing.hero.marquee.title }}</h1>
+    <h1 class="color-text">{{ landing.hero.marquee.title }}</h1>
 
     <h1 ref="marquee" class="marquee">{{ marqueeText }}</h1>
 

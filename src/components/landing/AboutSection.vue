@@ -24,7 +24,7 @@
 <template>
   <section class="section pos-relative full-page flex-col non-selectable">
     <IntersectionContainer once animation-name="slide-in-left" style="opacity: 0">
-      <h1 class="gradient-text">{{ landing.about.title }}</h1>
+      <h1 class="color-text">{{ landing.about.title }}</h1>
     </IntersectionContainer>
 
     <div class="card-container flex-row flex-wrap">

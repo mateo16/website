@@ -14,6 +14,8 @@
   --root-size-mobile: 18px;
   --root-size-desktop: 22px;
   --root-size-desktop-large: 24px;
+
+  --card-shadow: 0 0.1rem 0.2rem 0 hsl(0deg 0% 0% / 30%);
 }
 
 @media (--res-mobile-legacy) {
@@ -128,7 +130,7 @@ h3 {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.06rem;
-  line-height: 2rem;
+  line-height: 1.5rem;
   text-transform: uppercase;
   margin-top: .4rem;
   margin-bottom: .5rem;
@@ -139,7 +141,7 @@ h4 {
   font-family: var(--title-font);
   font-size: .9rem;
   font-weight: 400;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.02rem;
   line-height: 1.4rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -249,7 +251,7 @@ ul > li::before {
 
 /* Code styling */
 pre {
-  background-color: var(--background-color-callout);
+  background-color: var(--callout-color);
   font-weight: 500;
   padding: .8rem;
   line-height: 1rem;
@@ -260,24 +262,27 @@ pre {
 }
 
 code {
-  color: var(--muted-text-color);
+  color: var(--highlighted-text-color);
   font-family: var(--code-font);
-  font-size: .9em;
+  font-size: .8em;
   font-weight: 400;
   letter-spacing: 0.02em;
-  padding: 0 .4em;
-  background-color: var(--background-color-callout);
+  padding: .2em;
+  background-color: var(--callout-color);
 }
 
 pre > code {
-  font-size: .7rem;
+  font-size: .6rem;
+  font-weight: 500;
+  line-height: .8rem;
   padding: 0;
+  background-color: revert;
 }
 
 blockquote {
   font-size: .7rem;
   font-weight: 300;
-  background-color: var(--background-color-callout);
+  background-color: var(--callout-color);
   padding: 1rem;
   margin: 1rem auto;
 }

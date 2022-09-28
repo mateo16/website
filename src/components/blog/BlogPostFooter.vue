@@ -1,6 +1,6 @@
 <style scoped>
 .container {
-  background-color: var(--background-color-callout);
+  background-color: var(--callout-color);
   display: flex;
   flex-direction: column;
   align-items: center;

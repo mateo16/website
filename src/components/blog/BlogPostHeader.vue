@@ -27,7 +27,7 @@
   color: var(--muted-text-color);
   position: relative;
   font-size: .7rem;
-  font-weight: 350;
+  font-weight: 400;
   line-height: 1rem;
   letter-spacing: 0.02rem;
   text-transform: capitalize;
@@ -35,7 +35,7 @@
 </style>
 
 <template>
-  <h1 v-if="props.title" class="gradient-text">{{ props.title }}</h1>
+  <h1 v-if="props.title" class="color-text">{{ props.title }}</h1>
   <div v-if="authorInfo" class="author-row">
     <img
       class="author-photo"

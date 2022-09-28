@@ -156,3 +156,16 @@
   0% { transform: scale(1.05); }
   100% { transform: scale(1); }
 }
+
+.grow-and-spin {
+  animation: grow-and-spin .6s ease-in-out;
+}
+
+@keyframes grow-and-spin {
+  60% {
+    scale: 1.5;
+  }
+  100% {
+    rotate: 1turn;
+  }
+}

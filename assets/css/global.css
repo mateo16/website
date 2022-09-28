@@ -130,7 +130,7 @@
   }
 }
 
-.gradient-text {
+.color-text {
   background-image: var(--main-gradient);
   -webkit-background-clip: text;
   background-clip: text;

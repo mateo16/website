@@ -41,7 +41,7 @@
 <template>
   <nav :class="`nav flex-row flex-gap ${hidden ? 'nav-hidden' : ''}`">
     <div class="logo-container flex-row flex-center flex-gap">
-      <Logo @click="router.push('/')" />
+      <Logo @click="router.push('/')" animation-class="grow-and-spin" />
       <span class="link wordmark hide-wordmark" @click="router.push('/')">{{copy.companyShort}}</span>
     </div>
 

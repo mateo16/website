@@ -9,18 +9,10 @@
   gap: 1rem;
 }
 
-.title-pane {
-  position: relative;
-}
-
 .dual-pane {
-  position: relative;
-  display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
   gap: var(--content-margin);
-  align-items: stretch;
   width: 100%;
   height: 100%;
 }
@@ -30,25 +22,22 @@
     flex-wrap: nowrap;
   }
 }
-
-.pane {
-  position: relative;
-  display: flex;
-}
 </style>
 
 <template>
   <div class="container flex-col">
-    <div class="title-pane" :style="debug ? 'outline: 1px dashed #c07600' : ''">
+    <div class="pos-relative" :style="debug ? 'outline: 1px dashed #c07600' : ''">
       <slot name="title" />
     </div>
 
-    <div class="dual-pane" :style="debug ? 'outline: 1px dashed #628800' : ''">
-
-      <div class="pane" :style="debug ? 'outline: 1px dashed #ff008c' : ''">
+    <div
+      class="dual-pane pos-relative flex-row"
+      :style="_style"
+    >
+      <div class="pos-relative flex-col" :style="debug ? 'outline: 1px dashed #ff008c' : ''">
         <slot name="first-pane" />
       </div>
-      <div class="pane" :style="debug ? 'outline: 1px dashed #0076a9' : ''">
+      <div class="pos-relative flex-col" :style="debug ? 'outline: 1px dashed #0076a9' : ''">
         <slot name="second-pane" />
       </div>
     </div>
@@ -56,11 +45,13 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  debug: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
-})
+const {
+  debug = false,
+  alignment = 'stretch'
+} = defineProps<{
+  debug?: boolean
+  alignment?: string
+}>()
+
+const _style = $computed(() => debug ? 'outline: 1px dashed #628800' : '' + `; align-items: ${alignment}`)
 </script>

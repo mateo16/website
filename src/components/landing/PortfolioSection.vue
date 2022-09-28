@@ -87,7 +87,7 @@
     <DualPaneLayout>
       <template #title>
         <IntersectionContainer once animation-name="slide-in-left" margin="-10px" style="opacity: 0">
-          <h1 class="gradient-text">{{ landing.portfolio.title }}</h1>
+          <h1 class="color-text">{{ landing.portfolio.title }}</h1>
         </IntersectionContainer>
       </template>
 

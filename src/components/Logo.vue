@@ -11,34 +11,23 @@
   .logo-container:hover {
     cursor: pointer;
   }
-
-  .logo-container:hover > .logo {
-    animation: spin .7s ease-in-out;
-  }
-}
-
-@keyframes spin {
-  60% {
-    scale: 1.5;
-  }
-  100% {
-    rotate: 1turn;
-  }
 }
 </style>
 
 <template>
   <div
+    ref="logoContainer"
     class="logo-container pos-relative flex-row flex-center"
-    :style="`${props.noInteraction ? 'pointer-events: none;' : ''} ${props.width ? `width: ${props.width}` : ''}`"
+    :style="`${noInteraction ? 'pointer-events: none;' : ''} ${width ? `width: ${width}` : ''}`"
   >
     <svg
+      ref="logo"
       class="logo"
       width="100%"
       height="100%"
       viewBox="0 0 800 800"
       stroke="none"
-      :fill="props.color"
+      :fill="color"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path d="M478.951 59L322.148 59C293.288 148.664 254.546 236.656 205.54 321.538C156.481 406.51 99.5792 484.132 36.2771 554.017L114.71 689.766C198.226 603.31 272.622 505.348 335.444 396.538C398.222 287.802 445.84 174.474 478.951 59Z" />
@@ -49,21 +38,36 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  width: {
-    type: String,
-    default: '1.8rem',
-    required: false
-  },
-  color: {
-    type: String,
-    default: 'currentColor',
-    required: false
-  },
-  noInteraction: {
-    type: Boolean,
-    default: false,
-    required: false
+import { useEventListener } from '@vueuse/core'
+
+const {
+  width = '1.8rem',
+  color = 'currentColor',
+  noInteraction = false,
+  animationClass
+} = defineProps<{
+  width?: string
+  color?: string
+  noInteraction?: boolean
+  animationClass?: string
+}>()
+
+const logoContainer = $ref<HTMLElement>()
+const logo = $ref<HTMLElement>()
+
+let animating = false
+
+useEventListener($$(logoContainer), 'mouseenter', () => {
+  if (!animating && animationClass) {
+    logo.classList.add(animationClass)
+    animating = true
   }
+})
+
+useEventListener($$(logo), 'animationend', () => {
+  if (animationClass) {
+    logo.classList.remove(animationClass)
+  }
+  animating = false
 })
 </script>

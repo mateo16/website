@@ -41,7 +41,7 @@
 
   transition: all 200ms ease-out;
 
-  box-shadow: 0 .2rem 1rem 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-shadow);
 }
 
 .dialog-hidden-top {

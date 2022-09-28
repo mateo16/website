@@ -13,11 +13,10 @@
 
 <template>
   <section id="contact" class="section pos-relative flex-col flex-center full-page">
-    <h1 class="gradient-text">{{ copy.contact.title }}</h1>
+    <h1 class="color-text">{{ copy.contact.title }}</h1>
     <div class="content">
-      <p>{{copy.contact.text1}}</p>
-      <p>{{copy.contact.text2}}</p>
-      <p v-html="copy.contact.text3.replaceAll('{EMAIL}', appConfig.contactEmailAddress)"></p>
+      <p v-html="copy.contact.text1.replaceAll('{EMAIL}', appConfig.contactEmailAddress)"></p>
+      <p>{{ copy.contact.text2 }}</p>
       <ContactForm />
     </div>
   </section>

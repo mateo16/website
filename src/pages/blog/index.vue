@@ -1,36 +1,25 @@
 <style scoped>
 .post {
   margin-bottom: 1.5rem;
-  background-color: var(--background-color-callout);
+  background-color: var(--callout-color);
   border-radius: var(--border-radius);
   padding: 1rem;
-  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-shadow);
   transition: all 150ms ease-out;
 }
 
 @media (--hover) {
   .post:hover {
     scale: 1.02;
-    background-color: var(--border-color);
     color: var(--highlighted-text-color);
+    background-color: var(--highlighted-callout-color);
     cursor: pointer;
   }
-}
-
-.post-title {
-  font-family: var(--title-font);
-  display: inline-block;
-  font-size: 1rem;
-  letter-spacing: 0.04rem;
-  text-transform: uppercase;
-  margin-bottom: .3rem;
-  padding-bottom: .2rem;
-  line-height: 1.4rem;
 }
 </style>
 
 <template>
-  <h1 class="gradient-text">{{ copy.blog.title }}</h1>
+  <h1 class="color-text">{{ copy.blog.title }}</h1>
   <h4>{{ copy.blog.subtitle }}</h4>
 
   <Separator />
@@ -41,7 +30,7 @@
     :key="post.path"
     @click="router.push(post.path)"
   >
-    <span class="post-title gradient-text">{{ (post.meta.frontmatter as Frontmatter).title }}</span>
+    <h3 class="color-text">{{ (post.meta.frontmatter as Frontmatter).title }}</h3>
 
     <BlogPostHeader
       :author="(post.meta.frontmatter as Frontmatter).author"

@@ -14,6 +14,12 @@
   />
 
   <TextInput
+    ref="companyField"
+    :name="copy.contact.companyPlaceholder"
+    :enabled="formFieldEnabled"
+  />
+
+  <TextInput
     ref="messageField"
     :name="copy.contact.messagePlaceholder"
     :max-length="MAX_MESSAGE_LENGTH"
@@ -44,6 +50,7 @@ const eventBus = useEventBus()
 
 const nameField = $ref<InstanceType<typeof TextInput>>()
 const emailField = $ref<InstanceType<typeof TextInput>>()
+const companyField = $ref<InstanceType<typeof TextInput>>()
 const messageField = $ref<InstanceType<typeof TextInput>>()
 
 let isEmailValid = $ref(false)
@@ -68,14 +75,14 @@ const ctaText = $computed(() =>
     : copy.contact.sending
 )
 
-const validateEmail = (emailAddress: string) => {
-  isEmailValid = isValidEmailAddress(emailAddress)
-  return isEmailValid ? '' : copy.contact.error.invalidEmail
-}
-
 const validateName = (name: string) => {
   isNameValid = name.trim().length > 0
   return isNameValid ? '' : copy.contact.error.invalidName
+}
+
+const validateEmail = (emailAddress: string) => {
+  isEmailValid = isValidEmailAddress(emailAddress)
+  return isEmailValid ? '' : copy.contact.error.invalidEmail
 }
 
 const validateMessage = (message: string) => {
@@ -95,9 +102,10 @@ const onSendContactRequest = async () => {
 
     // send contact request
     await sendContactRequest(
-      nameField.text,
-      emailField.text,
-      messageField.text
+      nameField.getText(),
+      emailField.getText(),
+      companyField.getText(),
+      messageField.getText()
     )
 
     // log analytics event

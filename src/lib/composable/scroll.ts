@@ -1,4 +1,5 @@
-import { useEventListener, useWindowEventListener } from '@/lib/composable/event'
+import { useWindowEventListener } from '@/lib/composable/event'
+import { useEventListener } from '@vueuse/core'
 
 export function useScrollPos(target: HTMLElement) {
   let scrollY = $ref(0)

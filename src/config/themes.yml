@@ -1,49 +1,29 @@
 # Color themes
 
-default:
-  name: Apsis
-  description: Apsis basic color theme
-
-  light:
-    --error-color: '#f90'
-    --text-color: '#222'
-    --highlighted-text-color: '#000'
-    --muted-text-color: '#666'
-    --background-color: '#eee'
-    --background-color-callout: '#ddd'
-    --border-color: '#aaa'
-
-  dark:
-    --error-color: '#f90'
-    --text-color: '#ddd'
-    --highlighted-text-color: '#fff'
-    --muted-text-color: '#aaa'
-    --background-color: '#222'
-    --background-color-callout: '#333'
-    --border-color: '#555'
-
 superuva:
   name: Superuva
   description: Deep purple theme
 
   light:
-    --error-color: '#f70'
-    --text-color: '#203'
-    --highlighted-text-color: '#102'
-    --muted-text-color: '#5c5062'
-    --background-color: '#f5f8ff'
-    --background-color-callout: '#e8ecf3'
-    --background-gradient: 'linear-gradient(hsl(260deg 30% 95%), hsl(260deg 100% 95%))'
-    --border-color: '#8f98a3'
-    --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'
+    --error-color: hsl(30deg 100% 50%)
+    --text-color: hsl(260deg 10% 10%)
+    --highlighted-text-color: hsl(260deg 10% 2%)
+    --muted-text-color: hsl(260deg 10% 40%)
+    --background-color: hsl(260deg 30% 98%)
+    --callout-color: hsl(260deg 30% 95%)
+    --highlighted-callout-color: hsl(260deg 30% 90%)
+    --background-gradient: linear-gradient(hsl(260deg 30% 95%) 20%, hsl(275deg 60% 90%))
+    --border-color: hsl(260deg 10% 60%)
+    --main-gradient: linear-gradient(130deg, hsl(330deg 100% 50%) 10%, hsl(270deg 100% 50%) 80%)
 
   dark:
-    --error-color: '#f70'
-    --text-color: '#f2f1f4'
-    --highlighted-text-color: '#f5f5ff'
-    --muted-text-color: '#b1abba'
-    --background-color: '#110b1b'
-    --background-color-callout: '#22192e'
-    --background-gradient: 'linear-gradient(hsl(260deg 40% 10%), hsl(275, 100%, 10%))'
-    --border-color: '#5e5775'
-    --main-gradient: 'linear-gradient(130deg, #f07 10%, #70f 80%)'
+    --error-color: hsl(30deg 100% 50%)
+    --text-color: hsl(260deg 10% 90%)
+    --highlighted-text-color: hsl(260deg 10% 98%)
+    --muted-text-color: hsl(260deg 10% 60%)
+    --background-color: hsl(260deg 30% 7%)
+    --callout-color: hsl(260deg 30% 12%)
+    --highlighted-callout-color: hsl(260deg 30% 17%)
+    --background-gradient: linear-gradient(hsl(260deg 30% 10%) 20%, hsl(275, 60%, 10%))
+    --border-color: hsl(260deg 10% 40%)
+    --main-gradient: linear-gradient(130deg, hsl(330deg 100% 50%) 10%, hsl(270deg 100% 50%) 80%)

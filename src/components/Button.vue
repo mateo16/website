@@ -18,7 +18,7 @@
   line-height: normal;
   letter-spacing: 0.08em;
 
-  box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--card-shadow);
 }
 
 .button-icon {
@@ -38,7 +38,6 @@
 @media (--hover) {
   .button:hover {
     cursor: pointer;
-    box-shadow: 0 0.1rem 0.3rem 0 rgba(0, 0, 0, 0.3);
     transform: scale(1.05);
   }
 

@@ -42,7 +42,7 @@ portfolio:
       image: /img/portfolio/groovly.png
 
 stack:
-  title: Tech stack
+  title: Our stack
   content:
     - text: We embrace the open web, leveraging the latest web standards to deliver world-class products.
       image: /img/web.png

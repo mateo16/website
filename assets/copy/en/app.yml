@@ -20,12 +20,12 @@ blog:
 
 contact:
   title: Contact us
-  text1: Need help getting your project launched? We'd love to talk! Drop us a line with your info below, we'll get back to you in no time.
-  text2: Can't wait to hear about your awesome project!
-  text3: You can also write to us to <a href="mailto:{EMAIL}">{EMAIL}</a>.
+  text1: Need help getting your project launched? Let's chat! Drop us a line with your info below or email us to <a href="mailto:{EMAIL}">{EMAIL}</a>, we'll get back to you in no time.
+  text2: Can't wait to hear about your project!
 
   namePlaceholder: Name
-  emailPlaceholder: Email
+  emailPlaceholder: Work email
+  companyPlaceholder: Company
   messagePlaceholder: Message
 
   confirmation: Message sent! We'll get in touch with you soon.

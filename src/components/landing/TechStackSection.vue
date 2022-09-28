@@ -2,7 +2,8 @@
 .section {
   display: flex;
 
-  background-color: var(--background-color);
+  background: #130c1b;
+  /* background-color: var(--background-color); */
   padding: var(--content-margin);
 }
 
@@ -28,9 +29,9 @@
 
 <template>
   <section class="section pos-relative full-page non-selectable">
-    <DualPaneLayout style="z-index: 1">
+    <DualPaneLayout style="z-index: 1" alignment="center">
       <template #title>
-        <h1 class="gradient-text">{{ landing.stack.title }}</h1>
+        <h1 class="color-text">{{ landing.stack.title }}</h1>
       </template>
 
       <template #first-pane>
