@@ -38,7 +38,7 @@
   <HeroSection />
   <AboutSection />
   <PortfolioSection />
-  <div class="hexagon-container pos-relative">
+  <div class="hexagon-container pos-relative scroll-snap-y-soft scroll-snap-align-start">
     <TechStackSection />
     <ContactSection />
 

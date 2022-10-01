@@ -3,6 +3,7 @@
   <Footer />
   <Nav />
   <Notification />
+  <DevModeBanner />
 </template>
 
 <script lang="ts">

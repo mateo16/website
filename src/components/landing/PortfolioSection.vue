@@ -83,7 +83,7 @@
 </style>
 
 <template>
-  <section class="section pos-relative flex-col flex-gap full-page non-selectable">
+  <section class="section pos-relative flex-col flex-gap full-page scroll-snap-y-soft scroll-snap-align-start">
     <DualPaneLayout>
       <template #title>
         <IntersectionContainer once animation-name="slide-in-left" margin="-10px" style="opacity: 0">

@@ -2,6 +2,14 @@ export function isAnalyticsEnabled(): boolean {
   return import.meta.env.APSIS_ANALYTICS_ENABLED === 'true'
 }
 
+export function isDevelopment(): boolean {
+  return import.meta.env.APSIS_APP_MODE === 'development'
+}
+
+export function isProduction(): boolean {
+  return import.meta.env.APSIS_APP_MODE === 'production'
+}
+
 export function getAppConfig() {
   return {
     appUrl: import.meta.env.APSIS_APP_URL,

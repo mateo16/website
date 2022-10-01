@@ -17,6 +17,7 @@
   <Footer />
   <ReadProgress />
   <Notification />
+  <DevModeBanner />
 </template>
 
 <script lang="ts">

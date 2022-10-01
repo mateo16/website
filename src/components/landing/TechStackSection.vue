@@ -28,7 +28,7 @@
 </style>
 
 <template>
-  <section class="section pos-relative full-page non-selectable">
+  <section class="section pos-relative full-page">
     <DualPaneLayout style="z-index: 1" alignment="center">
       <template #title>
         <h1 class="color-text">{{ landing.stack.title }}</h1>

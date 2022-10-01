@@ -5,6 +5,7 @@
   <Nav />
   <Footer />
   <Notification />
+  <DevModeBanner />
 </template>
 
 <script lang="ts">
