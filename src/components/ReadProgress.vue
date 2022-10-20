@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: .15rem;
+  height: .3rem;
   background: var(--main-gradient);
 
   transition: width 200ms ease-out;

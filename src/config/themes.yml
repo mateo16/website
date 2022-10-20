@@ -7,23 +7,51 @@ superuva:
   light:
     --error-color: hsl(30deg 100% 50%)
     --text-color: hsl(260deg 10% 10%)
-    --highlighted-text-color: hsl(260deg 10% 2%)
     --muted-text-color: hsl(260deg 10% 40%)
     --background-color: hsl(260deg 30% 98%)
     --callout-color: hsl(260deg 30% 95%)
     --highlighted-callout-color: hsl(260deg 30% 90%)
-    --background-gradient: linear-gradient(hsl(260deg 30% 95%) 20%, hsl(275deg 60% 90%))
     --border-color: hsl(260deg 10% 60%)
-    --main-gradient: linear-gradient(130deg, hsl(330deg 100% 50%) 10%, hsl(270deg 100% 50%) 80%)
+    --main-gradient-start-color: hsl(330deg 100% 50%)
+    --main-gradient-stop-color: hsl(270deg 100% 50%)
+    --main-gradient: linear-gradient(130deg, var(--main-gradient-start-color) 10%, var(--main-gradient-stop-color) 80%)
 
   dark:
     --error-color: hsl(30deg 100% 50%)
     --text-color: hsl(260deg 10% 90%)
-    --highlighted-text-color: hsl(260deg 10% 98%)
     --muted-text-color: hsl(260deg 10% 60%)
     --background-color: hsl(260deg 30% 7%)
     --callout-color: hsl(260deg 30% 12%)
     --highlighted-callout-color: hsl(260deg 30% 17%)
-    --background-gradient: linear-gradient(hsl(260deg 30% 10%) 20%, hsl(275, 60%, 10%))
     --border-color: hsl(260deg 10% 40%)
-    --main-gradient: linear-gradient(130deg, hsl(330deg 100% 50%) 10%, hsl(270deg 100% 50%) 80%)
+    --main-gradient-start-color: hsl(330deg 100% 50%)
+    --main-gradient-stop-color: hsl(270deg 100% 50%)
+    --main-gradient: linear-gradient(130deg, var(--main-gradient-start-color) 10%, var(--main-gradient-stop-color) 80%)
+
+rockin:
+  name: Rockin'
+  description: RockinDev color theme
+
+  light:
+    --error-color: hsl(30deg 100% 50%)
+    --text-color: hsl(0deg 0% 19%)
+    --muted-text-color: hsl(0deg 0% 40%)
+    --background-color: hsl(0deg 0% 100%)
+    --callout-color: hsl(0deg 0% 95%)
+    --highlighted-callout-color: hsl(0deg 0% 90%)
+    --border-color: hsl(0deg 0% 60%)
+    --main-gradient-start-color: hsl(191deg 93% 48%)
+    --main-gradient-stop-color: hsl(236deg 56% 54%)
+    --main-gradient: linear-gradient(130deg, var(--main-gradient-start-color) 10%, var(--main-gradient-stop-color) 80%)
+
+  dark:
+    --error-color: hsl(30deg 100% 50%)
+    --text-color: hsl(0deg 0% 100%)
+    --muted-text-color: hsl(0deg 0% 60%)
+    --background-color: hsl(0deg 0% 19%)
+    --callout-color: hsl(0deg 0% 24%)
+    --highlighted-callout-color: hsl(0deg 0% 29%)
+    --border-color: hsl(0deg 0% 40%)
+    --main-gradient-start-color: hsl(191deg 93% 48%)
+    --main-gradient-stop-color: hsl(236deg 56% 54%)
+    --main-gradient: linear-gradient(130deg, var(--main-gradient-start-color) 10%, var(--main-gradient-stop-color) 80%)

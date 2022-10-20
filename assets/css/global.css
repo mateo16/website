@@ -113,13 +113,6 @@
   visibility: hidden;
 }
 
-.wordmark {
-  font-family: var(--primary-font);
-  font-weight: 900;
-  letter-spacing: .3rem;
-  text-transform: uppercase;
-}
-
 .icon-button {
   width: 1.2rem;
   height: 1.2rem;

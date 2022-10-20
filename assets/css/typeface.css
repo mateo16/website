@@ -1,23 +1,12 @@
 @font-face {
-  font-family: 'Exo';
+  font-family: 'Satoshi';
   font-style: normal;
-  font-weight: 100 900;
+  font-weight: 300 900;
   font-display: swap;
-  src: url('assets/fonts/Exo-Variable.woff2') format('woff2 supports variations'),
-       url('assets/fonts/Exo-Variable.woff2') format('woff2-variations'),
-       url('assets/fonts/Exo-Regular.woff2') format('woff2'),
-       url('assets/fonts/Exo-Regular.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'Cairo';
-  font-style: normal;
-  font-weight: 200 1000;
-  font-display: swap;
-  src: url('assets/fonts/Cairo-Variable.woff2') format('woff2 supports variations'),
-       url('assets/fonts/Cairo-Variable.woff2') format('woff2-variations'),
-       url('assets/fonts/Cairo-Regular.woff2') format('woff2'),
-       url('assets/fonts/Cairo-Regular.ttf') format('truetype');
+  src: url('assets/fonts/Satoshi-Variable.woff2') format('woff2 supports variations'),
+       url('assets/fonts/Satoshi-Variable.woff2') format('woff2-variations'),
+       url('assets/fonts/Satoshi-Regular.woff2') format('woff2'),
+       url('assets/fonts/Satoshi-Regular.ttf') format('truetype');
 }
 
 @font-face {
@@ -32,7 +21,6 @@
 }
 
 :root {
-  --title-font: Exo, sans-serif;
-  --primary-font: Cairo, sans-serif;
+  --primary-font: Satoshi, sans-serif;
   --code-font: Source Code Pro, monospace;
 }

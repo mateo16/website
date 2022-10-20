@@ -36,6 +36,9 @@
 
 <template>
   <h1 v-if="props.title" class="color-text">{{ props.title }}</h1>
+
+  <h4 v-if="props.description">{{ props.description }}</h4>
+
   <div v-if="authorInfo" class="author-row">
     <img
       class="author-photo"
@@ -66,6 +69,11 @@ import { formatDate } from '@/lib/utils'
 
 const props = defineProps({
   title: {
+    type: String,
+    required: false,
+    default: null
+  },
+  description: {
     type: String,
     required: false,
     default: null

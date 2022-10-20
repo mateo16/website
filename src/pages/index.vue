@@ -1,7 +1,7 @@
 <style scoped>
 .hexagon {
   position: absolute;
-  fill: #f082;
+  fill: hsl(0deg 0% 40% / 10%);
 
   animation: fall;
   animation-fill-mode: backwards;
@@ -91,7 +91,7 @@ useHead({
     { property: 'og:site_name', content: copy.company },
     { property: 'og:title', content: copy.company },
     { property: 'og:description', content: copy.landing.description },
-    { property: 'og:image', content: `${config.appUrl}/img/opengraph-banner.png` },
+    { property: 'og:image', content: `${config.appUrl}/img/banner.png` },
     { property: 'og:image:type', content: 'image/png' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },

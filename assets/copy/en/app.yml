@@ -1,5 +1,5 @@
-company: Apsis Technologies
-companyShort: Apsis
+company: RockinDev
+companyShort: RockinDev
 
 nav:
   blog: blog
@@ -12,8 +12,8 @@ landing:
   description: Otherwordly software development solutions
 
 blog:
-  title: Apsis tech blog
-  subtitle: Fun lessons learned in the magical land of technology.
+  title: Rockin tech blog
+  subtitle: Fun lessons learned in the land of technology.
   blog: blog
   footer:
     cta: Get in touch

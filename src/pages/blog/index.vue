@@ -11,7 +11,6 @@
 @media (--hover) {
   .post:hover {
     scale: 1.02;
-    color: var(--highlighted-text-color);
     background-color: var(--highlighted-callout-color);
     cursor: pointer;
   }

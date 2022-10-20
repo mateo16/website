@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "name": "apsis-blog",
+  "name": "website",
   "version": "0.0.0",
-  "description": "Apsis Technologies website",
+  "description": "Company's main website",
   "author": "Martin Zenzerovich",
   "license": "UNLICENSED",
   "scripts": {

@@ -4,18 +4,17 @@
   --flex-gap: 1rem;
   --dialog-width: 26rem;
   --nav-height: 3rem;
-  --max-content-width: 36rem;
+  --max-content-width: 38rem;
   --decoration-line-thickness: .08rem;
-  --text-decoration-offset: 0.2em;
   --border-radius: 0.2rem;
 
   /* BREAKPOINT ROOT SIZES */
   --root-size-mobile-legacy: 14px;
-  --root-size-mobile: 18px;
-  --root-size-desktop: 22px;
-  --root-size-desktop-large: 24px;
+  --root-size-mobile: 16px;
+  --root-size-desktop: 20px;
+  --root-size-desktop-large: 22px;
 
-  --card-shadow: 0 0.1rem 0.2rem 0 hsl(0deg 0% 0% / 30%);
+  --card-shadow: 0 0.1rem 0.2rem 0 hsl(0deg 0% 0% / 20%);
 }
 
 @media (--res-mobile-legacy) {
@@ -85,7 +84,7 @@ body {
   letter-spacing: 0.02rem;
 
   /* animate dark/light transition */
-  /* transition: color .1s linear, background-color .1s linear; */
+  transition: color .1s linear, background-color .1s linear;
 }
 
 main {
@@ -103,7 +102,6 @@ p {
 
 h1 {
   position: relative;
-  font-family: var(--title-font);
   font-weight: 800;
   font-size: 3rem;
   letter-spacing: 0.02em;
@@ -114,7 +112,6 @@ h1 {
 }
 
 h2 {
-  font-family: var(--title-font);
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.06rem;
@@ -126,7 +123,6 @@ h2 {
 }
 
 h3 {
-  font-family: var(--title-font);
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.06rem;
@@ -138,10 +134,9 @@ h3 {
 }
 
 h4 {
-  font-family: var(--title-font);
   font-size: .9rem;
-  font-weight: 400;
-  letter-spacing: 0.02rem;
+  font-weight: 500;
+  letter-spacing: 0.03rem;
   line-height: 1.4rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -171,11 +166,10 @@ a, a:visited {
 
 a:after {
   content: '';
-  bottom: var(--text-decoration-offset);
   height: var(--decoration-line-thickness);
   display: block;
   left: 50%;
-  bottom: .1em;
+  bottom: 0em;
   position: absolute;
   background: var(--main-gradient);
   transition: width 150ms ease-out, left 150ms ease-out;
@@ -191,11 +185,10 @@ a:after {
 
 .link:after {
   content: '';
-  bottom: var(--text-decoration-offset);
   height: var(--decoration-line-thickness);
   display: block;
   left: 50%;
-  bottom: .1em;
+  bottom: 0em;
   position: relative;
   background: var(--text-color);
   transition: all 150ms ease-out;
@@ -252,7 +245,7 @@ ul > li::before {
 /* Code styling */
 pre {
   background-color: var(--callout-color);
-  font-weight: 500;
+  font-weight: 300;
   padding: .8rem;
   line-height: 1rem;
   margin-bottom: 1rem;
@@ -262,29 +255,27 @@ pre {
 }
 
 code {
-  color: var(--highlighted-text-color);
   font-family: var(--code-font);
-  font-size: .8em;
-  font-weight: 400;
+  font-size: .9em;
   letter-spacing: 0.02em;
   padding: .2em;
   background-color: var(--callout-color);
 }
 
 pre > code {
-  font-size: .6rem;
-  font-weight: 500;
+  font-size: .7rem;
   line-height: .8rem;
   padding: 0;
   background-color: revert;
 }
 
 blockquote {
-  font-size: .7rem;
-  font-weight: 300;
+  font-size: .8rem;
+  font-weight: 350;
   background-color: var(--callout-color);
-  padding: 1rem;
+  padding: .6rem;
   margin: 1rem auto;
+  border-radius: var(--border-radius);
 }
 
 blockquote > p {

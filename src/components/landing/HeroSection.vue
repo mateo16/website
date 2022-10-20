@@ -42,7 +42,7 @@
 
 <template>
   <section class="full-page pos-relative flex-col flex-center scroll-snap-y-soft scroll-snap-align-start">
-    <h1 class="color-text">{{ landing.hero.marquee.title }}</h1>
+    <h1 class="color-text" style="margin-bottom: 0">{{ landing.hero.marquee.title }}</h1>
 
     <h1 ref="marquee" class="marquee">{{ marqueeText }}</h1>
 

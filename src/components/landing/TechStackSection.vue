@@ -2,8 +2,7 @@
 .section {
   display: flex;
 
-  background: #130c1b;
-  /* background-color: var(--background-color); */
+  background-color: var(--background-color);
   padding: var(--content-margin);
 }
 

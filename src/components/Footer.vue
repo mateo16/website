@@ -2,7 +2,7 @@
 .footer {
   width: 100%;
   padding: var(--content-margin);
-  background-image: var(--background-gradient);
+  background-color: var(--background-color);
 
   display: flex;
   align-items: center;
@@ -16,6 +16,10 @@
   color: var(--text-color);
   text-transform: uppercase;
 }
+
+.brand-container {
+  gap: .5rem;
+}
 </style>
 
 <template>
@@ -28,9 +32,9 @@
       />
     </div>
     <Separator margin="1rem" />
-    <div class="flex-row flex-center flex-gap">
+    <div class="brand-container flex-row flex-center">
       <Logo no-interaction />
-      <span class="wordmark">{{copy.companyShort}}</span>
+      <Wordmark no-interaction />
     </div>
 
     <span class="footer-text">{{ copy.company }}™ {{ thisYear }}. {{ copy.footer.notice }}</span>

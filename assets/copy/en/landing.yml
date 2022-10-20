@@ -1,12 +1,12 @@
 hero:
   loading: loading...
   marquee:
-    title: We power
+    title: We rock
     elements:
-      - web 3.0
+      - web3
       - gaming
-      - mobile
       - cloud
+      - data
   cta: get in touch
 
 about:
@@ -20,7 +20,7 @@ about:
   text3: Looking for <strong>expert guidance</strong>? No problem! We'll coach your in-house team for success, guiding it through the entire development cycle.
 
 portfolio:
-  title: Portfolio
+  title: Projects
   stack: 'Tech stack:'
   content:
     - title: Ristband
