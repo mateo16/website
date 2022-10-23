@@ -60,7 +60,7 @@ html {
   overscroll-behavior: none;
 
   scroll-snap-type: y proximity;
-  scroll-snap-stop: always;
+  scroll-snap-stop: normal;
 
   /* disable text selection by default */
   user-select: none;
