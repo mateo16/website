@@ -15,6 +15,7 @@
   --root-size-desktop-large: 22px;
 
   --card-shadow: 0 0.1rem 0.2rem 0 hsl(0deg 0% 0% / 20%);
+  --text-shadow: .1rem .1rem .2rem hsl(0deg, 0%, 0% / 10%);
 }
 
 @media (--res-mobile-legacy) {
@@ -84,7 +85,7 @@ body {
   letter-spacing: 0.02rem;
 
   /* animate dark/light transition */
-  transition: color .1s linear, background-color .1s linear;
+  /* transition: color .1s linear, background-color .1s linear; */
 }
 
 main {
@@ -113,30 +114,30 @@ h1 {
 
 h2 {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.06rem;
-  line-height: 1.6rem;
+  line-height: 1.8rem;
   text-transform: uppercase;
-  margin-top: 1rem;
-  margin-bottom: .8rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
   word-break: break-word;
 }
 
 h3 {
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.06rem;
-  line-height: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  line-height: 1.3rem;
   text-transform: uppercase;
-  margin-top: .4rem;
-  margin-bottom: .5rem;
+  margin-top: 0.4rem;
+  margin-bottom: 0.5rem;
   word-break: break-word;
 }
 
 h4 {
-  font-size: .9rem;
+  font-size: 1rem;
   font-weight: 500;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.06rem;
   line-height: 1.4rem;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -245,7 +246,7 @@ ul > li::before {
 /* Code styling */
 pre {
   background-color: var(--callout-color);
-  font-weight: 300;
+  font-weight: 450;
   padding: .8rem;
   line-height: 1rem;
   margin-bottom: 1rem;

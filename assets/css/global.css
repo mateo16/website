@@ -67,6 +67,16 @@
   align-items: center;
 }
 
+.flex-space-around {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }

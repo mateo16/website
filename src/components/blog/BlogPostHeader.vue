@@ -6,6 +6,7 @@
   align-items: center;
   gap: 0.5rem;
   justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 
 .author-photo {
@@ -17,7 +18,7 @@
 .author-name {
   position: relative;
   font-size: .9rem;
-  font-weight: 350;
+  font-weight: 450;
   letter-spacing: 0.04rem;
   line-height: 1.4rem;
   text-transform: capitalize;
@@ -27,10 +28,11 @@
   color: var(--muted-text-color);
   position: relative;
   font-size: .7rem;
-  font-weight: 400;
+  font-weight: 450;
   line-height: 1rem;
   letter-spacing: 0.02rem;
   text-transform: capitalize;
+  margin-bottom: .5rem;
 }
 </style>
 
@@ -48,17 +50,16 @@
     />
 
     <div class="flex-col">
-      <div class="flex-row flex-gap flex-center">
-        <span class="author-name selectable">{{ authorInfo.name }}</span>
+      <span class="author-name selectable">{{ authorInfo.name }}</span>
 
-        <SocialButtonGroup
-          v-if="props.socialLinks"
-          :linkedin="authorInfo.linkedin"
-          :twitter="authorInfo.twitter"
-          :github="authorInfo.github"
-        />
-      </div>
       <span class="post-date">{{ formatDate(props.date) }}</span>
+
+      <SocialButtonGroup
+        v-if="props.socialLinks"
+        :linkedin="authorInfo.linkedin"
+        :twitter="authorInfo.twitter"
+        :github="authorInfo.github"
+      />
     </div>
   </div>
 </template>
@@ -91,7 +92,7 @@ const props = defineProps({
   photoSize: {
     type: String,
     required: false,
-    default: "3rem"
+    default: "4rem"
   },
   socialLinks: {
     type: Boolean,

@@ -7,11 +7,11 @@ import { trackNavigation } from '@/lib/analytics'
 export const install = ({ router }: ViteSSGContext) => {
   // initialize Firebase
   const app = initializeApp({
-    apiKey: import.meta.env.APSIS_FIREBASE_API_KEY as string,
-    authDomain: import.meta.env.APSIS_FIREBASE_AUTH_DOMAIN as string,
-    projectId: import.meta.env.APSIS_FIREBASE_PROJECT_ID as string,
-    appId: import.meta.env.APSIS_FIREBASE_APP_ID as string,
-    measurementId: import.meta.env.APSIS_FIREBASE_MEASUREMENT_ID as string
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY as string,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN as string,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID as string,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID as string,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID as string
   });
 
   if (isAnalyticsEnabled()) {

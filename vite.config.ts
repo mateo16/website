@@ -12,13 +12,44 @@ import SVG from 'vite-svg-loader'
 import Yaml from '@rollup/plugin-yaml'
 import grayMatter from 'gray-matter'
 import PostCSSCustomMedia from 'postcss-custom-media'
-import { readFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
+
+const blogMapFilePath = 'src/config/blogMap.json'
+
+const generateBlogIndex = (blogIndexPath: string, routes: any[]) => {
+  const posts = routes.filter((r) => r.name !== undefined && r.path.startsWith('/blog/'))
+  .sort(
+    // @ts-ignore
+    (a, b) => +new Date(b.meta.frontmatter.date) - +new Date(a.meta.frontmatter.date),
+  )
+
+  // const indexes: BlogIndexes
+  const indexes = { all: []}
+
+  for (const post of posts) {
+    const postMetadata = post.meta?.frontmatter
+    postMetadata['path'] = post.path
+
+    // @ts-ignore
+    indexes.all.push(postMetadata)
+
+    if (post.meta?.frontmatter.tags) {
+      for (const tag of post.meta?.frontmatter.tags as string[]) {
+        if (!(tag in indexes)) {
+          // @ts-ignore
+          indexes[tag] = []
+        }
+        // @ts-ignore
+        indexes[tag].push(postMetadata)
+      }
+    }
+  }
+
+  writeFileSync(blogIndexPath, JSON.stringify(indexes))
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // Environment variables prefix
-  envPrefix: 'APSIS_',
-
   css: {
     postcss: {
       plugins: [
@@ -38,7 +69,7 @@ export default defineConfig({
 
   ssgOptions: {
     script: 'async',
-    formatting: 'minify',
+    formatting: 'minify'
   },
 
   plugins: [
@@ -61,6 +92,7 @@ export default defineConfig({
 
     Pages({
       extensions: ['vue', 'md'],
+
       extendRoute(route) {
         const mdpath = path.resolve(__dirname, route.component.slice(1))
         if (mdpath.endsWith('.md')) {
@@ -76,6 +108,10 @@ export default defineConfig({
           }
         }
         return route
+      },
+
+      onRoutesGenerated: routes => {
+        generateBlogIndex(blogMapFilePath, routes)
       }
     }),
 

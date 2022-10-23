@@ -1,8 +1,13 @@
 ---
 title: One simple trick to implement distributed transactionality
-description:
+description: Learn how to flawlessly allocate distributed resources with this simple little trick.
 author: Martin
 date: 2022-05-02
+banner: ants.jpg
+tags:
+  - technology
+  - architecture
+  - cloudcomputing
 ---
 
 When it comes to distributed computing, making sure that resources are properly and safely allocated is a central topic. In this blog post we'll explore a very effective way to implement transactionality in a distributed environment like the cloud.
@@ -27,13 +32,12 @@ We can solve (1) by checking resource capacity and responding accordingly. (2) i
 
 That leaves us with the more interesting problem of avoiding data races. The problem would look something like this:
 
-<img src="./allocation.jpg" alt="race condition" />
+![race condition](./allocation.jpg)
 <figcaption>Ouch! Alice and Izzy both got the same resource. 🙈</figcaption>
 
 ...or its meme equivalent:
 
-<img src="./spiderman.jpg" alt="spiderman meme" width="50%" />
-<figcaption>Distributed problems... 🙄</figcaption>
+![meme](./spiderman.jpg)<figcaption>Distributed problems... 🙄</figcaption>
 
 ## Transactionality to the rescue
 

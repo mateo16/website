@@ -9,7 +9,8 @@
 </style>
 
 <template>
-  <PostDecoration />
+  <BlogPostImageDecoration :image-url="bannerImageUrl()" />
+
   <main class="selectable">
     <BlogPostHeader
       :title="frontmatter.title"
@@ -17,6 +18,13 @@
       :author="frontmatter.author"
       :date="frontmatter.date"
     />
+
+    <BlogPostTags
+      :tags="frontmatter.tags"
+      @tag-selected="(tag: string) => { router.push({ path: '/blog', query: { tag } }) }"
+      backgrounds
+    />
+
     <Separator />
 
     <!-- BLOG POST -->
@@ -38,27 +46,30 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
+import { Frontmatter } from '@/types'
 import copy from 'assets/copy/en/app.yml'
 
 const route = useRoute()
-const frontmatter = route.meta.frontmatter as any
+const router = useRouter()
+const frontmatter = route.meta.frontmatter as Frontmatter
 
 const appConfig = getAppConfig()
 const blogPostTitle = frontmatter.title
+const blogPostBanner = frontmatter.banner
 const blogPostDescription = frontmatter.description
 const pageTitle = `${blogPostTitle} | ${copy.blog.title}`
 const url = `${appConfig.appUrl}${route.fullPath}`
 
 useHead({
+  htmlAttrs: { lang: copy.locale },
   title: pageTitle,
-
   meta: [
-    // OpenGraph config
     { property: 'og:site_name', content: copy.blog.title },
     { property: 'og:title', content: blogPostTitle },
+    { property: 'og:locale', content: copy.locale },
     { property: 'og:description', content: blogPostDescription },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
@@ -67,7 +78,11 @@ useHead({
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:description', content: frontmatter.description ? frontmatter.description : copy.blog.title },
-    { property: 'og:locale', content: 'en_US' },
   ],
 })
+
+const bannerImageUrl = () => {
+  const url = new URL(`/src/pages${route.fullPath}/${blogPostBanner}`, import.meta.url)
+  return url.href
+}
 </script>

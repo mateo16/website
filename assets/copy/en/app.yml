@@ -1,6 +1,8 @@
 company: RockinDev
 companyShort: RockinDev
 
+locale: en-US
+
 nav:
   blog: blog
   contact: contact
@@ -9,7 +11,7 @@ footer:
   notice: All rights reserved.
 
 landing:
-  description: Otherwordly software development solutions
+  description: Otherwordly software development solutions.
 
 blog:
   title: Rockin tech blog

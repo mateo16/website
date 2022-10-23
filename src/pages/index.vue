@@ -58,7 +58,7 @@ meta:
 
 <script lang="ts">
 export default {
-  name: 'Landing'
+  name: 'LandingPage'
 }
 </script>
 
@@ -82,10 +82,10 @@ const hexagonStyle = () => `left: ${randomInt(10, 90)}%;` +
                            `opacity: ${randomNumber(0.1, 1)};`
 
 useHead({
+  htmlAttrs: { lang: copy.locale },
   title: `${copy.company} | ${copy.landing.description}`,
-
-  // OpenGraph config
   meta: [
+    { property: 'og:locale', content: copy.locale },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: config.appUrl },
     { property: 'og:site_name', content: copy.company },
@@ -95,7 +95,6 @@ useHead({
     { property: 'og:image:type', content: 'image/png' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
-    { property: 'og:locale', content: 'en_US' },
   ]
 })
 </script>

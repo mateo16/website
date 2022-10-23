@@ -1,4 +1,11 @@
-export const formatDate = (date: string) => (new Date(date)).toDateString()
+const options: Intl.DateTimeFormatOptions = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
+
+export const formatDate = (date: string) => (new Date(date)).toLocaleDateString('en', options)
 
 export const navigate = (url: string, external: boolean = false) => {
   window.open(url.toString(), external ? '_blank' : undefined)

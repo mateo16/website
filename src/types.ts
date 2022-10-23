@@ -3,5 +3,6 @@ export interface Frontmatter {
   description?: string
   author?: string
   date?: string
+  banner?: string
   tags?: [string]
 }
