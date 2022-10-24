@@ -5,7 +5,7 @@ author: Martin
 date: 2022-01-29 21:43:56
 banner: lightning.jpg
 tags:
-  - technology
+  - development
   - docker
   - python
 ---

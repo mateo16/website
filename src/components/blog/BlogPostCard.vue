@@ -16,15 +16,11 @@
   top: 0;
   left: 0;
 
-  opacity: 0.3;
+  opacity: 0.4;
 
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-}
-
-.post-card-title {
-  text-shadow: var(--text-shadow);
 }
 
 .post-card-description {
@@ -63,7 +59,7 @@
     <div class="pos-relative flex-col">
       <BlogPostTags :tags="tags" @tag-selected="(tag: string) => emit('tag-selected', tag)" />
 
-      <h2 class="post-card-title">{{ title }}</h2>
+      <h2 class="text-shadow">{{ title }}</h2>
       <span class="post-card-description">{{ description }}</span>
       <span class="post-card-date">{{ formatDate(date) }}</span>
     </div>

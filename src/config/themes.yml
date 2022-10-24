@@ -48,7 +48,7 @@ rockin:
     --error-color: hsl(30deg 100% 50%)
     --text-color: hsl(0deg 0% 100%)
     --muted-text-color: hsl(0deg 0% 60%)
-    --background-color: hsl(0deg 0% 19%)
+    --background-color: hsl(0deg 0% 5%)
     --callout-color: hsl(0deg 0% 22%)
     --highlighted-callout-color: hsl(0deg 0% 29%)
     --border-color: hsl(0deg 0% 40%)

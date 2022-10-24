@@ -34,9 +34,8 @@
 .dialog-content {
   position: relative;
   display: inline-block;
-  padding: 1.5rem;
-  border-radius: .4rem;
-  border: var(--decoration-line-thickness) solid var(--border-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
   transform-origin: center center;
 
   transition: all 200ms ease-out;
@@ -75,8 +74,6 @@
     :style="`background-color: rgba(0, 0, 0, ${dim ? 0.5 : '0'})`"
     @click="onOuterClick"
   >
-    <!-- <GlobalEvents v-if="show" @keyup.esc="hide" /> -->
-
     <div
       ref="dialog"
       :class="`dialog-content ${shown ? '' : (top ? 'dialog-hidden-top' : 'dialog-hidden-bottom')}`"

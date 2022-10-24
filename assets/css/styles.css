@@ -15,7 +15,7 @@
   --root-size-desktop-large: 22px;
 
   --card-shadow: 0 0.1rem 0.2rem 0 hsl(0deg 0% 0% / 20%);
-  --text-shadow: .1rem .1rem .2rem hsl(0deg, 0%, 0% / 10%);
+  --text-shadow: -.1rem .1rem .1rem hsl(0deg 0% 0% / 20%);
 }
 
 @media (--res-mobile-legacy) {

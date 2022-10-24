@@ -9,8 +9,7 @@
 
   pointer-events: none;
   transition: all .5s ease-in-out;
-  transform-origin: top left;
-  transition-delay: .1s;
+  transform-origin: top center;
 
   background-repeat: no-repeat;
   background-position: center center;
@@ -33,7 +32,7 @@
 }
 
 .hidden {
-  transform: scaleY(0);
+  transform: scale(0, 0);
   opacity: 0;
 }
 </style>
@@ -67,7 +66,7 @@ const props = defineProps({
   threshold: {
     type: Number,
     required: false,
-    default: 50
+    default: 40
   },
   imageUrl: {
     type: String,

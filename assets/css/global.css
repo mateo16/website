@@ -143,3 +143,7 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.text-shadow {
+  text-shadow: var(--text-shadow);
+}

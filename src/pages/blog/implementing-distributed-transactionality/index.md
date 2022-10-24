@@ -5,9 +5,9 @@ author: Martin
 date: 2022-05-02
 banner: ants.jpg
 tags:
-  - technology
+  - development
+  - cloud
   - architecture
-  - cloudcomputing
 ---
 
 When it comes to distributed computing, making sure that resources are properly and safely allocated is a central topic. In this blog post we'll explore a very effective way to implement transactionality in a distributed environment like the cloud.
