@@ -1,8 +1,11 @@
 <style>
 /* Markdown-embedded images */
-.markdown-body > p > img {
+.markdown-body > p > img,
+.markdown-body > blockquote > p > img {
   display: flex;
-  max-width: 70%;
+  max-width: 80%;
+  max-height: 20rem;
+  width: auto;
   height: auto;
   margin: 0 auto;
 }

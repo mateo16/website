@@ -32,7 +32,7 @@
 }
 
 .hidden {
-  transform: scale(0, 0);
+  transform: translateY(-40%);
   opacity: 0;
 }
 </style>
