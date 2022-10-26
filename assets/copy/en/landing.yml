@@ -52,5 +52,5 @@ stack:
       image: /img/cloud.png
     - text: We build on top of cutting-edge blockchain technologies to pave the way to a fully decentralized future.
       image: /img/blockchain.png
-    - text: We open source many of our <a style="color:black; font-weight:600" href="https://github.com/orgs/ApsisTechnologies/repositories" target="_blank">internal projects</a> and share them with the community.
+    - text: We open source many of our <a style="color:black; font-weight:600" href="https://github.com/orgs/RockinDev/repositories" target="_blank">internal projects</a> and share them with the community.
       image: /img/open-source.png

@@ -13,6 +13,7 @@ export function isProduction(): boolean {
 export function getAppConfig() {
   return {
     appUrl: import.meta.env.VITE_APP_URL,
+    appTheme: import.meta.env.VITE_APP_THEME,
     homeRoute: import.meta.env.VITE_HOME_ROUTE,
     apiBaseUrl: import.meta.env.VITE_API_BASE_URL,
     contactEmailAddress: import.meta.env.VITE_CONTACT_EMAIL_ADDRESS,

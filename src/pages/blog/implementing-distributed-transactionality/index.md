@@ -1,6 +1,6 @@
 ---
 title: One simple trick to implement distributed transactionality
-description: Learn how to flawlessly allocate distributed resources with this simple little trick.
+description: Learn how to flawlessly allocate distributed resources with this simple trick.
 author: Martin
 date: 2022-05-02
 banner: ants.jpg

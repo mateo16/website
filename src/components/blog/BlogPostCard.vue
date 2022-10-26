@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
 
-  opacity: 0.4;
+  opacity: 0.3;
 
   background-repeat: no-repeat;
   background-position: center center;

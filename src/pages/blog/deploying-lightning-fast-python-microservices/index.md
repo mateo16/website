@@ -18,18 +18,21 @@ We devote a lot of brain cycles to architecting our tools for delivering world-c
 
 ## TL,DR
 
-Wanna get coding right away? We open sourced an internal project called [Narwhal](https://github.com/ApsisTechnologies/narwhal) which implements all of the features described below.
+Wanna get coding right away? We open sourced one of our internal projects called [Narwhal](https://github.com/RockinDev/narwhal) which implements all of the features described below.
+
+![Narwhal logo](./narwhal.png)
+<figcaption>Narwhal's logo</figcaption>
 
 It also comes with utility commands and a few other goodies you can use to bootstrap your projects.
 
 ### Narwhal Quick Setup
 
 ```bash
-$ git clone https://github.com/ApsisTechnologies/narwhal.git
+$ git clone https://github.com/RockinDev/narwhal.git
 $ cd narwhal
 $ make dev
 Running app locally with hot reload on http://localhost:8000...
-INFO:     Will watch for changes in these directories: ['/Users/martin/Development/projects/apsis/narwhal']
+INFO:     Will watch for changes in these directories: ['/Users/me/develop/projects/narwhal']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 INFO:     Started reloader process [82688] using watchgod
 INFO:     Started server process [82697]

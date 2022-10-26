@@ -49,7 +49,7 @@
     playsinline
     preload="auto"
     :autoplay="autoplay"
-    poster="assets/images/apsis_hero_cover.jpg"
+    poster="assets/images/hero_cover.jpg"
     @play="loading = false"
   >
     <source type="video/mp4" :src="props.src" />

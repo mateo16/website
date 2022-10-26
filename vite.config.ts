@@ -119,7 +119,7 @@ export default defineConfig({
       headEnabled: false,
       markdownItSetup(md) {
         md.use(MarkdownItExternalLinks, {
-          internalDomains: ['localhost', 'apsistechnologies.com'],
+          internalDomains: ['localhost', 'rockindev.com'],
           internalTarget: '_self',
           externalTarget: '_blank'
         })

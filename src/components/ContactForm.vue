@@ -37,10 +37,10 @@
 </template>
 
 <script setup lang="ts">
-import { sendContactRequest }  from '@/lib/apsis/contact'
-import { useEventBus }  from '@/lib/event'
-import { trackContactRequest }  from '@/lib/analytics'
-import { isValidEmailAddress }  from '@/lib/utils'
+import { sendContactRequest } from '@/lib/rockin/contact'
+import { useEventBus } from '@/lib/event'
+import { trackContactRequest } from '@/lib/analytics'
+import { isValidEmailAddress } from '@/lib/utils'
 import TextInput from '@/components/TextInput.vue'
 import copy from 'assets/copy/en/app.yml'
 

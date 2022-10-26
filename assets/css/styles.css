@@ -82,7 +82,7 @@ body {
   font-size: 1rem;
   font-weight: 350;
   line-height: 1.7rem;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.04rem;
 
   /* animate dark/light transition */
   /* transition: color .1s linear, background-color .1s linear; */
@@ -102,10 +102,11 @@ p {
 }
 
 h1 {
+  font-family: var(--heading-font);
   position: relative;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 3rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   line-height: 1.2em;
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -113,9 +114,10 @@ h1 {
 }
 
 h2 {
+  font-family: var(--heading-font);
   font-size: 1.4rem;
   font-weight: 600;
-  letter-spacing: 0.06rem;
+  letter-spacing: 0.02rem;
   line-height: 1.8rem;
   text-transform: uppercase;
   margin-top: 0.2rem;
@@ -124,6 +126,7 @@ h2 {
 }
 
 h3 {
+  font-family: var(--heading-font);
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.02rem;
@@ -135,6 +138,7 @@ h3 {
 }
 
 h4 {
+  font-family: var(--heading-font);
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0.04rem;
@@ -214,6 +218,7 @@ img, picture {
 }
 
 figcaption {
+  color: var(--muted-text-color);
   font-size: .7rem;
   font-weight: 500;
   width: 100%;
