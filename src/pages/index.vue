@@ -1,7 +1,7 @@
 <style scoped>
 .hexagon {
   position: absolute;
-  fill: hsl(0deg 0% 40% / 10%);
+  fill: hsl(0deg 0% 100% / 10%);
 
   animation: fall;
   animation-fill-mode: backwards;
@@ -67,7 +67,7 @@ import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
 import { randomInt, randomNumber } from '@/lib/utils'
 import copy from 'assets/copy/en/app.yml'
-import Hexagon from 'assets/icons/hexagon.svg'
+import Hexagon from 'assets/icons/hexagon.svg?component'
 import video from 'assets/video/hero_1000kbps.mp4'
 import landing from 'assets/copy/en/landing.yml'
 

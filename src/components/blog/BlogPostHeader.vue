@@ -37,7 +37,7 @@
 </style>
 
 <template>
-  <h1 v-if="props.title" class="color-text">{{ props.title }}</h1>
+  <h1 v-if="props.title" class="text-shadow">{{ props.title }}</h1>
 
   <h4 v-if="props.description">{{ props.description }}</h4>
 

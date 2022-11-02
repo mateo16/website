@@ -106,7 +106,7 @@ export default {
 </script>
 
 <script setup lang="ts">
-import CloseIcon from 'assets/icons/close.svg'
+import CloseIcon from 'assets/icons/close.svg?component'
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { clamp } from '@/lib/utils'
 

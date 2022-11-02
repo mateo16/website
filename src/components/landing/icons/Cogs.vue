@@ -58,5 +58,5 @@
 </template>
 
 <script setup lang="ts">
-import CogIcon from 'assets/icons/cog.svg'
+import CogIcon from 'assets/icons/cog.svg?component'
 </script>

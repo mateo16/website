@@ -1,6 +1,6 @@
 ---
 title: The 6 keys to choosing a great CTO
-description: The role of a CTO can make or break your company’s product strategy. Here are the main things you should pay attention to when choosing your number one technical person.
+description: The role of a CTO can make or break your company’s product strategy. Here are the main things you should pay attention to when choosing your top technical person.
 author: Martin
 date: 2022-10-13
 banner: cto.jpg

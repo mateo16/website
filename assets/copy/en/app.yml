@@ -1,7 +1,7 @@
 company: RockinDev
 companyShort: RockinDev
 
-locale: en-US
+locale: en_US
 
 nav:
   blog: blog

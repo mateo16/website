@@ -61,6 +61,6 @@
 </template>
 
 <script setup lang="ts">
-import DiamondIcon from 'assets/icons/diamond.svg'
-import SparkleIcon from 'assets/icons/sparkle.svg'
+import DiamondIcon from 'assets/icons/diamond.svg?component'
+import SparkleIcon from 'assets/icons/sparkle.svg?component'
 </script>

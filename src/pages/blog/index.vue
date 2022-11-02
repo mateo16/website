@@ -1,5 +1,5 @@
 <template>
-  <h1 class="color-text">{{ copy.blog.title }}</h1>
+  <h1>{{ copy.blog.title }}</h1>
   <h4>{{ copy.blog.subtitle }}</h4>
 
   <BlogPostTags

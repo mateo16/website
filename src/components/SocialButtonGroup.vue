@@ -21,9 +21,9 @@
 </template>
 
 <script setup lang="ts">
-import LinkedInLogo from 'assets/icons/social/linkedin.svg'
-import GitHubLogo from 'assets/icons/social/github.svg'
-import TwitterLogo from 'assets/icons/social/twitter.svg'
+import LinkedInLogo from 'assets/icons/social/linkedin.svg?component'
+import GitHubLogo from 'assets/icons/social/github.svg?component'
+import TwitterLogo from 'assets/icons/social/twitter.svg?component'
 import { navigate } from '@/lib/utils'
 import { trackSocial } from '@/lib/analytics'
 

@@ -12,7 +12,7 @@
 </style>
 
 <template>
-  <BlogPostImageDecoration :image-url="bannerImageUrl()" />
+  <BlogPostImageDecoration :image-url="bannerImageUrl" />
 
   <main class="selectable">
     <BlogPostHeader
@@ -23,7 +23,7 @@
     />
 
     <BlogPostTags
-      :tags="frontmatter.tags"
+      :tags="tags"
       @tag-selected="(tag: string) => { router.push({ path: '/blog', query: { tag } }) }"
       backgrounds
     />
@@ -54,6 +54,7 @@ import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
 import { Frontmatter } from '@/types'
 import copy from 'assets/copy/en/app.yml'
+import config from 'assets/config.yml'
 
 const route = useRoute()
 const router = useRouter()
@@ -61,31 +62,50 @@ const frontmatter = route.meta.frontmatter as Frontmatter
 
 const appConfig = getAppConfig()
 const blogPostTitle = frontmatter.title
+const tags = frontmatter.tags
 const blogPostBanner = frontmatter.banner
 const blogPostDescription = frontmatter.description
-const pageTitle = `${blogPostTitle} | ${copy.blog.title}`
+const title = `${blogPostTitle} | ${copy.blog.title}`
 const url = `${appConfig.appUrl}${route.fullPath}`
+const bannerImageUrl = new URL(`/src/pages${route.fullPath}/${blogPostBanner}`, import.meta.url).href
+
+type MetaProperty = { property: string, content: any, key?: any }
+
+const meta: MetaProperty[] = [
+  { property: 'og:site_name', content: copy.company },
+  { property: 'og:title', content: blogPostTitle },
+  { property: 'og:locale', content: copy.locale },
+  { property: 'og:type', content: 'article' },
+  { property: 'og:description', content: blogPostDescription },
+  { property: 'og:url', content: url },
+  // { property: 'og:image', content: bannerImageUrl },
+  { property: 'og:image', content: `${appConfig.appUrl}/img/banner.png` },
+  { property: 'og:image:alt', content: 'blog post banner image' },
+  { property: 'og:image:type', content: 'image/png' },
+  { property: 'og:image:width', content: '1200' },
+  { property: 'og:image:height', content: '630' },
+  { property: 'og:description', content: frontmatter.description ? frontmatter.description : copy.blog.title },
+  { property: 'article:published_time', content: frontmatter.date },
+]
+
+if (tags) {
+  meta.push({ property: 'article:section', content: tags[0] })
+
+  for (const tag of tags) {
+    meta.push({ property: 'article:tag', content: tag, key: tag })
+  }
+}
+
+if (frontmatter.author) {
+  const authorInfo = config.authors[frontmatter.author]
+  if (authorInfo) {
+    meta.push({ property: 'article:author', content: authorInfo.linkedin })
+  }
+}
 
 useHead({
   htmlAttrs: { lang: copy.locale },
-  title: pageTitle,
-  meta: [
-    { property: 'og:site_name', content: copy.blog.title },
-    { property: 'og:title', content: blogPostTitle },
-    { property: 'og:locale', content: copy.locale },
-    { property: 'og:description', content: blogPostDescription },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url },
-    { property: 'og:image', content: `${appConfig.appUrl}/img/banner.png` },
-    { property: 'og:image:type', content: 'image/png' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
-    { property: 'og:description', content: frontmatter.description ? frontmatter.description : copy.blog.title },
-  ],
+  title,
+  meta
 })
-
-const bannerImageUrl = () => {
-  const url = new URL(`/src/pages${route.fullPath}/${blogPostBanner}`, import.meta.url)
-  return url.href
-}
 </script>
