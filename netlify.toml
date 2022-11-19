@@ -45,7 +45,7 @@
   VITE_ANALYTICS_ENABLED = "true"
   VITE_HOME_ROUTE = "/"
   VITE_APP_THEME = "rockin"
-  VITE_APP_URL = "https://dev--rockindev.netlify.app"
+  VITE_APP_URL = "https://stg.rockindev.com"
   VITE_API_BASE_URL = "https://9scn83sbph.execute-api.us-east-1.amazonaws.com"
   VITE_CONTACT_EMAIL_ADDRESS = "hello@rockindev.com"
   VITE_LINKEDIN_URL = "https://www.linkedin.com/company/rockindev"

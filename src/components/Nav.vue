@@ -7,7 +7,11 @@
   justify-content: space-between;
   min-height: var(--nav-height);
   width: 100%;
-  transition: transform 400ms ease-out;
+  transition: transform 300ms ease-out, background 300ms ease-out;
+}
+
+.nav-background {
+  background: var(--callout-color);
 }
 
 .nav-hidden {
@@ -15,46 +19,103 @@
 }
 
 .brand-container {
-  gap: .5rem;
+  gap: .7rem;
 }
 
 .nav-links-container {
-  gap: 1.5rem;
+  gap: .5rem;
   display: flex;
   flex-direction: row;
 }
 
 .nav-link {
   font-size: .8rem;
-  font-weight: 450;
+  font-weight: 600;
   line-height: 1rem;
-  letter-spacing: .08rem;
+  letter-spacing: .06rem;
   text-transform: uppercase;
   text-decoration: none;
+
+  padding: .2rem .4rem;
+  border-radius: var(--border-radius);
 }
 
-/* FIXME: temporary, redesign nav */
-@media (--res-mobile-all) {
-  .wordmark {
-    display: none;
+.navigation-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+@media (--res-narrow) {
+  .navigation-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
   }
+
+  /* HACK: slight correction so that nav links and social buttons are aligned */
+  .nav-links-container {
+    transform: translateY(.4rem);
+  }
+
+  .buttons-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+}
+
+.active-nav-link {
+  background: var(--highlighted-callout-color);
+  pointer-events: none;
 }
 </style>
 
 <template>
   <nav
     class="nav flex-row flex-gap"
-    :class="{ 'nav-hidden': hidden }"
+    :class="{
+      'nav-hidden': hidden && !noHide,
+      'nav-background': hidden && noHide
+    }"
   >
-    <div class="brand-container flex-row flex-center">
-      <Logo @click="router.push('/')" animation-class="grow-and-spin" />
-      <Wordmark @click="router.push('/')" />
+    <div class="navigation-container">
+      <div class="brand-container flex-row flex-center">
+        <Logo @click="router.push('/')" animation-class="grow-and-spin" />
+        <Wordmark @click="router.push('/')" />
+      </div>
+
+      <div class="nav-links-container flex-center">
+        <span
+          v-for="item of navLinks"
+          class="link nav-link"
+          :class="{ 'active-nav-link': router.currentRoute.value.fullPath === item.route }"
+          @click="router.push(item.route)"
+        >
+          {{ item.text }}
+        </span>
+      </div>
+
     </div>
 
-    <!--  NAV LINKS -->
-    <div class="nav-links-container flex-center">
-      <span class="link nav-link" @click="router.push('/blog')">{{ copy.nav.blog }}</span>
-      <span class="link nav-link" @click="router.push({ path: '/', hash: '#contact' })">{{copy.nav.contact}}</span>
+    <div class="buttons-container">
+      <Button
+        small
+        :text="copy.nav.contact"
+        @click="router.push({ path: '/', hash: '#contact' })"
+      />
 
       <SocialButtonGroup
         :linkedin="appConfig.linkedInUrl"
@@ -71,11 +132,21 @@ import { useRouter } from 'vue-router'
 import { getAppConfig } from '@/lib/config'
 import copy from 'assets/copy/en/app.yml'
 
+const navLinks = [
+  { route: '/team',  text: copy.nav.team },
+  { route: '/blog',  text: copy.nav.blog },
+]
+
 const props = defineProps({
   threshold: {
     type: Number,
     required: false,
     default: 30
+  },
+  noHide: {
+    type: Boolean,
+    required: false,
+    default: false
   }
 })
 

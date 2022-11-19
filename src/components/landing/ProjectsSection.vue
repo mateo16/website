@@ -68,7 +68,7 @@
 
 @media (--hover) {
   .brand-card:hover {
-    background: var(--border-color);
+    background: var(--highlighted-callout-color);
   }
 }
 
@@ -106,17 +106,27 @@
       <template #second-pane>
         <IntersectionContainer once animation-name="slide-in-right" margin="-10px" style="opacity: 0; animation-delay: .6s">
           <div ref="_text" class="text-pane flex-col flex-center">
-            <h2 :class="`${url ? 'link' : ''}`" @click="onProjectClick(url)">{{ title }}</h2>
+            <h2>{{ title }}</h2>
+            <!-- <h2 :class="`${url ? 'link' : ''}`" @click="onProjectClick(url)">{{ title }}</h2> -->
             <p class="text-center" v-html="text"></p>
 
-              <span class="tech-stack-title">{{ landing.portfolio.stack }}</span>
+            <span class="tech-stack-title">{{ landing.portfolio.stack }}</span>
 
-              <div class="brand-card-container flex-row flex-wrap">
-                <div class="flex-row brand-card" v-for="key of stack">
-                  <img class="tech-icon" :src="brandInfo(key).icon" alt="technology icon">
-                  <span class="non-breaking-text">{{ brandInfo(key).name }}</span>
-                </div>
+            <div class="brand-card-container flex-row flex-wrap">
+              <div class="flex-row brand-card" v-for="key of stack">
+                <img class="tech-icon" :src="brandInfo(key).icon" alt="technology icon">
+                <span class="non-breaking-text">{{ brandInfo(key).name }}</span>
               </div>
+            </div>
+
+            <span
+              v-if="url"
+              class="link"
+              style="margin-top: 1rem; font-size: .8rem"
+              @click="onProjectClick(url)"
+            >
+              {{ landing.portfolio.productPage }}
+            </span>
           </div>
         </IntersectionContainer>
       </template>

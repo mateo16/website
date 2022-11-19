@@ -12,8 +12,7 @@
   <section id="contact" class="section pos-relative flex-col flex-center full-page">
     <h1 class="color-text">{{ copy.contact.title }}</h1>
     <div class="content">
-      <p v-html="copy.contact.text1.replaceAll('{EMAIL}', appConfig.contactEmailAddress)"></p>
-      <p>{{ copy.contact.text2 }}</p>
+      <p v-html="copy.contact.message.replaceAll('{EMAIL}', appConfig.contactEmailAddress)"></p>
       <ContactForm />
     </div>
   </section>

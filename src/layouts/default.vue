@@ -2,7 +2,7 @@
   <main>
     <router-view />
   </main>
-  <Nav />
+  <Nav no-hide />
   <Footer />
   <Notification />
   <DevModeBanner />

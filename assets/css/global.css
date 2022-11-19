@@ -32,6 +32,10 @@
   cursor: default;
 }
 
+.text-uppercase {
+  text-transform: uppercase;
+}
+
 .no-pointer-events {
   pointer-events: none;
 }
@@ -67,6 +71,16 @@
   align-items: center;
 }
 
+.flex-start {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-end {
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .flex-space-around {
   justify-content: space-around;
   align-items: center;
@@ -87,6 +101,18 @@
 
 .flex-gap {
   gap: var(--flex-gap);
+}
+
+.flex-gap-large {
+  gap: calc(var(--flex-gap) * 2);
+}
+
+.flex-gap-small {
+  gap: calc(var(--flex-gap) / 2);
+}
+
+.flex-gap-tiny {
+  gap: calc(var(--flex-gap) / 4);
 }
 
 .scroll-snap-y-soft {

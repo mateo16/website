@@ -1,10 +1,9 @@
-import { ViteSSG } from 'vite-ssg'
+import { ViteSSG, type ViteSSGContext } from 'vite-ssg'
 import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
 import generatedRoutes from '~pages'
 import { trackError } from '@/lib/analytics'
 import copy from 'assets/copy/en/app.yml'
-import { type ViteSSGContext } from 'vite-ssg'
 
 // global stylesheets
 import 'assets/css/typeface.css'
@@ -18,7 +17,8 @@ const routes = setupLayouts(generatedRoutes)
 
 export const createApp = ViteSSG(
   App,
-  { routes,
+  {
+    routes,
     scrollBehavior: (to) => to.hash ? { el: to.hash } : { top: 0 }
   },
   (ctx) => {
@@ -46,6 +46,5 @@ export const createApp = ViteSSG(
         trackError(message)
       }
     }
-
   }
 )

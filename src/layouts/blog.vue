@@ -54,7 +54,7 @@ import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
 import { Frontmatter } from '@/types'
 import copy from 'assets/copy/en/app.yml'
-import config from 'assets/config.yml'
+import company from '@/config/company.yml'
 
 const route = useRoute()
 const router = useRouter()
@@ -72,7 +72,7 @@ const bannerImageUrl = new URL(`/src/pages${route.fullPath}/${blogPostBanner}`, 
 type MetaProperty = { property: string, content: any, key?: any }
 
 const meta: MetaProperty[] = [
-  { property: 'og:site_name', content: copy.company },
+  { property: 'og:site_name', content: copy.company.name },
   { property: 'og:title', content: blogPostTitle },
   { property: 'og:locale', content: copy.locale },
   { property: 'og:type', content: 'article' },
@@ -97,7 +97,7 @@ if (tags) {
 }
 
 if (frontmatter.author) {
-  const authorInfo = config.authors[frontmatter.author]
+  const authorInfo = company.team[frontmatter.author]
   if (authorInfo) {
     meta.push({ property: 'article:author', content: authorInfo.linkedin })
   }

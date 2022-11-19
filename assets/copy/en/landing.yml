@@ -1,12 +1,14 @@
 hero:
   loading: loading...
   marquee:
-    title: We rock
-    elements:
+    title: Fast-track your
+    verticals:
       - web3
+      - fintech
+      - climate tech
       - gaming
-      - cloud
-      - data
+    title2: project
+  description: We bring your product vision to life with hyper-scalable solutions and expert tech talent.
   cta: get in touch
 
 about:
@@ -15,13 +17,14 @@ about:
   title1: Design
   text1: We craft <strong>beautiful products</strong> users love, making sure no detail goes unnoticed.
   title2: Build
-  text2: We tackle hard problems, solving them through <strong>modern</strong>, <strong>scalable</strong>, <strong>future-proof</strong> solutions.
+  text2: We tackle hard problems, solving them through <strong>hyper-scalable</strong>, <strong>future-proof</strong> solutions.
   title3: Lead
-  text3: Looking for <strong>expert guidance</strong>? No problem! We'll coach your in-house team for success, guiding it through the entire development cycle.
+  text3: Looking for <strong>expert guidance</strong>? No problem! We'll coach your in-house team for success, guiding it through the entire product cycle.
 
 portfolio:
   title: Projects
   stack: 'Tech stack:'
+  productPage: Product page
   content:
     - title: Ristband
       url: https://ristband.co/

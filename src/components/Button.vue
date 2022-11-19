@@ -16,7 +16,7 @@
   font-weight: 650;
   font-size: 1.1rem;
   line-height: normal;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 
   box-shadow: var(--card-shadow);
 }
@@ -143,7 +143,7 @@ const router = useRouter()
 
 const style_ = computed(() =>
   `${props.enabled ? '' : 'pointer-events: none;'}` +
-  `${props.small ? 'height: 2rem; padding: 0 1.5rem; font-size: .9rem' : ''};` +
+  `${props.small ? 'height: 2rem; padding: 0 1rem; font-size: .9rem' : ''};` +
   `color: ${props.enabled ? props.textColor : 'var(--muted-text-color)'}`
 )
 

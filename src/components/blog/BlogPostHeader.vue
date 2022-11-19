@@ -65,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import config from 'assets/config.yml'
+import company from '@/config/company.yml'
 import { formatDate } from '@/lib/utils'
 
 const props = defineProps({
@@ -101,5 +101,5 @@ const props = defineProps({
   }
 })
 
-const authorInfo = config.authors[props.author]
+const authorInfo = company.team[props.author]
 </script>

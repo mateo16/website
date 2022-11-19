@@ -83,14 +83,14 @@ const hexagonStyle = () => `left: ${randomInt(10, 90)}%;` +
 
 useHead({
   htmlAttrs: { lang: copy.locale },
-  title: `${copy.company} | ${copy.landing.description}`,
+  title: `${copy.company.name} | ${copy.company.tagline}`,
   meta: [
     { property: 'og:locale', content: copy.locale },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: config.appUrl },
-    { property: 'og:site_name', content: copy.company },
-    { property: 'og:title', content: copy.company },
-    { property: 'og:description', content: copy.landing.description },
+    { property: 'og:site_name', content: copy.company.name },
+    { property: 'og:title', content: copy.company.name },
+    { property: 'og:description', content: copy.company.tagline },
     { property: 'og:image', content: `${config.appUrl}/img/banner.png` },
     { property: 'og:image:type', content: 'image/png' },
     { property: 'og:image:width', content: '1200' },

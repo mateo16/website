@@ -18,7 +18,7 @@ export const install = ({ router }: ViteSSGContext) => {
     const config = {
       // disable automatic events
       config: {
-        send_page_view: false,
+        send_page_view: true,
         allow_google_signals: false,
         allow_ad_personalization_signals: false
       }

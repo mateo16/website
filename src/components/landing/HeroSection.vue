@@ -7,8 +7,6 @@
   white-space: nowrap;
   overflow: hidden;
 
-  margin-bottom: 4rem;
-
   animation-name: marquee-anim;
   animation-duration: 2s;
   animation-iteration-count: infinite;
@@ -41,10 +39,14 @@
 </style>
 
 <template>
-  <section class="full-page pos-relative flex-col flex-center scroll-snap-y-soft scroll-snap-align-start">
-    <h1 class="color-text" style="margin-bottom: 0">{{ landing.hero.marquee.title }}</h1>
+  <section class="full-page pos-relative flex-col flex-center flex-gap scroll-snap-y-soft scroll-snap-align-start">
+    <div class="flex-col flex-center flex-wrap">
+      <h2 class="text-center">{{ landing.hero.marquee.title }}</h2>
+      <h1 ref="marquee" class="marquee text-center">{{ marqueeText }}</h1>
+      <h2 class="text-center">{{ landing.hero.marquee.title2 }}</h2>
+    </div>
 
-    <h1 ref="marquee" class="marquee">{{ marqueeText }}</h1>
+    <h4 class="text-center content">{{ landing.hero.description }}</h4>
 
     <Button :text="landing.hero.cta" @click="router.push({ path: '/', hash: '#contact'})" />
   </section>
@@ -60,10 +62,10 @@ const router = useRouter()
 let marqueeActiveIndex = $ref(0)
 const marquee: HTMLElement = $ref()
 
-const marqueeText = computed(() => landing.hero.marquee.elements[marqueeActiveIndex])
+const marqueeText = computed(() => landing.hero.marquee.verticals[marqueeActiveIndex])
 
 const doMarqueeTransition = () => {
-  marqueeActiveIndex = rotateForward(marqueeActiveIndex, landing.hero.marquee.elements.length)
+  marqueeActiveIndex = rotateForward(marqueeActiveIndex, landing.hero.marquee.verticals.length)
 }
 
 onMounted(() => { marquee.addEventListener('animationiteration', doMarqueeTransition) })

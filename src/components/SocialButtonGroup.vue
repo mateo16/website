@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-row flex-gap">
+  <div class="flex-row flex-gap flex-center">
     <LinkedInLogo
       v-if="props.linkedin"
       class="icon-button"

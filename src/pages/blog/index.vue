@@ -43,7 +43,7 @@ import blogMap from '@/config/blogMap.json'
 const config = getAppConfig()
 const router = useRouter()
 
-const title = `${copy.blog.title} | ${copy.company}`
+const title = `${copy.blog.title} | ${copy.company.name}`
 const url = config.appUrl + router.currentRoute.value.fullPath
 
 useHead({
@@ -53,7 +53,7 @@ useHead({
     { property: 'og:locale', content: copy.locale },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
-    { property: 'og:site_name', content: copy.company },
+    { property: 'og:site_name', content: copy.company.name },
     { property: 'og:title', content: title },
     { property: 'og:description', content: copy.blog.subtitle },
     { property: 'og:image', content: `${config.appUrl}/img/banner.png` },

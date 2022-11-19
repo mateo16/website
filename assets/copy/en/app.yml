@@ -1,17 +1,27 @@
-company: RockinDev
-companyShort: RockinDev
+company:
+  name: RockinDev
+  tagline: Advanced digital solutions with a soul.
+  locations:
+    us: United States
+    ba: Buenos Aires
 
 locale: en_US
 
 nav:
+  jobs: jobs
+  team: team
   blog: blog
-  contact: contact
+  contact: contact us
 
 footer:
   notice: All rights reserved.
 
-landing:
-  description: Otherwordly software development solutions.
+team:
+  title: Rockin' team
+  description:
+    - We are a team of forward-thinking technologists and creative professionals with deep expertise in product building and design. We absolutely love what we do and it shows.
+    - Meet the team that makes it all happen.
+
 
 blog:
   title: Rockin tech blog
@@ -21,9 +31,8 @@ blog:
     cta: Get in touch
 
 contact:
-  title: Contact us
-  text1: Need help getting your project launched? Let's chat! Drop us a line with your info below or email us to <a href="mailto:{EMAIL}">{EMAIL}</a>, we'll get back to you in no time.
-  text2: Can't wait to hear about your project!
+  title: Get in touch
+  message: Chat with us today to fast-track your development project. Just leave us a message below or email us at <a href="mailto:{EMAIL}">{EMAIL}</a>, we'll get back to you shortly to discuss your project needs.
 
   namePlaceholder: Name
   emailPlaceholder: Work email
@@ -48,4 +57,5 @@ error:
 
   notFound:
     title: Page not found
-    caption: Hmm... We couldn't find what you're looking for 🤔
+    caption: Hmm... We couldn't find what you're looking for. 🤔
+    home: take me home

@@ -1,0 +1,46 @@
+team:
+  Martin:
+    name: Martin Zenzerovich
+    title: CEO & Co-Founder
+    photoUrl: /img/team/martin.jpg
+    linkedin: https://www.linkedin.com/in/martinzenzerovich/
+    twitter: https://twitter.com/MartinZenz
+
+  Matias:
+    name: Matías Podrojsky
+    title: COO & Co-Founder
+    photoUrl: /img/team/matias.jpg
+    linkedin: https://www.linkedin.com/in/matias-uriel-podrojsky/
+
+  Paz:
+    name: Paz Piña
+    title: Head of Customer Success
+    photoUrl: /img/team/paz.jpg
+    linkedin: https://www.linkedin.com/in/paz-pi%C3%B1a-666b89105/
+
+  Clara:
+    name: Clara Blousson
+    title: Growth Hacker in Chief
+    photoUrl: /img/team/clara.jpg
+    linkedin: https://www.linkedin.com/in/clara-blousson/
+
+  Tom:
+    name: Tomás Corellano
+    title: Blockchain Architect
+    photoUrl: /img/team/tom.jpg
+    linkedin: https://www.linkedin.com/in/nevtep/
+
+locations:
+  us:
+    address:
+      - 18021 Biscayne Blvd, of. 303
+      - Aventura
+      - Florida, USA
+    url: https://goo.gl/maps/DP3A2VicHM4YMqpX6
+
+  ba:
+    address:
+      - E. Echeverría 1242
+      - Vicente López
+      - Buenos Aires, Argentina
+    url: https://goo.gl/maps/w9A1aH64Ei8HvL5N9
