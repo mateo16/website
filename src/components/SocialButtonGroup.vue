@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-row flex-gap flex-center">
+  <div class="flex-row flex-gap">
     <LinkedInLogo
       v-if="props.linkedin"
       class="icon-button"
@@ -42,7 +42,7 @@ const props = defineProps({
     type: String,
     required: false,
     default: null
-  },
+  }
 })
 
 const onNavigateLinkedIn = () => {

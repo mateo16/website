@@ -1,28 +1,32 @@
 <template>
-  <h1>{{ copy.blog.title }}</h1>
-  <h4>{{ copy.blog.subtitle }}</h4>
+  <CircuitsDecorator />
 
-  <BlogPostTags
-    :tags="tags"
-    @tag-selected="onTagSelected"
-    :active-tag="activeTag"
-    backgrounds
-  />
+  <div class="pos-relative content-section">
+    <h1>{{ copy.blog.title }}</h1>
+    <h4>{{ copy.blog.subtitle }}</h4>
 
-  <Separator />
-
-  <div class="flex-col">
-    <BlogPostCard
-      v-for="post in posts"
-      :key="post.path"
-      :path="post.path"
-      :tags="post.tags"
-      :title="post.title"
-      :banner="post.banner"
-      :description="post.description"
-      :date="post.date"
+    <BlogPostTags
+      :tags="tags"
       @tag-selected="onTagSelected"
+      :active-tag="activeTag"
+      backgrounds
     />
+
+    <Separator />
+
+    <div class="flex-col">
+      <BlogPostCard
+        v-for="post in posts"
+        :key="post.path"
+        :path="post.path"
+        :tags="post.tags"
+        :title="post.title"
+        :banner="post.banner"
+        :description="post.description"
+        :date="post.date"
+        @tag-selected="onTagSelected"
+      />
+    </div>
   </div>
 </template>
 

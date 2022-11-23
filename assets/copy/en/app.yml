@@ -17,11 +17,10 @@ footer:
   notice: All rights reserved.
 
 team:
-  title: Rockin' team
+  title: Rockin' Team
   description:
     - We are a team of forward-thinking technologists and creative professionals with deep expertise in product building and design. We absolutely love what we do and it shows.
     - Meet the team that makes it all happen.
-
 
 blog:
   title: Rockin tech blog
@@ -32,7 +31,7 @@ blog:
 
 contact:
   title: Get in touch
-  message: Chat with us today to fast-track your development project. Just leave us a message below or email us at <a href="mailto:{EMAIL}">{EMAIL}</a>, we'll get back to you shortly to discuss your project needs.
+  message: Chat with us today to fast-track your project. Fill the form below or email us at <a href="mailto:{EMAIL}">{EMAIL}</a>, we'll get back to you shortly to discuss your project needs.
 
   namePlaceholder: Name
   emailPlaceholder: Work email

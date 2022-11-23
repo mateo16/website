@@ -9,32 +9,41 @@
   height: auto;
   margin: 0 auto;
 }
+
+.content-wrapper {
+  padding-top: var(--nav-height);
+  padding-right: var(--content-margin);
+  padding-left: var(--content-margin);
+}
 </style>
 
 <template>
-  <BlogPostImageDecoration :image-url="bannerImageUrl" />
+  <div class="selectable pos-relative content-wrapper overflow-x-hidden">
+    <BlogPostImageDecoration :image-url="bannerImageUrl" />
 
-  <main class="selectable">
-    <BlogPostHeader
-      :title="frontmatter.title"
-      :description="frontmatter.description"
-      :author="frontmatter.author"
-      :date="frontmatter.date"
-    />
+    <main class="pos-relative content-section">
+      <BlogPostHeader
+        :title="frontmatter.title"
+        :description="frontmatter.description"
+        :author="frontmatter.author"
+        :date="frontmatter.date"
+      />
 
-    <BlogPostTags
-      :tags="tags"
-      @tag-selected="(tag: string) => { router.push({ path: '/blog', query: { tag } }) }"
-      backgrounds
-    />
+      <BlogPostTags
+        :tags="tags"
+        @tag-selected="(tag: string) => { router.push({ path: '/blog', query: { tag } }) }"
+        backgrounds
+      />
 
-    <Separator />
+      <Separator />
 
-    <!-- BLOG POST -->
-    <router-view />
+      <!-- BLOG POST -->
+      <router-view />
 
-    <BlogPostFooter />
-  </main>
+      <BlogPostFooter />
+    </main>
+
+  </div>
   <Nav />
   <Footer />
   <ReadProgress />
@@ -44,7 +53,7 @@
 
 <script lang="ts">
 export default {
-  name: 'BlogPostLayout'
+  name: 'BlogPost'
 }
 </script>
 

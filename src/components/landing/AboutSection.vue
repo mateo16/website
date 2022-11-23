@@ -2,7 +2,6 @@
 .section {
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 2rem;
 }
 
 .card-container {
@@ -22,7 +21,7 @@
 </style>
 
 <template>
-  <section id="about" class="section pos-relative full-page flex-col scroll-snap-y-soft scroll-snap-align-start">
+  <section id="about" class="section pos-relative full-page flex-col scroll-snap-align-start">
     <IntersectionContainer once animation-name="slide-in-left" style="opacity: 0">
       <h1 class="color-text">{{ landing.about.title }}</h1>
     </IntersectionContainer>

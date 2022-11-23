@@ -3,7 +3,6 @@
   padding: var(--content-margin);
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .image {
@@ -45,7 +44,7 @@
 
 .paginator {
   position: absolute;
-  bottom: 0;
+  bottom: 1rem;
 }
 
 .brand-card-container {
@@ -83,7 +82,7 @@
 </style>
 
 <template>
-  <section id="projects" class="section pos-relative flex-col flex-gap full-page scroll-snap-y-soft scroll-snap-align-start">
+  <section id="projects" class="section pos-relative flex-col flex-gap full-page scroll-snap-align-start">
     <DualPaneLayout>
       <template #title>
         <IntersectionContainer once animation-name="slide-in-left" margin="-10px" style="opacity: 0">

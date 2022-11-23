@@ -39,14 +39,14 @@
 </style>
 
 <template>
-  <section class="full-page pos-relative flex-col flex-center flex-gap scroll-snap-y-soft scroll-snap-align-start">
+  <section class="full-page pos-relative flex-col flex-center flex-gap scroll-snap-align-start">
     <div class="flex-col flex-center flex-wrap">
       <h2 class="text-center">{{ landing.hero.marquee.title }}</h2>
       <h1 ref="marquee" class="marquee text-center">{{ marqueeText }}</h1>
       <h2 class="text-center">{{ landing.hero.marquee.title2 }}</h2>
+      <h4 class="text-center content-section">{{ landing.hero.description }}</h4>
     </div>
 
-    <h4 class="text-center content">{{ landing.hero.description }}</h4>
 
     <Button :text="landing.hero.cta" @click="router.push({ path: '/', hash: '#contact'})" />
   </section>

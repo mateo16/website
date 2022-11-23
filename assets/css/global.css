@@ -4,14 +4,14 @@
   overflow-x: hidden;
 }
 
-.stretch {
-  width: 100%;
-  height: 100%;
+/* Used for narrow sections that shouldn not grow horizontally past the point of legibility */
+.content-section {
+  max-width: var(--max-content-width);
+  margin: auto;
 }
 
-.content {
-  padding: var(--content-margin);
-  max-width: var(--max-content-width);
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .non-breaking-text {
@@ -69,6 +69,11 @@
 .flex-center {
   justify-content: center;
   align-items: center;
+}
+
+.flex-stretch {
+  justify-content: center;
+  align-items: stretch;
 }
 
 .flex-start {
