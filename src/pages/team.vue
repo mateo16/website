@@ -1,21 +1,18 @@
 <style scoped>
-.graphism {
-  height: 100%;
-  top: 0;
-  left: 0;
-  color: var(--callout-color);
+.team-card-container {
+  padding: 1rem 0;
 }
 </style>
 
 <template>
-  <Circuits class="graphism pos-absolute" />
+  <CircuitsDecorator />
 
-  <div class="content pos-relative">
+  <div class="content-section pos-relative">
     <h1 class="text-center">{{ copy.team.title }}</h1>
     <p class="text-center" v-for="p of copy.team.description">{{ p }}</p>
   </div>
 
-  <div class="flex-row flex-wrap flex-center flex-gap">
+  <div class="team-card-container flex-row flex-wrap flex-stretch flex-gap">
     <TeamCard
       v-for="person of team"
       :photoUrl="person.photoUrl"
@@ -32,7 +29,6 @@ import { useHead } from '@vueuse/head'
 import { getAppConfig } from '@/lib/config'
 import copy from 'assets/copy/en/app.yml'
 import company from '@/config/company.yml'
-import Circuits from 'assets/icons/circuits.svg?component'
 
 const team = [
   company.team.Martin,
@@ -52,8 +48,8 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: config.appUrl },
     { property: 'og:site_name', content: copy.company.name },
-    { property: 'og:title', content: copy.company.name },
-    { property: 'og:description', content: copy.company.tagline },
+    { property: 'og:title', content: copy.team.title },
+    { property: 'og:description', content: copy.team.description[0] },
     { property: 'og:image', content: `${config.appUrl}/img/banner.png` },
     { property: 'og:image:type', content: 'image/png' },
     { property: 'og:image:width', content: '1200' },

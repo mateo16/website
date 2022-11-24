@@ -1,5 +1,13 @@
+<style scoped>
+.content-wrapper {
+  padding-top: var(--nav-height);
+  padding-right: var(--content-margin);
+  padding-left: var(--content-margin);
+}
+</style>
+
 <template>
-  <main>
+  <main class="content-wrapper pos-relative overflow-x-hidden">
     <router-view />
   </main>
   <Nav no-hide />

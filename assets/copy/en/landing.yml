@@ -3,10 +3,10 @@ hero:
   marquee:
     title: Fast-track your
     verticals:
+      - metaverse
       - web3
       - fintech
       - climate tech
-      - gaming
     title2: project
   description: We bring your product vision to life with hyper-scalable solutions and expert tech talent.
   cta: get in touch

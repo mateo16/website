@@ -27,8 +27,10 @@
 </style>
 
 <template>
-  <section id="stack" class="section pos-relative full-page">
-    <DualPaneLayout style="z-index: 1" alignment="center">
+  <section id="stack" class="section pos-relative full-page scroll-snap-align-start">
+    <HexagonRain />
+
+    <DualPaneLayout alignment="center">
       <template #title>
         <h1 class="color-text">{{ landing.stack.title }}</h1>
       </template>

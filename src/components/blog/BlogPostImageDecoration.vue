@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 80vh;
 
   pointer-events: none;
   transition: all .5s ease-in-out;

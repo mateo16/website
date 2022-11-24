@@ -94,20 +94,11 @@ body {
   /* transition: color .1s linear, background-color .1s linear; */
 }
 
-main {
-  position: relative;
-  max-width: var(--max-content-width);
-  margin: auto;
-  padding-top: var(--nav-height);
-  padding-left: var(--content-margin);
-  padding-right: var(--content-margin);
-}
-
 p {
   padding-bottom: 1rem;
 }
 
-h1, h2, h3, h4 {
+h1, h2 {
   font-family: var(--heading-font);
   word-break: break-word;
 }
@@ -130,7 +121,7 @@ h2 {
   font-size: 1.6rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  line-height: 1.8rem;
+  line-height: 2rem;
   text-transform: uppercase;
 }
 
